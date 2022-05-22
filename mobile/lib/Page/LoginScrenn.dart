@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile/Page/RegisterPage.dart';
 
 bool isVisible = false;
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,22 +56,12 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: [
-                          //     Text(
-                          //       "Welcome Back :)",
-                          //       style: TextStyle(
-                          //           fontSize: 22, fontWeight: FontWeight.w500),
-                          //     ),
-                          //   ],
-                          // ),
-                          // Container(
-                          //   child: Column(children: [
-                          //     InputUsername(),
-                          //     InputPassword(),
-                          //   ]),
-                          // ),
+                          Container(
+                            child: Column(children: [
+                              InputUsername(),
+                              InputPassword(),
+                            ]),
+                          ),
                           Container(
                             height: 70,
                             padding:
@@ -89,34 +85,90 @@ class LoginScreen extends StatelessWidget {
                                 // );
                               },
                               style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, 77, 169,
-                                      245), // Color ElevatedButton
-                                  padding: EdgeInsets.symmetric(
-                                      // Border Radius ElevatedBUtton
-                                      horizontal: 40,
-                                      vertical: 10),
-                                  shape: StadiumBorder()),
+                                primary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                onPrimary: Colors.black,
+                                minimumSize: Size(double.infinity, 50),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 40,
+                                ),
+                              ),
                             ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Or Connect Using",
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 30, right: 20),
+                                child: ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color.fromARGB(255, 204, 22, 22),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    onPrimary: Colors.white,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 30,
+                                    ),
+                                  ),
+                                  icon: Icon(
+                                    FontAwesomeIcons.google,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text("Google"),
+                                  onPressed: () {},
+                                ),
+                              ),
+                              ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color.fromARGB(255, 1, 3, 129),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  onPrimary: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 30,
+                                  ),
+                                ),
+                                icon: Icon(
+                                  FontAwesomeIcons.facebook,
+                                  color: Colors.white,
+                                ),
+                                label: Text("Facebook"),
+                                onPressed: () {},
+                              ),
+                            ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
-                              top: 30,
+                              top: 20,
                             ),
-                            child: TextButton(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("Don't have an account?",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 12)),
-                                ],
-                              ),
-                              onPressed: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return RegisterScreen();
-                                }));
-                              },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text("Don't have an account?",
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 12)),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                           SignupButton(),
@@ -128,9 +180,8 @@ class LoginScreen extends StatelessWidget {
               ),
             )));
   }
-}
 
-Container SignupButton() {
+  Container SignupButton() {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       width: double.infinity,
@@ -150,11 +201,11 @@ Container SignupButton() {
     );
   }
 
-  Padding InputPassword() {
+  Padding InputUsername() {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 20),
+      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
       child: Container(
-        height: 65,
+        height: 60,
         child: Card(
           shadowColor: Color.fromARGB(255, 117, 115, 115),
           margin: EdgeInsets.only(
@@ -165,13 +216,55 @@ Container SignupButton() {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 10,
           child: Container(
-            padding: EdgeInsets.only(left: 30, right: 30),
+            padding: EdgeInsets.only(left: 10, right: 30),
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    icon: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding InputPassword() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 5),
+      child: Container(
+        height: 60,
+        child: Card(
+          shadowColor: Color.fromARGB(255, 117, 115, 115),
+          margin: EdgeInsets.only(
+            left: 10,
+            right: 20,
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          elevation: 10,
+          child: Container(
+            padding: EdgeInsets.only(left: 10, right: 20),
             child: Column(
               children: [
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: "Enter Your Password",
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    icon: Icon(
+                      Icons.lock_outline,
+                      color: Colors.black,
+                    ),
                     suffixIcon: IconButton(
                       icon: Icon(
                           isVisible ? Icons.visibility : Icons.visibility_off),
@@ -192,37 +285,4 @@ Container SignupButton() {
       ),
     );
   }
-
-  Padding InputUsername() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 20),
-      child: Container(
-        height: 65,
-        child: Card(
-          shadowColor: Color.fromARGB(255, 117, 115, 115),
-          margin: EdgeInsets.only(
-            left: 10,
-            right: 20,
-          ),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          elevation: 10,
-          child: Container(
-            padding: EdgeInsets.only(left: 30, right: 30),
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                    hintText: "Enter Your Username",
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-
+}
