@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
+import 'package:mobile/Page/RegisterPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,10 +9,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo', theme: ThemeData(), home: LoginScreen());
+        title: 'Flutter Demo', theme: ThemeData(), home: RegisterScreen());
   }
 }
