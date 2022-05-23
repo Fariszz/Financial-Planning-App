@@ -18,12 +18,12 @@ class _LoginScreenState extends State<LoginScreen> {
         home: Scaffold(
             backgroundColor: Color.fromARGB(255, 194, 191, 191),
             body: Container(
-              margin: EdgeInsets.all(10),
+              // margin: EdgeInsets.all(10),
               child: ListView(
                 children: [
                   Container(
                     child: Card(
-                      color: Color.fromARGB(255, 240, 240, 240),
+                      color: const Color.fromARGB(255, 240, 240, 240),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       elevation: 5,
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Row(
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(left: 20),
                                 child: Icon(
                                   Icons.account_circle_sharp,
@@ -64,8 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Container(
                             height: 70,
-                            padding:
-                                EdgeInsets.only(top: 30, left: 30, right: 30),
+                            padding: const EdgeInsets.only(
+                                top: 30, left: 30, right: 30),
                             child: ElevatedButton(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // Navigator.push(
                                 //   context,
                                 //   MaterialPageRoute(
-                                //     builder: (context) => ListProduct(),
+                                //     builder: (context) => xxx (),
                                 //   ),
                                 // );
                               },
@@ -89,26 +89,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                                 onPrimary: Colors.black,
-                                minimumSize: Size(double.infinity, 50),
-                                padding: EdgeInsets.symmetric(
+                                minimumSize: const Size(double.infinity, 50),
+                                padding: const EdgeInsets.symmetric(
                                   horizontal: 40,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 "Or Connect Using",
                                 style: TextStyle(fontSize: 12),
                               )
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Row(
@@ -118,38 +118,39 @@ class _LoginScreenState extends State<LoginScreen> {
                                     const EdgeInsets.only(left: 30, right: 20),
                                 child: ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-                                    primary: Color.fromARGB(255, 204, 22, 22),
+                                    primary:
+                                        const Color.fromARGB(255, 204, 22, 22),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     onPrimary: Colors.white,
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                       horizontal: 30,
                                     ),
                                   ),
-                                  icon: Icon(
+                                  icon: const Icon(
                                     FontAwesomeIcons.google,
                                     color: Colors.white,
                                   ),
-                                  label: Text("Google"),
+                                  label: const Text("Google"),
                                   onPressed: () {},
                                 ),
                               ),
                               ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, 1, 3, 129),
+                                  primary: const Color.fromARGB(255, 1, 3, 129),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),
                                   onPrimary: Colors.white,
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                     horizontal: 30,
                                   ),
                                 ),
-                                icon: Icon(
+                                icon: const Icon(
                                   FontAwesomeIcons.facebook,
                                   color: Colors.white,
                                 ),
-                                label: Text("Facebook"),
+                                label: const Text("Facebook"),
                                 onPressed: () {},
                               ),
                             ],
@@ -162,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Row(
-                                  children: [
+                                  children: const [
                                     Text("Don't have an account?",
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 12)),
@@ -183,11 +184,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Container SignupButton() {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       alignment: Alignment.topCenter,
       child: TextButton(
-        child: Text(
+        child: const Text(
           "Sign up",
           style: TextStyle(fontSize: 13),
         ),
@@ -207,8 +208,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Container(
         height: 60,
         child: Card(
-          shadowColor: Color.fromARGB(255, 117, 115, 115),
-          margin: EdgeInsets.only(
+          shadowColor: const Color.fromARGB(255, 117, 115, 115),
+          margin: const EdgeInsets.only(
             left: 10,
             right: 20,
           ),
@@ -220,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Username',
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
@@ -244,8 +245,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Container(
         height: 60,
         child: Card(
-          shadowColor: Color.fromARGB(255, 117, 115, 115),
-          margin: EdgeInsets.only(
+          shadowColor: const Color.fromARGB(255, 117, 115, 115),
+          margin: const EdgeInsets.only(
             left: 10,
             right: 20,
           ),
@@ -253,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 10,
           child: Container(
-            padding: EdgeInsets.only(left: 10, right: 20),
+            padding: const EdgeInsets.only(left: 10, right: 20),
             child: Column(
               children: [
                 TextFormField(
@@ -261,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: 'Password',
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.lock_outline,
                       color: Colors.black,
                     ),
