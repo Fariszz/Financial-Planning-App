@@ -4,7 +4,7 @@ import 'package:mobile/Page/LoginScrenn.dart';
 bool isVisible = false;
 bool isVisible2 = false;
 
-final TextEditingController _passwordController = new TextEditingController();
+final TextEditingController passwordController = TextEditingController();
 
 String password = "";
 
@@ -37,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Row(
                             children: [
                               const Padding(
-                                padding: const EdgeInsets.only(left: 20),
+                                padding: EdgeInsets.only(left: 20),
                                 child: Icon(
                                   Icons.account_circle_sharp,
                                   size: 60,
@@ -70,8 +70,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Container(
                             height: 70,
-                            padding:
-                                EdgeInsets.only(top: 20, left: 30, right: 30),
+                            padding: const EdgeInsets.only(
+                                top: 20, left: 30, right: 30),
                             child: ElevatedButton(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(
                                   builder: (context) {
-                                    return LoginScreen();
+                                    return const LoginScreen();
                                   },
                                 ));
                               },
@@ -128,7 +128,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Container SigninButton() {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       alignment: Alignment.topCenter,
       child: TextButton(
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
-            return LoginScreen();
+            return const LoginScreen();
           }));
         },
       ),
@@ -242,7 +242,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Container(
                   height: 45,
                   child: TextFormField(
-                    // controller: _passwordController,
+                    // controller: passwordController,
                     decoration: InputDecoration(
                       labelText: label,
                       border: InputBorder.none,
@@ -298,7 +298,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Container(
                   height: 45,
                   child: TextFormField(
-                    // controller: _passwordController2,
+                    // controller: passwordController2,
                     decoration: InputDecoration(
                       labelText: label,
                       border: InputBorder.none,
