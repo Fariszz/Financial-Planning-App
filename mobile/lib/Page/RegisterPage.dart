@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 bool isVisible = false;
 bool isVisible2 = false;
@@ -11,26 +13,33 @@ String password = "";
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
+  final String url = 'http://localhost:10.0.2.2/api/v1/register';
+
+  getRegister() async {
+    var response = await http.get(Uri.parse(url));
+    print(json.decode(response.body));
+    return json.decode(response.body);
+  }
+
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-
 class _RegisterScreenState extends State<RegisterScreen> {
-
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
-  register(){
+  register() {
     var dataRegister = {
       "name": nameController.text,
       "email": emailController.text,
       "password": passwordController.text,
       "confirmPassword": confirmPasswordController.text
     };
-    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
