@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 bool isVisible = false;
 bool isVisible2 = false;
 
-final TextEditingController _passwordController = new TextEditingController();
+final TextEditingController passwordController = TextEditingController();
 
 String password = "";
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
+  final String url = 'http://localhost:10.0.2.2/api/v1/register';
+
+  getRegister() async {
+    var response = await http.get(Uri.parse(url));
+    print(json.decode(response.body));
+    return json.decode(response.body);
+  }
+
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  register() {
+    var dataRegister = {
+      "name": nameController.text,
+      "email": emailController.text,
+      "password": passwordController.text,
+      "confirmPassword": confirmPasswordController.text
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,7 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Row(
                             children: [
                               const Padding(
-                                padding: const EdgeInsets.only(left: 20),
+                                padding: EdgeInsets.only(left: 20),
                                 child: Icon(
                                   Icons.account_circle_sharp,
                                   size: 60,
@@ -70,8 +94,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Container(
                             height: 70,
-                            padding:
-                                EdgeInsets.only(top: 20, left: 30, right: 30),
+                            padding: const EdgeInsets.only(
+                                top: 20, left: 30, right: 30),
                             child: ElevatedButton(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(
                                   builder: (context) {
-                                    return LoginScreen();
+                                    return const LoginScreen();
                                   },
                                 ));
                               },
@@ -128,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Container SigninButton() {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       alignment: Alignment.topCenter,
       child: TextButton(
@@ -139,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
-            return LoginScreen();
+            return const LoginScreen();
           }));
         },
       ),
@@ -242,7 +266,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Container(
                   height: 45,
                   child: TextFormField(
-                    // controller: _passwordController,
+                    // controller: passwordController,
                     decoration: InputDecoration(
                       labelText: label,
                       border: InputBorder.none,
@@ -298,7 +322,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Container(
                   height: 45,
                   child: TextFormField(
-                    // controller: _passwordController2,
+                    // controller: passwordController2,
                     decoration: InputDecoration(
                       labelText: label,
                       border: InputBorder.none,
