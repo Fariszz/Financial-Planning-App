@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
             )));
   }
 
-  Container SignupButton() {
+  SignupButton() {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Padding InputUsername() {
+  InputUsername() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
       child: Container(
@@ -239,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Padding InputPassword() {
+  InputPassword() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 5),
       child: Container(
