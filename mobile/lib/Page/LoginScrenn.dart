@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobile/Page/RegisterPage.dart';
+import 'package:mobile/Page/RegisterScrenn.dart';
 
 bool isVisible = false;
 
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
             )));
   }
 
-  Container SignupButton() {
+  SignupButton() {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Padding InputUsername() {
+  InputUsername() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
       child: Container(
@@ -217,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 10,
           child: Container(
-            padding: EdgeInsets.only(left: 10, right: 30),
+            padding: EdgeInsets.only(left: 30, right: 30),
             child: Column(
               children: [
                 TextFormField(
@@ -239,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Padding InputPassword() {
+  InputPassword() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 5),
       child: Container(
