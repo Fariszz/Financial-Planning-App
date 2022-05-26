@@ -13,9 +13,105 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "{{baseurl}}/api/v1/login?email=faris@mail.com&password=password",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "faris@mail.com"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								}
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/login?email=faris@mail.com&password=password",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "faris@mail.com"
+										},
+										{
+											"key": "password",
+											"value": "password"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 May 2022 03:37:58 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 May 2022 03:37:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Authenticated\"\n    },\n    \"data\": {\n        \"access_token\": \"7|EDf8EN4XjITaqnSGQGOadBZiekqVKBaF2cLyvNgM\",\n        \"token_type\": \"Bearer\",\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"faris\",\n            \"email\": \"faris@mail.com\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2022-05-22T07:25:49.000000Z\",\n            \"updated_at\": \"2022-05-22T07:25:49.000000Z\"\n        }\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Register",
@@ -141,9 +237,29 @@
 				{
 					"name": "Fetch",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|dAxpmoZ4DAMNRDT7gcbrHQaMKYTssjisNCpWcnAS",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "{{baseurl}}/api/v1/user",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
 					},
 					"response": [
 						{
