@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/Page/HomeScrenn.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/providers/auth_provider.dart';
@@ -18,8 +19,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AuthProvider()),
       ],
       child: MaterialApp(
-        
-         home: RegisterScreen()),
+        routes: {
+          '/login': (context) => LoginScreen(),
+          '/register': (context) => RegisterScreen(),
+          '/home': (context) => HomeScrenn(),
+        },
+      ),
     );
   }
 }

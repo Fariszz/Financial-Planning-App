@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mobile/Page/HomeScrenn.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
+import 'package:http/http.dart' as http;
+import 'package:mobile/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 bool isVisible = false;
 
@@ -12,8 +16,25 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleSignIn() async {
+      if (await authProvider.login(
+        email: emailController.text,
+        password: passwordController.text,
+      )) {
+        Navigator.pushNamed(context, '/register');
+      }
+
+      print(emailController.text);
+      print(passwordController.text);
+    }
+
     return MaterialApp(
         home: Scaffold(
             backgroundColor: Color.fromARGB(255, 194, 191, 191),
@@ -58,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Container(
                             child: Column(children: [
-                              InputUsername(),
+                              InputEmail(),
                               InputPassword(),
                             ]),
                           ),
@@ -66,24 +87,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 70,
                             padding: const EdgeInsets.only(
                                 top: 30, left: 30, right: 30),
-                            child: ElevatedButton(
+                            child: TextButton(
+                              onPressed: handleSignIn,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: const [
                                   Text(
-                                    "Login",
+                                    "Sign In",
                                     style: TextStyle(color: Colors.black),
                                   ),
                                 ],
                               ),
-                              onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => xxx (),
-                                //   ),
-                                // );
-                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
                                 shape: RoundedRectangleBorder(
@@ -202,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  InputUsername() {
+  InputEmail() {
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
       child: Container(
@@ -221,8 +235,9 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: emailController,
                   decoration: const InputDecoration(
-                    labelText: 'Username',
+                    labelText: 'Email',
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     icon: Icon(
@@ -241,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   InputPassword() {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 5),
+      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
       child: Container(
         height: 60,
         child: Card(
@@ -258,6 +273,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     border: InputBorder.none,

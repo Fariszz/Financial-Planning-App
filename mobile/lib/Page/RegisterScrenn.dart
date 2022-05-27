@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:mobile/Widgets/loading_Button.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController nameController = TextEditingController(text: '');
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController password_confirmationController = TextEditingController(text: '');
+  TextEditingController password_confirmationController =
+      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
           password_confirmation: password_confirmationController.text)) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Color.fromARGB(255, 243, 114, 104),
+          content: Text(
+            'Gagal Register',
+            textAlign: TextAlign.center,
+          ),
+        ));
       }
       print(nameController.text);
       print(emailController.text);
@@ -57,32 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 20),
-                                child: Icon(
-                                  Icons.account_circle_sharp,
-                                  size: 60,
-                                ),
-                              ),
-                              Container(
-                                // color: Colors.amber,
-                                padding: const EdgeInsets.only(
-                                  top: 30,
-                                  left: 10,
-                                  right: 20,
-                                  bottom: 40,
-                                ),
-                                child: const Text(
-                                  "Sign up",
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            ],
-                          ),
+                          SignUpButton(),
                           Container(
                             child: Column(children: [
                               InputUsername(),
@@ -140,6 +125,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
             )));
+  }
+
+  SignUpButton() {
+    return Row(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 20),
+          child: Icon(
+            Icons.account_circle_sharp,
+            size: 60,
+          ),
+        ),
+        Container(
+          // color: Colors.amber,
+          padding: const EdgeInsets.only(
+            top: 30,
+            left: 10,
+            right: 20,
+            bottom: 40,
+          ),
+          child: const Text(
+            "Sign up",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+          ),
+        ),
+      ],
+    );
   }
 
   InputUsername() {
