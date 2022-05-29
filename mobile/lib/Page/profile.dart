@@ -51,15 +51,96 @@ class Profile extends StatelessWidget {
               )
             ],
           ),
-          Row(
-            children: [
-              Container(
-                child: Icon(
-                  Icons.account_balance_wallet,
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Image(
+                  image: AssetImage('assets/images/dompet.png'),
                 ),
-              ),
-            ],
-          )
+                SizedBox(
+                  width: 20,
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'My Wallet',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Image(
+                  image: AssetImage('assets/images/settings.png'),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Settings',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Image(
+                  image: AssetImage('assets/images/export.png'),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Export Data',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Image(
+                  image: AssetImage('assets/images/logout.png'),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Logout',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
