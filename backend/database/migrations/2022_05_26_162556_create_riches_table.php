@@ -17,10 +17,11 @@ class CreateRichesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('users_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->integer('total_harta');
             $table->integer('total_utang');
             $table->integer('total_kekayaan_bersih');
+            $table->enum('status', ['baik', 'tidak-baik'])->default('baik');
             $table->timestamps();
         });
     }
