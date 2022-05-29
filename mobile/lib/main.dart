@@ -16,13 +16,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+      
         ChangeNotifierProvider(create: (context) => AuthProvider()),
       ],
       child: MaterialApp(
         routes: {
-          '/login': (context) => LoginScreen(),
+          '/': (context) => HomeScrenn(),
           '/register': (context) => RegisterScreen(),
           '/home': (context) => HomeScrenn(),
+          
         },
       ),
     );

@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/register');
+        Navigator.pushNamed(context, '/home');
       }
 
       print(emailController.text);
@@ -36,164 +36,163 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     return MaterialApp(
-        home: Scaffold(
-            backgroundColor: Color.fromARGB(255, 194, 191, 191),
-            body: Container(
-              // margin: EdgeInsets.all(10),
-              child: ListView(
-                children: [
-                  Container(
-                    child: Card(
-                      color: const Color.fromARGB(255, 240, 240, 240),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40)),
-                      elevation: 5,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+      home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 194, 191, 191),
+        body: Container(
+          // margin: EdgeInsets.all(10),
+          child: ListView(
+            children: [
+              Container(
+                child: Card(
+                  color: const Color.fromARGB(255, 240, 240, 240),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40)),
+                  elevation: 5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          Row(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 20),
-                                child: Icon(
-                                  Icons.account_circle_sharp,
-                                  size: 60,
-                                ),
-                              ),
-                              Container(
-                                // color: Colors.amber,
-                                padding: const EdgeInsets.only(
-                                  top: 30,
-                                  left: 10,
-                                  right: 20,
-                                  bottom: 40,
-                                ),
-                                child: const Text(
-                                  "Sign in",
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            child: Column(children: [
-                              InputEmail(),
-                              InputPassword(),
-                            ]),
-                          ),
-                          Container(
-                            height: 70,
-                            padding: const EdgeInsets.only(
-                                top: 30, left: 30, right: 30),
-                            child: TextButton(
-                              onPressed: handleSignIn,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    "Sign In",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                onPrimary: Colors.black,
-                                minimumSize: const Size(double.infinity, 50),
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 40,
-                                ),
-                              ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Icon(
+                              Icons.account_circle_sharp,
+                              size: 60,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
+                          Container(
+                            // color: Colors.amber,
+                            padding: const EdgeInsets.only(
+                              top: 30,
+                              left: 10,
+                              right: 20,
+                              bottom: 40,
+                            ),
+                            child: const Text(
+                              "Sign in",
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.w600),
+                            ),
                           ),
-                          Row(
+                        ],
+                      ),
+                      Container(
+                        child: Column(children: [
+                          InputEmail(),
+                          InputPassword(),
+                        ]),
+                      ),
+                      Container(
+                        height: 70,
+                        padding:
+                            const EdgeInsets.only(top: 30, left: 30, right: 30),
+                        child: TextButton(
+                          onPressed: handleSignIn,
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                "Or Connect Using",
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 30, right: 20),
-                                child: ElevatedButton.icon(
-                                  style: ElevatedButton.styleFrom(
-                                    primary:
-                                        const Color.fromARGB(255, 204, 22, 22),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    onPrimary: Colors.white,
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 30,
-                                    ),
-                                  ),
-                                  icon: const Icon(
-                                    FontAwesomeIcons.google,
-                                    color: Colors.white,
-                                  ),
-                                  label: const Text("Google"),
-                                  onPressed: () {},
-                                ),
-                              ),
-                              ElevatedButton.icon(
-                                style: ElevatedButton.styleFrom(
-                                  primary: const Color.fromARGB(255, 1, 3, 129),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
-                                  onPrimary: Colors.white,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 30,
-                                  ),
-                                ),
-                                icon: const Icon(
-                                  FontAwesomeIcons.facebook,
-                                  color: Colors.white,
-                                ),
-                                label: const Text("Facebook"),
-                                onPressed: () {},
+                                "Sign In",
+                                style: TextStyle(color: Colors.black),
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 20,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  children: const [
-                                    Text("Don't have an account?",
-                                        style: TextStyle(
-                                            color: Colors.black, fontSize: 12)),
-                                  ],
-                                ),
-                              ],
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            onPrimary: Colors.black,
+                            minimumSize: const Size(double.infinity, 50),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 40,
                             ),
                           ),
-                          SignupButton(),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            "Or Connect Using",
+                            style: TextStyle(fontSize: 12),
+                          )
                         ],
                       ),
-                    ),
-                  )
-                ],
-              ),
-            )));
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 30, right: 20),
+                            child: ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                primary: const Color.fromARGB(255, 204, 22, 22),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                onPrimary: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 30,
+                                ),
+                              ),
+                              icon: const Icon(
+                                FontAwesomeIcons.google,
+                                color: Colors.white,
+                              ),
+                              label: const Text("Google"),
+                              onPressed: () {},
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color.fromARGB(255, 1, 3, 129),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              onPrimary: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                              ),
+                            ),
+                            icon: const Icon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.white,
+                            ),
+                            label: const Text("Facebook"),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              children: const [
+                                Text("Don't have an account?",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 12)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      SignupButton(),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      
+    );
   }
 
   SignupButton() {
