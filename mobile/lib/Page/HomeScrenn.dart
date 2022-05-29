@@ -13,7 +13,19 @@ class _HomeScrennState extends State<HomeScrenn> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Home'),
+          title: Container(
+            // color: Colors.amber,
+            padding: const EdgeInsets.only(
+              top: 30,
+              left: 10,
+              right: 20,
+              bottom: 40,
+            ),
+            child: const Text(
+              "Sign in",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+            ),
+          ),
         ),
       ),
     );
