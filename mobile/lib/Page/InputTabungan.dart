@@ -36,13 +36,16 @@ class _inputPendapatanState extends State<InputTabungan> {
                     padding: const EdgeInsets.only(left: 10, top: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "How Much ?",
-                          style: TextStyle(fontSize: 15, color: Colors.black),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            "How Much ?",
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                          ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         TextField(
                           decoration: InputDecoration(
@@ -50,7 +53,14 @@ class _inputPendapatanState extends State<InputTabungan> {
                             hintStyle:
                                 TextStyle(fontSize: 16, color: Colors.black),
                             filled: true,
-                            border: InputBorder.none,
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                         ),
                       ],
@@ -61,7 +71,7 @@ class _inputPendapatanState extends State<InputTabungan> {
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(top: 200),
+                padding: const EdgeInsets.only(top: 300),
                 child: Column(
                   children: [
                     Container(
@@ -97,7 +107,63 @@ class _inputPendapatanState extends State<InputTabungan> {
                             )),
                       ),
                     ),
-                    InputKebutuhan(),
+                    Container(
+                      height: 338,
+                      color: Colors.red,
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 40, horizontal: 20),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Kebutuhan',
+                                hintStyle: const TextStyle(
+                                    fontSize: 16, color: Color(0xffE0E0E0)),
+                                filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 70, horizontal: 30),
+                            // padding:
+                            //     EdgeInsets.only(top: 50, left: 30, right: 30),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    "Continue",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff7F3DFF),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                minimumSize: const Size(double.infinity, 50),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 40,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -110,6 +176,7 @@ class _inputPendapatanState extends State<InputTabungan> {
 
   InputKebutuhan() {
     return Container(
+      height: 338,
       color: Colors.red,
       child: Container(
         padding: EdgeInsets.all(20),
