@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mobile/Page/HomeScrenn.dart';
+import 'package:mobile/Page/LoginScrenn.dart';
+import 'package:mobile/Page/RegisterScrenn.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
-class HomeScrenn extends StatefulWidget {
-  const HomeScrenn({Key? key}) : super(key: key);
+class NavigatorBar extends StatefulWidget {
+  NavigatorBar({Key? key}) : super(key: key);
 
   @override
-  State<HomeScrenn> createState() => _HomeScrennState();
+  State<NavigatorBar> createState() => _NavigatorBarState();
 }
 
-class _HomeScrennState extends State<HomeScrenn> {
+class _NavigatorBarState extends State<NavigatorBar> {
+  List page = [
+    HomeScrenn(),
+    LoginScreen(),
+    RegisterScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +35,6 @@ class _HomeScrennState extends State<HomeScrenn> {
               padding: EdgeInsets.all(15),
               gap: 5,
               duration: Duration(milliseconds: 800),
-             
               tabs: const [
                 GButton(
                   icon: Icons.home,

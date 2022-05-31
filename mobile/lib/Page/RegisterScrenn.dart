@@ -149,7 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             "Sign up",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
-        ),
+        )
       ],
     );
   }
