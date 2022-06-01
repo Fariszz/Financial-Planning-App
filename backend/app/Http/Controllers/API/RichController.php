@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Expenditure;
+use App\Models\IdealBudget;
 use App\Models\Income;
 use App\Models\Riches;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 class RichController extends Controller
 {
 
-    public function all(){
+    public function all(Request $request){
         $data = Riches::with('user')->where('users_id', Auth::user()->id)->get();
         return ResponseFormatter::success($data);
     }
@@ -150,4 +151,46 @@ class RichController extends Controller
             return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }
     }
+
+    function cal_percentage($percentage, $num_total) {
+        $count = ($percentage * $num_total) / 100;
+        return $count;
+    }
+
+    public function idealBudget(Request $request){
+        try {
+            $request->validate([
+                'total_penghasilan' => 'integer|required',
+            ]);
+
+            $data = [
+                'users_id' => Auth::user()->id,
+                'total_penghasilan' => $request->total_penghasilan,
+                'agama' => $this->cal_percentage(5, $request->total_penghasilan),
+                'tabungan' => $this->cal_percentage(10, $request->total_penghasilan),
+                'asuransi' => $this->cal_percentage(5, $request->total_penghasilan),
+                'cicilan' => $this->cal_percentage(20, $request->total_penghasilan),
+                'investasi' => $this->cal_percentage(5, $request->total_penghasilan),
+                'rumah_tangga' => $this->cal_percentage(40, $request->total_penghasilan),
+                'anak' => $this->cal_percentage(10, $request->total_penghasilan),
+                'hiburan' => $this->cal_percentage(5, $request->total_penghasilan),
+            ];
+            
+            $user = IdealBudget::where('users_id', Auth::user()->id)->first();
+
+            if ($user == null) {
+                IdealBudget::create($data);
+            }else{
+            IdealBudget::where('users_id', Auth::user()->id)->update($data);
+            }
+
+            return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 'gagal menghapus data');
+        }
+    }
+
 }
+
+?>

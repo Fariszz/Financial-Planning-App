@@ -35,6 +35,7 @@ Route::prefix('v1')->group(function () {
         Route::put('/hutang/{id}',[RichController::class, 'updateHutang']);
         Route::delete('/hutang/{id}',[RichController::class, 'deleteHutang']);
         Route::post('/total',[RichController::class, 'total']);
+        Route::post('/ideal-budget',[RichController::class, 'idealBudget']);
     });
 });
 

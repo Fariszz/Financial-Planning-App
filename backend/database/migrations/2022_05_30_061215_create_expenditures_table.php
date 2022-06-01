@@ -19,7 +19,6 @@ class CreateExpendituresTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->string('pengeluaran');
             $table->integer('rupiah');
-            // $table->integer('sisa_penghasilan');
             $table->timestamps();
         });
     }
