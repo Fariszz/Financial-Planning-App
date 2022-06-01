@@ -65,7 +65,7 @@ class _inputPendapatanState extends State<InputTabungan> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
