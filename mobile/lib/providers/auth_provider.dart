@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:mobile/Service/auth_service.dart';
 import 'package:mobile/models/user_model.dart';
+import 'package:mobile/models/userlogin_model.dart';
 
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
+  late UserLoginModel _userLogin;
 
   UserModel get user => _user;
+  UserLoginModel get userLogin => _userLogin;
 
   set user(UserModel user) {
     _user = user;
@@ -41,12 +44,12 @@ class AuthProvider with ChangeNotifier {
     required String password,
   }) async {
     try {
-      UserModel? user = await AuthService().login(
+      UserLoginModel? userLogin = (await AuthService().login(
         email = email,
         password = password,
-      );
+      )) as UserLoginModel?;
 
-      _user = user!;
+      _userLogin = userLogin!;
       return true;
     } catch (e) {
       print(e);
