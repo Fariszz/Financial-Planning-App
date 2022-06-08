@@ -1,61 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mobile/Page/HomeScrenn.dart';
-import 'package:mobile/Page/LoginScrenn.dart';
-import 'package:mobile/Page/RegisterScrenn.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mobile/Page/InputTabungan.dart';
+import 'package:mobile/Page/profile.dart';
+import 'package:mobile/Page/trans.dart';
 
-class NavigatorBar extends StatefulWidget {
-  NavigatorBar({Key? key}) : super(key: key);
+class Bottomnavbar extends StatefulWidget {
+  const Bottomnavbar({Key? key}) : super(key: key);
 
   @override
-  State<NavigatorBar> createState() => _NavigatorBarState();
+  State<Bottomnavbar> createState() => _BottomnavbarState();
 }
 
-class _NavigatorBarState extends State<NavigatorBar> {
-  List page = [
-    HomeScrenn(),
-    LoginScreen(),
-    RegisterScreen(),
+class _BottomnavbarState extends State<Bottomnavbar> {
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    InputTabungan(),
+    Transaction(),
+    Profile(),
+  
   ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        bottomNavigationBar: Container(
-          color: Colors.black,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-            child: GNav(
-              backgroundColor: Colors.black,
-              color: Colors.white,
-              activeColor: Colors.white,
-              tabBackgroundColor: Colors.grey.shade800,
-              padding: EdgeInsets.all(15),
-              gap: 5,
-              duration: Duration(milliseconds: 800),
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: "Home",
-                ),
-                GButton(
-                  icon: Icons.favorite,
-                  text: "Favorite",
-                ),
-                GButton(
-                  icon: Icons.search,
-                  text: "Search",
-                ),
-                GButton(
-                  icon: Icons.money,
-                  text: "Money",
-                ),
-              ],
-            ),
+    return Scaffold(
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        iconSize: 20,
+        showUnselectedLabels: false,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.blue,
       ),
     );
   }
