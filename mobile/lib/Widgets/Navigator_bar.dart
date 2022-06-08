@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
 import 'package:mobile/Page/InputTabungan.dart';
 import 'package:mobile/Page/profile.dart';
 import 'package:mobile/Page/trans.dart';
-=======
+
 import 'package:mobile/Page/home.dart';
 import 'package:mobile/Page/pages.dart';
->>>>>>> Stashed changes
 
 class Bottomnavbar extends StatefulWidget {
   const Bottomnavbar({Key? key}) : super(key: key);
@@ -18,15 +16,10 @@ class Bottomnavbar extends StatefulWidget {
 class _BottomnavbarState extends State<Bottomnavbar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-<<<<<<< Updated upstream
-    InputTabungan(),
-    Transaction(),
-    Profile(),
-  
-=======
+
     Home(),
     Profile(),
->>>>>>> Stashed changes
+
   ];
 
   void onTabTapped(int index) {
@@ -48,19 +41,9 @@ class _BottomnavbarState extends State<Bottomnavbar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-<<<<<<< Updated upstream
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
-=======
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
->>>>>>> Stashed changes
         ],
         iconSize: 20,
         showUnselectedLabels: false,
