@@ -50,7 +50,7 @@ class _CategoryState extends State<Category> {
                   children: [
                     IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back,
                           color: Colors.white,
                         )),
@@ -62,35 +62,35 @@ class _CategoryState extends State<Category> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(
-                      "How Much ?",
-                      style: TextStyle(fontSize: 15, color: Colors.black),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: TextField(
-                      cursorColor: Colors.black,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      decoration: InputDecoration(
-                          hintText: 'Enter Amount', border: InputBorder.none),
-                    ),
-                  ),
-                ],
-              ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 30),
+              // child: Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: const [
+              //     // Padding(
+              //     //   padding: EdgeInsets.only(left: 10),
+              //     //   child: Text(
+              //     //     "How Much ?",
+              //     //     style: TextStyle(fontSize: 15, color: Colors.black),
+              //     //   ),
+              //     // ),
+              //     SizedBox(
+              //       height: 10,
+              //     ),
+              //     Padding(
+              //       padding: EdgeInsets.only(left: 10),
+              //       child: TextField(
+              //         cursorColor: Colors.black,
+              //         style: TextStyle(
+              //             fontSize: 16,
+              //             color: Colors.black,
+              //             fontWeight: FontWeight.bold),
+              //         decoration: InputDecoration(
+              //             hintText: 'Enter Amount', border: InputBorder.none),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 30),
@@ -221,7 +221,7 @@ class _CategoryState extends State<Category> {
         width: 150,
         height: 150,
         decoration: BoxDecoration(
-            border: Border.fromBorderSide(
+            border: const Border.fromBorderSide(
                 BorderSide(color: Color(0xff7F3DFF), width: 1)),
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -276,57 +276,67 @@ class _CategoryState extends State<Category> {
   Padding CategoryBoxHutang() {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Container(
-        margin: EdgeInsets.only(left: 10),
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-            border: Border.fromBorderSide(
-                BorderSide(color: Color(0xff7F3DFF), width: 1)),
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromARGB(255, 219, 219, 219),
-                  spreadRadius: 1,
-                  blurRadius: 10)
-            ]),
-        child: Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
-                child: Image.asset(
-                  "assets/images/hutang.png",
-                  height: 60,
-                  width: 60,
-                  fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InputHutang(),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.only(left: 10),
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+              border: const Border.fromBorderSide(
+                  BorderSide(color: Color(0xff7F3DFF), width: 1)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Color.fromARGB(255, 219, 219, 219),
+                    spreadRadius: 1,
+                    blurRadius: 10)
+              ]),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 10),
+                  child: Image.asset(
+                    "assets/images/hutang.png",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, left: 20),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Hutang",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                    Text(
-                      "Loren Ipsum aaa",
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 20),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Hutang",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        "Loren Ipsum aaa",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -341,7 +351,7 @@ class _CategoryState extends State<Category> {
         width: 150,
         height: 150,
         decoration: BoxDecoration(
-            border: Border.fromBorderSide(
+            border: const Border.fromBorderSide(
                 BorderSide(color: Color(0xff7F3DFF), width: 1)),
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,

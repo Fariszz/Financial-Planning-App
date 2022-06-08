@@ -1,18 +1,24 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:mobile/Page/HomeScrenn.dart';
-import 'package:mobile/Page/InputMoneyScreen.dart';
+import 'package:http/http.dart';
+
+import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Page/InputTabungan.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
+import 'package:mobile/Page/CategoryScrenn.dart';
+import 'package:mobile/Page/profile.dart';
+import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +28,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         routes: {
-          '/': (context) => LoginScreen(),
+          '/': (context) => InputHutang(),
           '/register': (context) => RegisterScreen(),
-          // '/home': (context) => HomeScrenn(),
+          '/trans': (context) => Transaction(),
+          '/home': (context) => Profile(),
         },
       ),
     );
