@@ -18,11 +18,6 @@ use Illuminate\Support\Facades\Auth;
 class RichController extends Controller
 {
 
-    public function all(Request $request){
-        $data = Riches::with('user')->where('users_id', Auth::user()->id)->get();
-        return ResponseFormatter::success($data);
-    }
-
     public function total(){
         $total_harta = RichesHarta::where('users_id',Auth::user()->id)->sum('rupiah');
         $total_hutang = RichesUtang::where('users_id',Auth::user()->id)->sum('rupiah');
@@ -53,7 +48,12 @@ class RichController extends Controller
         return ResponseFormatter::success($data, 'Data berhasil diperbarui');
     }
 
-    public function harta(Request $request){
+    public function harta(){
+        $data = RichesHarta::with('user')->where('users_id', Auth::user()->id)->get();
+        return ResponseFormatter::success($data);
+    }
+
+    public function postHarta(Request $request){
         try {
             $request->validate([
                 'harta' => 'string|required|max:225',
@@ -102,8 +102,14 @@ class RichController extends Controller
         }
     }
 
-    // hutang
-    public function hutang(Request $request){
+    //* hutang
+    public function hutang(){
+        $data = RichesUtang::where('users_id', Auth::user()->id)->get();
+
+        return ResponseFormatter::success($data);
+    }
+
+    public function postHutang(Request $request){
         try {
             $request->validate([
                 'utang' => 'string|required|max:225',
@@ -143,7 +149,7 @@ class RichController extends Controller
     public function deleteHutang($id){
         try {
 
-            $hutang = RichesUtang::findo($id);
+            $hutang = RichesUtang::find($id);
             $hutang->delete();
 
             return ResponseFormatter::success($hutang, 'Hutang berhasil dihapus');
@@ -152,6 +158,7 @@ class RichController extends Controller
         }
     }
 
+    //* Get Ideal Budget
     function cal_percentage($percentage, $num_total) {
         $count = ($percentage * $num_total) / 100;
         return $count;
@@ -175,19 +182,136 @@ class RichController extends Controller
                 'anak' => $this->cal_percentage(10, $request->total_penghasilan),
                 'hiburan' => $this->cal_percentage(5, $request->total_penghasilan),
             ];
-            
+
             $user = IdealBudget::where('users_id', Auth::user()->id)->first();
 
             if ($user == null) {
                 IdealBudget::create($data);
             }else{
-            IdealBudget::where('users_id', Auth::user()->id)->update($data);
+                IdealBudget::where('users_id', Auth::user()->id)->update($data);
             }
 
             return ResponseFormatter::success($data, 'Data berhasil diperbarui');
 
         } catch (Exception $e) {
-            return ResponseFormatter::error($e->getMessage(), 'gagal menghapus data');
+            return ResponseFormatter::error($e->getMessage(), 'gagal menambah data');
+        }
+    }
+
+    public function getIdealBudget(){
+        $data = IdealBudget::where('users_id', Auth::user()->id)->first();
+        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+    }
+
+    //* Income
+
+    public function income(){
+        $data = Income::with('users')->where('users_id', Auth::user()->id)->get();
+        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+    }
+
+    public function postIncome(Request $request){
+        try {
+            $request->validate([
+                'penghasilan' => 'string|required|max:225',
+                'rupiah' => 'integer|required'
+            ]);
+
+            $income = Income::create([
+                'users_id' => Auth::user()->id,
+                'penghasilan' => $request->penghasilan,
+                'rupiah' => $request->rupiah
+            ]);
+
+            return ResponseFormatter::success($income, 'Penghasilan berhasil ditambahkan');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
+        }
+    }
+
+    public function updateIncome(Request $request,$id){
+        try {
+            $request->validate([
+                'penghasilan' => 'string|required|max:225',
+                'rupiah' => 'integer|required'
+            ]);
+            // dd($request);
+            $income = Income::find($id);
+            // dd($income);
+            $income->penghasilan = $request->penghasilan;
+            $income->rupiah = $request->rupiah;
+            $income->save();
+
+            return ResponseFormatter::success($income, 'Penghasilan berhasil diperbarui');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
+        }
+    }
+
+    public function deleteIncome($id){
+        try {
+
+            $income = Income::find($id);
+            $income->delete();
+
+            return ResponseFormatter::success($income, 'Penghasilan berhasil dihapus');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
+        }
+    }
+
+    // Expenditure
+    public function expenditure(){
+        $data = Expenditure::with('users')->where('users_id', Auth::user()->id)->get();
+        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+    }
+
+    public function postExpenditure(Request $request){
+        try {
+            $request->validate([
+                'pengeluaran' => 'string|required|max:225',
+                'rupiah' => 'integer|required'
+            ]);
+
+            $expenditure = Expenditure::create([
+                'users_id' => Auth::user()->id,
+                'pengeluaran' => $request->pengeluaran,
+                'rupiah' => $request->rupiah
+            ]);
+
+            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil ditambahkan');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
+        }
+    }
+
+    public function updateExpenditure(Request $request){
+        try {
+            $request->validate([
+                'pengeluaran' => 'string|required|max:225',
+                'rupiah' => 'integer|required'
+            ]);
+
+            $expenditure = Expenditure::find($request->id);
+            $expenditure->pengeluaran = $request->pengeluaran;
+            $expenditure->rupiah = $request->rupiah;
+            $expenditure->save();
+
+            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil diperbarui');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
+        }
+    }
+
+    public function deleteExpenditure($id){
+        try {
+
+            $expenditure = Expenditure::find($id);
+            $expenditure->delete();
+
+            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil dihapus');
+        } catch (Exception $error) {
+            return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }
     }
 

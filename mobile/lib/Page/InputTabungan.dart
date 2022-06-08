@@ -27,7 +27,7 @@ class _inputPendapatanState extends State<InputTabungan> {
                       IconButton(
                           onPressed: () {}, icon: Icon(Icons.arrow_back)),
                       const Text(
-                        'Kembali',
+                        'Input Pendapatan',
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ],
