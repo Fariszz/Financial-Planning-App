@@ -330,6 +330,2092 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Riches",
+			"item": [
+				{
+					"name": "Harta",
+					"item": [
+						{
+							"name": "Get Harta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/harta",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"harta"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Harta",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/harta",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"harta"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:55:10 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:55:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"users_id\": 1,\n            \"harta\": \"pc\",\n            \"rupiah\": 25000,\n            \"created_at\": \"2022-06-02T13:48:19.000000Z\",\n            \"updated_at\": \"2022-06-02T13:48:19.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"users_id\": 1,\n            \"harta\": \"laptop\",\n            \"rupiah\": 15000,\n            \"created_at\": \"2022-06-02T13:55:06.000000Z\",\n            \"updated_at\": \"2022-06-02T13:55:06.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "harta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "harta",
+											"value": "laptop",
+											"type": "text"
+										},
+										{
+											"key": "rupiah",
+											"value": "15000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/v1/harta",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"harta"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "harta",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "harta",
+													"value": "sepeda",
+													"type": "text"
+												},
+												{
+													"key": "rupiah",
+													"value": "2000",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseurl}}/api/v1/harta",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"harta"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 13:33:11 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 13:33:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Harta berhasil ditambahkan\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"harta\": \"sepeda\",\n        \"rupiah\": \"2000\",\n        \"updated_at\": \"2022-05-29T13:33:11.000000Z\",\n        \"created_at\": \"2022-05-29T13:33:11.000000Z\",\n        \"id\": 2\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Harta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|OAlSJkSbzesq3OW7izwPdv9QAf3ejud2m0CSqrgN",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "harta",
+											"value": "sepeda pancal",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "rupiah",
+											"value": "3500",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/v1/harta/2?harta=sepeda pancal&rupiah=3000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"harta",
+										"2"
+									],
+									"query": [
+										{
+											"key": "harta",
+											"value": "sepeda pancal"
+										},
+										{
+											"key": "rupiah",
+											"value": "3000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Harta",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "harta",
+													"value": "sepeda pancal",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "rupiah",
+													"value": "3500",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseurl}}/api/v1/harta/2?harta=sepeda pancal&rupiah=3000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"harta",
+												"2"
+											],
+											"query": [
+												{
+													"key": "harta",
+													"value": "sepeda pancal"
+												},
+												{
+													"key": "rupiah",
+													"value": "3000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 15:57:40 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 15:57:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Harta berhasil diperbarui\"\n    },\n    \"data\": {\n        \"id\": 2,\n        \"users_id\": 1,\n        \"harta\": \"sepeda pancal\",\n        \"rupiah\": \"3000\",\n        \"created_at\": \"2022-05-29T13:33:11.000000Z\",\n        \"updated_at\": \"2022-05-29T15:57:40.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete harta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/harta/2",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"harta",
+										"2"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete harta",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/harta/2",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"harta",
+												"2"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:55:31 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:55:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "56"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Harta berhasil dihapus\"\n    },\n    \"data\": {\n        \"id\": 2,\n        \"users_id\": 1,\n        \"harta\": \"laptop\",\n        \"rupiah\": 15000,\n        \"created_at\": \"2022-06-02T13:55:06.000000Z\",\n        \"updated_at\": \"2022-06-02T13:55:06.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Hutang",
+					"item": [
+						{
+							"name": "Get Hutang",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/hutang",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"hutang"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Hutang",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/hutang",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"hutang"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:12:33 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:12:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"users_id\": 1,\n            \"utang\": \"paylater\",\n            \"rupiah\": 2000,\n            \"created_at\": \"2022-06-02T02:11:08.000000Z\",\n            \"updated_at\": \"2022-06-02T02:11:17.000000Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "hutang",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Tg6PR2psoNWwiFRag3ye9MVXfvnqBXiV9MaaClez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/hutang?utang=ban&rupiah=1500",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"hutang"
+									],
+									"query": [
+										{
+											"key": "utang",
+											"value": "ban"
+										},
+										{
+											"key": "rupiah",
+											"value": "1500"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "hutang",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "utang",
+													"value": "paylater",
+													"type": "text"
+												},
+												{
+													"key": "rupiah",
+													"value": "1000",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseurl}}/api/v1/hutang",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"hutang"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 13:36:13 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 May 2022 13:36:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Hutang berhasil ditambahkan\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"utang\": \"paylater\",\n        \"rupiah\": \"1000\",\n        \"updated_at\": \"2022-05-29T13:36:13.000000Z\",\n        \"created_at\": \"2022-05-29T13:36:13.000000Z\",\n        \"id\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Hutang",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Tg6PR2psoNWwiFRag3ye9MVXfvnqBXiV9MaaClez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/hutang/1?utang=paylater&rupiah=2000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"hutang",
+										"1"
+									],
+									"query": [
+										{
+											"key": "utang",
+											"value": "paylater"
+										},
+										{
+											"key": "rupiah",
+											"value": "2000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Hutang",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/hutang/1?utang=paylater&rupiah=2000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"hutang",
+												"1"
+											],
+											"query": [
+												{
+													"key": "utang",
+													"value": "paylater"
+												},
+												{
+													"key": "rupiah",
+													"value": "2000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:11:17 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:11:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Hutang berhasil diperbarui\"\n    },\n    \"data\": {\n        \"id\": 1,\n        \"users_id\": 1,\n        \"utang\": \"paylater\",\n        \"rupiah\": \"2000\",\n        \"created_at\": \"2022-06-02T02:11:08.000000Z\",\n        \"updated_at\": \"2022-06-02T02:11:17.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete hutang",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/hutang/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"hutang",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete hutang",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/hutang/1",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"hutang",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:17:04 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 13:17:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Hutang berhasil dihapus\"\n    },\n    \"data\": {\n        \"id\": 1,\n        \"users_id\": 1,\n        \"utang\": \"paylater\",\n        \"rupiah\": 2000,\n        \"created_at\": \"2022-06-02T02:11:08.000000Z\",\n        \"updated_at\": \"2022-06-02T02:11:17.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Income",
+					"item": [
+						{
+							"name": "Income",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|d2f4hoeQ6Tlzwl96lBo3itDZySuuQarseAOEIInt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/income",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"income"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Income",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/income",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"income"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:01:44 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:01:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data berhasil diperbarui\"\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"users_id\": 1,\n            \"penghasilan\": \"gaji\",\n            \"rupiah\": 60000,\n            \"created_at\": \"2022-06-01T09:28:15.000000Z\",\n            \"updated_at\": \"2022-06-01T09:28:15.000000Z\",\n            \"users\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"users_id\": 1,\n            \"penghasilan\": \"gaji update\",\n            \"rupiah\": 4000,\n            \"created_at\": \"2022-06-01T09:58:58.000000Z\",\n            \"updated_at\": \"2022-06-01T10:02:41.000000Z\",\n            \"users\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"users_id\": 1,\n            \"penghasilan\": \"gaji lama\",\n            \"rupiah\": 60000,\n            \"created_at\": \"2022-06-01T10:02:09.000000Z\",\n            \"updated_at\": \"2022-06-01T10:02:09.000000Z\",\n            \"users\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Income",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Tg6PR2psoNWwiFRag3ye9MVXfvnqBXiV9MaaClez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/income?penghasilan=gaji lama&rupiah=60000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"income"
+									],
+									"query": [
+										{
+											"key": "penghasilan",
+											"value": "gaji lama"
+										},
+										{
+											"key": "rupiah",
+											"value": "60000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Income",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/income?penghasilan=gaji lama&rupiah=60000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"income"
+											],
+											"query": [
+												{
+													"key": "penghasilan",
+													"value": "gaji lama"
+												},
+												{
+													"key": "rupiah",
+													"value": "60000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:10:30 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 02:10:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Penghasilan berhasil ditambahkan\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"penghasilan\": \"gaji lama\",\n        \"rupiah\": \"60000\",\n        \"updated_at\": \"2022-06-02T02:10:30.000000Z\",\n        \"created_at\": \"2022-06-02T02:10:30.000000Z\",\n        \"id\": 5\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Tg6PR2psoNWwiFRag3ye9MVXfvnqBXiV9MaaClez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/income/3?penghasilan=gaji update&rupiah=4000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"income",
+										"3"
+									],
+									"query": [
+										{
+											"key": "penghasilan",
+											"value": "gaji update"
+										},
+										{
+											"key": "rupiah",
+											"value": "4000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Income",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/income/3?penghasilan=gaji update&rupiah=4000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"income",
+												"3"
+											],
+											"query": [
+												{
+													"key": "penghasilan",
+													"value": "gaji update"
+												},
+												{
+													"key": "rupiah",
+													"value": "4000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 10:02:41 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 10:02:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "56"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Penghasilan berhasil diperbarui\"\n    },\n    \"data\": {\n        \"id\": 3,\n        \"users_id\": 1,\n        \"penghasilan\": \"gaji update\",\n        \"rupiah\": \"4000\",\n        \"created_at\": \"2022-06-01T09:58:58.000000Z\",\n        \"updated_at\": \"2022-06-01T10:02:41.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|d2f4hoeQ6Tlzwl96lBo3itDZySuuQarseAOEIInt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/income/2",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"income",
+										"2"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/income/2",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"income",
+												"2"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 09:46:20 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 09:46:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Penghasilan berhasil dihapus\"\n    },\n    \"data\": {\n        \"id\": 2,\n        \"users_id\": 1,\n        \"penghasilan\": \"gaji\",\n        \"rupiah\": 60000,\n        \"created_at\": \"2022-06-01T09:28:55.000000Z\",\n        \"updated_at\": \"2022-06-01T09:28:55.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Expenditure",
+					"item": [
+						{
+							"name": "Get Expenditure",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/expenditure",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"expenditure"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Expenditure",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/expenditure",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"expenditure"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:06:03 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:06:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data berhasil diperbarui\"\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"users_id\": 1,\n            \"pengeluaran\": \"bayar paylater\",\n            \"rupiah\": 2000,\n            \"created_at\": \"2022-06-02T14:04:43.000000Z\",\n            \"updated_at\": \"2022-06-02T14:05:46.000000Z\",\n            \"users\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"users_id\": 1,\n            \"pengeluaran\": \"ngijoli\",\n            \"rupiah\": 2000,\n            \"created_at\": \"2022-06-02T14:05:20.000000Z\",\n            \"updated_at\": \"2022-06-02T14:05:20.000000Z\",\n            \"users\": {\n                \"id\": 1,\n                \"name\": \"faris\",\n                \"email\": \"faris@mail.com\",\n                \"email_verified_at\": null,\n                \"created_at\": \"2022-06-01T04:17:23.000000Z\",\n                \"updated_at\": \"2022-06-01T04:17:23.000000Z\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Post Expenditure",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/expenditure?pengeluaran=ngijoli&rupiah=2000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"expenditure"
+									],
+									"query": [
+										{
+											"key": "pengeluaran",
+											"value": "ngijoli"
+										},
+										{
+											"key": "rupiah",
+											"value": "2000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Post Expenditure",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/expenditure?pengeluaran=ngijoli&rupiah=2000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"expenditure"
+											],
+											"query": [
+												{
+													"key": "pengeluaran",
+													"value": "ngijoli"
+												},
+												{
+													"key": "rupiah",
+													"value": "2000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:05:20 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:05:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Pengeluaran berhasil ditambahkan\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"pengeluaran\": \"ngijoli\",\n        \"rupiah\": \"2000\",\n        \"updated_at\": \"2022-06-02T14:05:20.000000Z\",\n        \"created_at\": \"2022-06-02T14:05:20.000000Z\",\n        \"id\": 2\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Expenditure",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/expenditure/1?pengeluaran=bayar paylater&rupiah=2000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"expenditure",
+										"1"
+									],
+									"query": [
+										{
+											"key": "pengeluaran",
+											"value": "bayar paylater"
+										},
+										{
+											"key": "rupiah",
+											"value": "2000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Expenditure",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/expenditure/1?pengeluaran=bayar paylater&rupiah=2000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"expenditure",
+												"1"
+											],
+											"query": [
+												{
+													"key": "pengeluaran",
+													"value": "bayar paylater"
+												},
+												{
+													"key": "rupiah",
+													"value": "2000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:05:46 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:05:46 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Pengeluaran berhasil diperbarui\"\n    },\n    \"data\": {\n        \"id\": 1,\n        \"users_id\": 1,\n        \"pengeluaran\": \"bayar paylater\",\n        \"rupiah\": \"2000\",\n        \"created_at\": \"2022-06-02T14:04:43.000000Z\",\n        \"updated_at\": \"2022-06-02T14:05:46.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Expenditure",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|ds2AbRszVHBF9sOLLdwxzex3LOW17iWWkIxgfrfI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/expenditure/2",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"expenditure",
+										"2"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Expenditure",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/expenditure/2",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"expenditure",
+												"2"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:06:17 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:06:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Pengeluaran berhasil dihapus\"\n    },\n    \"data\": {\n        \"id\": 2,\n        \"users_id\": 1,\n        \"pengeluaran\": \"ngijoli\",\n        \"rupiah\": 2000,\n        \"created_at\": \"2022-06-02T14:05:20.000000Z\",\n        \"updated_at\": \"2022-06-02T14:05:20.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Ideal Budget",
+					"item": [
+						{
+							"name": "Ideal Budget",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|GNGbbIPOGYsNo10f2OfhuR96If6KJozvFGWwF3a1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/ideal-budget?total_penghasilan=5000000",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ideal-budget"
+									],
+									"query": [
+										{
+											"key": "total_penghasilan",
+											"value": "5000000"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ideal Budget",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/ideal-budget?total_penghasilan=5000000",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"ideal-budget"
+											],
+											"query": [
+												{
+													"key": "total_penghasilan",
+													"value": "5000000"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 06:34:15 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 06:34:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data berhasil diperbarui\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"total_penghasilan\": \"5000000\",\n        \"agama\": 250000,\n        \"tabungan\": 500000,\n        \"asuransi\": 250000,\n        \"cicilan\": 1000000,\n        \"investasi\": 250000,\n        \"rumah_tangga\": 2000000,\n        \"anak\": 500000,\n        \"hiburan\": 250000\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Ideal Budget",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Tg6PR2psoNWwiFRag3ye9MVXfvnqBXiV9MaaClez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/ideal-budget",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ideal-budget"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ideal Budget",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseurl}}/api/v1/ideal-budget",
+											"host": [
+												"{{baseurl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"ideal-budget"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 09:26:26 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 01 Jun 2022 09:26:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data berhasil diperbarui\"\n    },\n    \"data\": {\n        \"id\": 2,\n        \"users_id\": 1,\n        \"total_penghasilan\": 5000000,\n        \"agama\": 250000,\n        \"tabungan\": 500000,\n        \"asuransi\": 250000,\n        \"cicilan\": 1000000,\n        \"investasi\": 250000,\n        \"rumah_tangga\": 2000000,\n        \"anak\": 500000,\n        \"hiburan\": 250000,\n        \"created_at\": \"2022-06-01T04:41:00.000000Z\",\n        \"updated_at\": \"2022-06-01T06:34:15.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "total_kekayaan_post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|JM0Op8fHQD2pjrzPGb5GPK6Cct0cyS5m7PSVDyB5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/total",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"total"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/v1/total",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"total"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 May 2022 14:03:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 May 2022 14:03:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data berhasil diperbarui\"\n    },\n    \"data\": {\n        \"users_id\": 1,\n        \"total_harta\": \"10000\",\n        \"total_utang\": \"1000\",\n        \"total_kekayaan_bersih\": 9000,\n        \"status\": \"baik\"\n    }\n}"
+						}
+					]
+				}
+			]
 		}
 	]
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:mobile/models/user_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile/models/userlogin_model.dart';
 
 class AuthService {
   final String baseUrl = 'http://10.0.2.2:8000/api/v1';
@@ -33,7 +34,7 @@ class AuthService {
 
   //Login Service
 
-  Future<UserModel?> login(
+  Future<UserLoginModel?> login(
     String? email,
     String? password,
   ) async {
@@ -50,8 +51,7 @@ class AuthService {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
-      UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer ' + data['access_token'];
+      UserLoginModel user = UserLoginModel.fromJson(data['user']);
 
       return user;
     } else {

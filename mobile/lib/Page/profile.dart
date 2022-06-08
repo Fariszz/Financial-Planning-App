@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/Widgets/Navigator_bar.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -143,6 +144,7 @@ class Profile extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: Bottomnavbar(),
     );
   }
 }
