@@ -25,6 +25,12 @@ class Transaction extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          Text(
+            'Transaction',
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
           Container(
             margin: EdgeInsets.all(8),
             padding: EdgeInsets.all(8),
@@ -51,7 +57,7 @@ class Transaction extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.red,
+                  color: Colors.green,
                 ),
               ),
               Row(
@@ -86,7 +92,7 @@ class Transaction extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.red,
+                  color: Colors.green,
                 ),
               ),
               Row(
@@ -121,7 +127,7 @@ class Transaction extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.red,
+                  color: Colors.green,
                 ),
               ),
               Row(
@@ -156,7 +162,7 @@ class Transaction extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.red,
+                  color: Colors.green,
                 ),
               ),
               Row(
