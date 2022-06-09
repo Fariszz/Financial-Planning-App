@@ -3,6 +3,9 @@ import 'package:mobile/Page/InputTabungan.dart';
 import 'package:mobile/Page/profile.dart';
 import 'package:mobile/Page/trans.dart';
 
+import 'package:mobile/Page/home.dart';
+import 'package:mobile/Page/pages.dart';
+
 class Bottomnavbar extends StatefulWidget {
   const Bottomnavbar({Key? key}) : super(key: key);
 
@@ -13,10 +16,10 @@ class Bottomnavbar extends StatefulWidget {
 class _BottomnavbarState extends State<Bottomnavbar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    InputTabungan(),
-    Transaction(),
+
+    Home(),
     Profile(),
-  
+
   ];
 
   void onTabTapped(int index) {
@@ -36,10 +39,6 @@ class _BottomnavbarState extends State<Bottomnavbar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
