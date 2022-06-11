@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:mobile/Widgets/loading_Button.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -20,10 +19,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController nameController = TextEditingController(text: '');
   TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController password_confirmationController =
-      TextEditingController(text: '');
-
+  TextEditingController passwordController = TextEditingController(text: '');  
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
@@ -32,8 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       if (await authProvider.register(
           name: nameController.text,
           email: emailController.text,
-          password: passwordController.text,
-          password_confirmation: password_confirmationController.text)) {
+          password: passwordController.text,          )) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginScreen()));
       } else {
@@ -47,8 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
       print(nameController.text);
       print(emailController.text);
-      print(passwordController.text);
-      print(password_confirmationController.text);
+      print(passwordController.text);      
     }
 
     return MaterialApp(
@@ -72,8 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: Column(children: [
                               InputUsername(),
                               InputEmail(),
-                              InputPassword("Password"),
-                              ReInputPassword("Confirm Password"),
+                              InputPassword("Password"),                              
                             ]),
                           ),
                           Container(
@@ -268,53 +261,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   // onSaved: (str) {
                   //   password = str.toString();
                   // }
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  ReInputPassword(String label) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 10, right: 10, bottom: 20),
-      child: Container(
-        height: 60,
-        child: Card(
-          shadowColor: Color.fromARGB(255, 117, 115, 115),
-          margin: const EdgeInsets.only(
-            left: 10,
-            right: 20,
-          ),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          elevation: 10,
-          child: Container(
-            padding: EdgeInsets.only(left: 30, right: 30),
-            child: Column(
-              children: [
-                TextFormField(
-                  controller: password_confirmationController,
-                  decoration: InputDecoration(
-                    labelText: label,
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                          isVisible2 ? Icons.visibility : Icons.visibility_off),
-                      onPressed: () {
-                        setState(
-                          () {
-                            isVisible2 = !isVisible2;
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                  obscureText: !isVisible2,
-                  keyboardType: TextInputType.text,
                 ),
               ],
             ),

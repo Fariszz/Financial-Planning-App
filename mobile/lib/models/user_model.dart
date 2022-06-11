@@ -2,16 +2,14 @@ class UserModel {
   late int id;
   late String name;
   late String email;
-  late String password;
-  late String password_confirmation;
+  late String password;  
   late String token;
 
   UserModel({
     required this.id,
     required this.name,
     required this.email,
-    required this.password,
-    required this.password_confirmation,
+    required this.password,    
     required this.token,
   });
 
@@ -19,8 +17,7 @@ class UserModel {
     id = json['id'];
     name = json['name'];
     email = json['email'];
-    password = json['password'];
-    password_confirmation = json['password_confirmation'];
+    password = json['password'];    
     token = json['token'];
   }
 
@@ -29,8 +26,7 @@ class UserModel {
       'id': id,
       'name': name,
       'email': email,
-      'passowrd': password,
-      'password_confirmation': password_confirmation,
+      'passowrd': password,      
       'token': token,
     };
   }
