@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Service/auth_service.dart';
+import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/models/userlogin_model.dart';
 
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
   late UserLoginModel _userLogin;
+  late RichesUtangModel _inputHutang;
 
   UserModel get user => _user;
   UserLoginModel get userLogin => _userLogin;
+  RichesUtangModel get inputHutang => _inputHutang;
 
   set user(UserModel user) {
     _user = user;
@@ -50,6 +54,26 @@ class AuthProvider with ChangeNotifier {
       )) as UserLoginModel?;
 
       _userLogin = userLogin!;
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // Input Hutang
+
+  Future<bool> InputHutang({
+    required String utang,
+    required int rupiah,
+  }) async {
+    try {
+      RichesUtangModel? inputHutang = (await AuthService().InputHutang(
+        utang = utang,
+        rupiah = rupiah,
+      )) as RichesUtangModel?;
+
+      _inputHutang = inputHutang!;
       return true;
     } catch (e) {
       print(e);
