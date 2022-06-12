@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/Page/CategoryScrenn.dart';
 import 'package:mobile/Page/home.dart';
 import 'package:mobile/Page/profile.dart';
 
@@ -13,6 +14,7 @@ class _BottomnavbarState extends State<Bottomnavbar> {
   int _currentIndex = 0;
   List pages = [
     Home(),
+    Category(),
     Profile(),
   ];
   int currentIndex = 0;
@@ -40,6 +42,10 @@ class _BottomnavbarState extends State<Bottomnavbar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: ('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: ('Category'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_balance_wallet),
