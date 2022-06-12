@@ -8,11 +8,11 @@ import 'package:mobile/models/userlogin_model.dart';
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
   late UserLoginModel _userLogin;
-  late RichesUtangModel _inputHutang;
+
 
   UserModel get user => _user;
   UserLoginModel get userLogin => _userLogin;
-  RichesUtangModel get inputHutang => _inputHutang;
+ 
 
   set user(UserModel user) {
     _user = user;
@@ -61,23 +61,5 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  // Input Hutang
-
-  Future<bool> InputHutang({
-    required String utang,
-    required int rupiah,
-  }) async {
-    try {
-      RichesUtangModel? inputHutang = (await AuthService().InputHutang(
-        utang = utang,
-        rupiah = rupiah,
-      )) as RichesUtangModel?;
-
-      _inputHutang = inputHutang!;
-      return true;
-    } catch (e) {
-      print(e);
-      return false;
-    }
-  }
+  
 }
