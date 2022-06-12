@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
           Container(
             padding: EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width,
-            color: Colors.purple,
+            color: Color(0xff7F3DFF),
             child: Text(
               'Home',
               style: TextStyle(
