@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/Page/InputTabungan.dart';
-import 'package:mobile/Page/profile.dart';
-import 'package:mobile/Page/trans.dart';
-
 import 'package:mobile/Page/home.dart';
-import 'package:mobile/Page/pages.dart';
+import 'package:mobile/Page/profile.dart';
 
 class Bottomnavbar extends StatefulWidget {
   const Bottomnavbar({Key? key}) : super(key: key);
@@ -15,40 +11,41 @@ class Bottomnavbar extends StatefulWidget {
 
 class _BottomnavbarState extends State<Bottomnavbar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [
-
+  List pages = [
     Home(),
     Profile(),
-
   ];
-
-  void onTabTapped(int index) {
+  int currentIndex = 0;
+  void onTap(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_currentIndex],
+      body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.indigo,
+        onTap: onTap,
+        currentIndex: currentIndex,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        elevation: 0,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: ('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.account_balance_wallet),
+            label: ('Wallet'),
           ),
         ],
-        iconSize: 20,
-        showUnselectedLabels: false,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.blue,
       ),
     );
   }
