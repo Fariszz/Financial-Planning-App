@@ -4,6 +4,7 @@ import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/Page/stats.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -49,7 +50,10 @@ class _CategoryState extends State<Category> {
                 child: Row(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Home()));
+                        },
                         icon: const Icon(
                           Icons.arrow_back,
                           color: Colors.white,
@@ -62,72 +66,71 @@ class _CategoryState extends State<Category> {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10, top: 30),
-              // child: Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: const [
-              //     // Padding(
-              //     //   padding: EdgeInsets.only(left: 10),
-              //     //   child: Text(
-              //     //     "How Much ?",
-              //     //     style: TextStyle(fontSize: 15, color: Colors.black),
-              //     //   ),
-              //     // ),
-              //     SizedBox(
-              //       height: 10,
-              //     ),
-              //     Padding(
-              //       padding: EdgeInsets.only(left: 10),
-              //       child: TextField(
-              //         cursorColor: Colors.black,
-              //         style: TextStyle(
-              //             fontSize: 16,
-              //             color: Colors.black,
-              //             fontWeight: FontWeight.bold),
-              //         decoration: InputDecoration(
-              //             hintText: 'Enter Amount', border: InputBorder.none),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(
-                      "Name Needs",
-                      style: TextStyle(fontSize: 15, color: Colors.black),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: TextField(
-                      cursorColor: Colors.black,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      decoration: InputDecoration(
-                          hintText: 'Enter Needs', border: InputBorder.none),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // const Padding(
+            //   padding: EdgeInsets.only(left: 10, top: 30),
+            //   // child: Column(
+            //   //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   //   children: const [
+            //   //     // Padding(
+            //   //     //   padding: EdgeInsets.only(left: 10),
+            //   //     //   child: Text(
+            //   //     //     "How Much ?",
+            //   //     //     style: TextStyle(fontSize: 15, color: Colors.black),
+            //   //     //   ),
+            //   //     // ),
+            //   //     SizedBox(
+            //   //       height: 10,
+            //   //     ),
+            //   //     Padding(
+            //   //       padding: EdgeInsets.only(left: 10),
+            //   //       child: TextField(
+            //   //         cursorColor: Colors.black,
+            //   //         style: TextStyle(
+            //   //             fontSize: 16,
+            //   //             color: Colors.black,
+            //   //             fontWeight: FontWeight.bold),
+            //   //         decoration: InputDecoration(
+            //   //             hintText: 'Enter Amount', border: InputBorder.none),
+            //   //       ),
+            //   //     ),
+            //   //   ],
+            //   // ),
+            // ),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 10, top: 30),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: const [
+            //       Padding(
+            //         padding: EdgeInsets.only(left: 10),
+            //         child: Text(
+            //           "Name Needs",
+            //           style: TextStyle(fontSize: 15, color: Colors.black),
+            //         ),
+            //       ),
+            //       SizedBox(
+            //         height: 10,
+            //       ),
+            //       Padding(
+            //         padding: EdgeInsets.only(left: 10),
+            //         child: TextField(
+            //           cursorColor: Colors.black,
+            //           style: TextStyle(
+            //               fontSize: 16,
+            //               color: Colors.black,
+            //               fontWeight: FontWeight.bold),
+            //           decoration: InputDecoration(
+            //               hintText: 'Enter Needs', border: InputBorder.none),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             const SizedBox(
               height: 30,
             ),
             const Padding(
-              padding:
-                  EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
+              padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
               child: Text(
                 'Select Categori',
                 style: TextStyle(fontSize: 15, color: Colors.black),
@@ -144,7 +147,7 @@ class _CategoryState extends State<Category> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 70, horizontal: 30),
+              padding: EdgeInsets.symmetric(vertical: 90, horizontal: 30),
               child: ElevatedButton(
                 onPressed: () {},
                 child: Row(
@@ -170,46 +173,46 @@ class _CategoryState extends State<Category> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        color: Color(0xff7F3DFF),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          child: GNav(
-            backgroundColor: Color(0xff7F3DFF),
-            color: Colors.black,
-            activeColor: Colors.black,
-            tabBackgroundColor: Colors.white,
-            padding: EdgeInsets.all(15),
-            gap: 5,
-            duration: Duration(milliseconds: 600),
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: "Home",
-              ),
-              GButton(
-                icon: Icons.favorite,
-                text: "Favorite",
-              ),
-              GButton(
-                icon: Icons.search,
-                text: "Search",
-              ),
-              GButton(
-                icon: Icons.money,
-                text: "Money",
-              ),
-            ],
-            onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-              _controller.jumpToPage(index);
-            },
-            selectedIndex: _selectedIndex,
-          ),
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   color: Color(0xff7F3DFF),
+      //   child: Padding(
+      //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      //     child: GNav(
+      //       backgroundColor: Color(0xff7F3DFF),
+      //       color: Colors.black,
+      //       activeColor: Colors.black,
+      //       tabBackgroundColor: Colors.white,
+      //       padding: EdgeInsets.all(15),
+      //       gap: 5,
+      //       duration: Duration(milliseconds: 600),
+      //       tabs: const [
+      //         GButton(
+      //           icon: Icons.home,
+      //           text: "Home",
+      //         ),
+      //         GButton(
+      //           icon: Icons.favorite,
+      //           text: "Favorite",
+      //         ),
+      //         GButton(
+      //           icon: Icons.search,
+      //           text: "Search",
+      //         ),
+      //         GButton(
+      //           icon: Icons.money,
+      //           text: "Money",
+      //         ),
+      //       ],
+      //       onTabChange: (index) {
+      //         setState(() {
+      //           _selectedIndex = index;
+      //         });
+      //         _controller.jumpToPage(index);
+      //       },
+      //       selectedIndex: _selectedIndex,
+      //     ),
+      //   ),
+      // ),
     );
   }
 
@@ -278,7 +281,7 @@ class _CategoryState extends State<Category> {
       padding: const EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
-          Navigator.pop(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => InputHutang(),

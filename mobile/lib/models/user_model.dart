@@ -3,25 +3,25 @@ class UserModel {
   late String name;
   late String email;
   late String password;
-  late String password_confirmation;
+  late String passwordConfirmation;
   late String token;
 
   UserModel({
-    required this.id,
+    id,
     required this.name,
     required this.email,
     required this.password,
-    required this.password_confirmation,
-    required this.token,
+    required this.passwordConfirmation,
+    token,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    name = json['name'];
-    email = json['email'];
-    password = json['password'];
-    password_confirmation = json['password_confirmation'];
-    token = json['token'];
+    name = json['name'].toString();
+    email = json['email'].toString();
+    password = json['password'].toString();
+    passwordConfirmation = json['password_confirmation'].toString();
+    token = json['token'].toString();
   }
 
   Map<String, dynamic> toJson() {
@@ -29,8 +29,8 @@ class UserModel {
       'id': id,
       'name': name,
       'email': email,
-      'passowrd': password,
-      'password_confirmation': password_confirmation,
+      'password': password,
+      'password_confirmation': passwordConfirmation,
       'token': token,
     };
   }

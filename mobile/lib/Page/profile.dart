@@ -144,7 +144,6 @@ class Profile extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Bottomnavbar(),
     );
   }
 }
