@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class InputHutang extends StatelessWidget {
   InputHutang({Key? key}) : super(key: key);
 
-  TextEditingController money = TextEditingController(text: '');
-  TextEditingController needs = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController(text: '');
+  TextEditingController utangController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleSignIn() async {
+      if (await authProvider.InputHutang(
+        rupiah: int.parse(rupiahController.text),
+        utang: utangController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
+      }
+
+      print(rupiahController.text);
+      print(utangController.text);
+    }
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 224, 223, 223),
@@ -76,7 +92,7 @@ class InputHutang extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: TextField(
-                        controller: money,
+                        controller: rupiahController,
                         cursorColor: Colors.black,
                         style: const TextStyle(
                             fontSize: 16,
@@ -114,7 +130,7 @@ class InputHutang extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: TextField(
-                        controller: needs,
+                        controller: utangController,
                         cursorColor: Colors.black,
                         style: const TextStyle(
                             fontSize: 16,
@@ -137,8 +153,8 @@ class InputHutang extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-              child: ElevatedButton(
-                onPressed: () {},
+              child: TextButton(
+                onPressed: handleSignIn,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [

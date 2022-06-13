@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Service/auth_service.dart';
+import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/models/userlogin_model.dart';
 
@@ -7,8 +9,10 @@ class AuthProvider with ChangeNotifier {
   late UserModel _user;
   late UserLoginModel _userLogin;
 
+
   UserModel get user => _user;
   UserLoginModel get userLogin => _userLogin;
+ 
 
   set user(UserModel user) {
     _user = user;
@@ -56,4 +60,6 @@ class AuthProvider with ChangeNotifier {
       return false;
     }
   }
+
+  
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile/models/userlogin_model.dart';
@@ -58,4 +59,6 @@ class AuthService {
       throw Exception('Failed to Login :)');
     }
   }
+
+  
 }
