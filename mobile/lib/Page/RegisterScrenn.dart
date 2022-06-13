@@ -17,20 +17,23 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');  
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmationController =
+      TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
       if (await authProvider.register(
-          name: nameController.text,
-          email: emailController.text,
-          password: passwordController.text,          )) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        passwordConfirmation: passwordConfirmationController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Color.fromARGB(255, 243, 114, 104),
@@ -40,9 +43,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ));
       }
-      print(nameController.text);
-      print(emailController.text);
-      print(passwordController.text);      
     }
 
     return MaterialApp(
@@ -66,14 +66,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: Column(children: [
                               InputUsername(),
                               InputEmail(),
-                              InputPassword("Password"),                              
+                              InputPassword("Password"),
+                              ReInputPassword("Confirm Password"),
                             ]),
                           ),
                           Container(
                             height: 70,
                             padding: const EdgeInsets.only(
                                 top: 20, left: 30, right: 30),
-                            child: TextButton(
+                            child: ElevatedButton(
                               onPressed: handleSignUp,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -261,6 +262,53 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   // onSaved: (str) {
                   //   password = str.toString();
                   // }
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  ReInputPassword(String label) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, left: 10, right: 10, bottom: 20),
+      child: Container(
+        height: 60,
+        child: Card(
+          shadowColor: Color.fromARGB(255, 117, 115, 115),
+          margin: const EdgeInsets.only(
+            left: 10,
+            right: 20,
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          elevation: 10,
+          child: Container(
+            padding: EdgeInsets.only(left: 30, right: 30),
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: passwordConfirmationController,
+                  decoration: InputDecoration(
+                    labelText: label,
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                          isVisible2 ? Icons.visibility : Icons.visibility_off),
+                      onPressed: () {
+                        setState(
+                          () {
+                            isVisible2 = !isVisible2;
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                  obscureText: !isVisible2,
+                  keyboardType: TextInputType.text,
                 ),
               ],
             ),

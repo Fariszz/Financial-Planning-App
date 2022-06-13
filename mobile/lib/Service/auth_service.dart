@@ -7,18 +7,29 @@ import 'package:mobile/models/userlogin_model.dart';
 class AuthService {
   final String baseUrl = 'http://10.0.2.2:8000/api/v1';
 
-  Future<UserModel?> register(String? name, String? email, String? password,) async {
+  Future<UserModel?> register(
+    String name,
+    String email,
+    String password,
+    String passwordConfirmation,
+  ) async {
     var url = '$baseUrl/register';
-    var headers = {'Content-Type': 'application/json'};
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
     var body = jsonEncode({
       'name': name,
       'email': email,
-      'password': password,      
+      'password': password,
+      'password_confirmation': passwordConfirmation,
     });
     var response =
         await http.post(Uri.parse(url), headers: headers, body: body);
-
+    print(body);
     print(response.body);
+    // print(jsonDecode(response.body));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
