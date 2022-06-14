@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/Page/stats.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -52,6 +53,7 @@ class _CategoryState extends State<Category> {
                 ),
               ),
             ),
+
             const Padding(
               padding: EdgeInsets.only(
                 left: 10,
@@ -175,7 +177,7 @@ class _CategoryState extends State<Category> {
       padding: const EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
-          Navigator.pop(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => InputHutang(),
