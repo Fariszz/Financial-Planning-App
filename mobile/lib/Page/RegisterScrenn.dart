@@ -24,6 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
+    
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
