@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/InputHutang.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/widgets/Navigator_bar.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -100,70 +101,80 @@ class _CategoryState extends State<Category> {
 
   Padding CategoryBoxHarta() {
     return Padding(
-      padding: const EdgeInsets.only(left: 10),
-      child: Container(
-        margin: EdgeInsets.all(10),
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-          border: const Border.fromBorderSide(
-            BorderSide(color: Color(0xff7F3DFF), width: 1),
-          ),
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white,
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(255, 219, 219, 219),
-              spreadRadius: 1,
-              blurRadius: 10,
-            )
-          ],
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: 20,
-            bottom: 10,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  top: 10,
-                ),
-                child: Image.asset(
-                  "assets/images/harta.png",
-                  height: 60,
-                  width: 60,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30,
-                  left: 20,
-                ),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Harta",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                    Text(
-                      "Loren Ipsum aaa",
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
+      padding: EdgeInsets.only(left: 10),
+      child: InkWell(
+        onTap: () {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => InputHarta(),
+          //     ),
+          //   );
+        },
+        child: Container(
+          margin: EdgeInsets.all(10),
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+            border: const Border.fromBorderSide(
+              BorderSide(color: Color(0xff7F3DFF), width: 1),
+            ),
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white,
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 219, 219, 219),
+                spreadRadius: 1,
+                blurRadius: 10,
+              )
             ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: 20,
+              bottom: 10,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    top: 10,
+                  ),
+                  child: Image.asset(
+                    "assets/images/harta.png",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                    left: 20,
+                  ),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Harta",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        "Loren Ipsum aaa",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -243,57 +254,67 @@ class _CategoryState extends State<Category> {
   Padding CategoryBoxPendapatan() {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Container(
-        margin: EdgeInsets.all(10),
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-            border: const Border.fromBorderSide(
-                BorderSide(color: Color(0xff7F3DFF), width: 1)),
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromARGB(255, 219, 219, 219),
-                  spreadRadius: 1,
-                  blurRadius: 10)
-            ]),
-        child: Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
-                child: Image.asset(
-                  "assets/images/pendapatan.png",
-                  height: 60,
-                  width: 60,
-                  fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InputPendapatan(),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(10),
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+              border: const Border.fromBorderSide(
+                  BorderSide(color: Color(0xff7F3DFF), width: 1)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Color.fromARGB(255, 219, 219, 219),
+                    spreadRadius: 1,
+                    blurRadius: 10)
+              ]),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 10),
+                  child: Image.asset(
+                    "assets/images/pendapatan.png",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, left: 20),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Pendapatan",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                    Text(
-                      "Loren Ipsum aaa",
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 20),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Pendapatan",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        "Loren Ipsum aaa",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -303,57 +324,70 @@ class _CategoryState extends State<Category> {
   Padding CategoryExpenditure() {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Container(
-        margin: EdgeInsets.all(10),
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-            border: const Border.fromBorderSide(
-                BorderSide(color: Color(0xff7F3DFF), width: 1)),
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromARGB(255, 219, 219, 219),
-                  spreadRadius: 1,
-                  blurRadius: 10)
-            ]),
-        child: Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
-                child: Image.asset(
-                  "assets/images/expend.png",
-                  height: 60,
-                  width: 60,
-                  fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InputExpend(),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(10),
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+              border: const Border.fromBorderSide(
+                  BorderSide(color: Color(0xff7F3DFF), width: 1)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Color.fromARGB(255, 219, 219, 219),
+                    spreadRadius: 1,
+                    blurRadius: 10)
+              ]),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 10),
+                  child: Image.asset(
+                    "assets/images/expend.png",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, left: 20),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Expenditure",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                    Text(
-                      "Loren Ipsum aaa",
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                    left: 20,
+                  ),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Expenditure",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        "Loren Ipsum aaa",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -363,57 +397,67 @@ class _CategoryState extends State<Category> {
   Padding CategoryIdealBudget() {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Container(
-        margin: EdgeInsets.all(10),
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-            border: const Border.fromBorderSide(
-                BorderSide(color: Color(0xff7F3DFF), width: 1)),
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromARGB(255, 219, 219, 219),
-                  spreadRadius: 1,
-                  blurRadius: 10)
-            ]),
-        child: Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
-                child: Image.asset(
-                  "assets/images/ideal.png",
-                  height: 60,
-                  width: 60,
-                  fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InputIdeal(),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(10),
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+              border: const Border.fromBorderSide(
+                  BorderSide(color: Color(0xff7F3DFF), width: 1)),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Color.fromARGB(255, 219, 219, 219),
+                    spreadRadius: 1,
+                    blurRadius: 10)
+              ]),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 10),
+                  child: Image.asset(
+                    "assets/images/ideal.png",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, left: 20),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Ideal Budget",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ),
-                    Text(
-                      "Loren Ipsum aaa",
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 20),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Ideal Budget",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        "Loren Ipsum aaa",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
