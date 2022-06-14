@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
 class InputHutang extends StatelessWidget {
@@ -13,17 +15,18 @@ class InputHutang extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+    InputProvider inputProvider = Provider.of<InputProvider>(context);
 
     handleSignIn() async {
-      if (await authProvider.InputHutang(
-        rupiah: int.parse(rupiahController.text),
+      if (await inputProvider.InputHutang(
+        token: user.token,
+        // rupiah: int.parse(rupiahController.text),
         utang: utangController.text,
-      )) {
-        Navigator.pushNamed(context, '/home');
-      }
-
-      print(rupiahController.text);
-      print(utangController.text);
+        rupiah: int.parse(rupiahController.text),
+      )) ;
+      // print(int.parse(rupiahController.text));
+      // print(utangController.text);
     }
 
     Size size = MediaQuery.of(context).size;
@@ -178,46 +181,6 @@ class InputHutang extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   color: const Color(0xff7F3DFF),
-      //   child: const Padding(
-      //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      //     child: GNav(
-      //       backgroundColor: Color(0xff7F3DFF),
-      //       color: Colors.black,
-      //       activeColor: Colors.black,
-      //       tabBackgroundColor: Colors.white,
-      //       padding: EdgeInsets.all(15),
-      //       gap: 5,
-      //       duration: Duration(milliseconds: 600),
-      //       tabs: [
-      //         GButton(
-      //           icon: Icons.home,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.favorite,
-      //           text: "Favorite",
-      //         ),
-      //         GButton(
-      //           icon: Icons.search,
-      //           text: "Search",
-      //         ),
-      //         GButton(
-      //           icon: Icons.money,
-      //           text: "Money",
-      //         ),
-      //       ],
-      //       // onTabChange: (index) {
-      //       //   setState(() {
-      //       //     _selectedIndex = index;
-      //       //   });
-      //       //   _controller.jumpToPage(index);
-      //       // },
-      //       // selectedIndex: _selectedIndex,
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

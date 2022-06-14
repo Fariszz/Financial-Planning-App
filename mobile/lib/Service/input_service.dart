@@ -10,11 +10,19 @@ class InputService {
   final String baseUrl = 'http://10.0.2.2:8000/api/v1';
 
   Future<RichesUtangModel> InputHutang(
+    String token,
     String utang,
     int rupiah,
   ) async {
-    var url = '$baseUrl/utang';
-    var headers = {'Content-Type': 'application/json'};
+    var url = '$baseUrl/hutang';
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': token,
+    };
+
+    print(token);
 
     var body = jsonEncode({
       'utang': utang,
@@ -27,7 +35,6 @@ class InputService {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
-
       RichesUtangModel utang = RichesUtangModel.fromJson(data['utang']);
 
       return utang;
