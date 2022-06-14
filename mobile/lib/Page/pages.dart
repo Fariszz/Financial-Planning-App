@@ -5,3 +5,7 @@ export 'CategoryScrenn.dart';
 export 'InputHutang.dart';
 export 'InputTabungan.dart';
 export 'home.dart';
+export 'input_expend.dart';
+export 'InputHutang.dart';
+export 'input_ideal.dart';
+export 'input_pendapatan.dart';
