@@ -7,12 +7,10 @@ import 'package:mobile/models/userlogin_model.dart';
 
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
-  late UserLoginModel _userLogin;
-
+  // late UserLoginModel _userLogin;
 
   UserModel get user => _user;
-  UserLoginModel get userLogin => _userLogin;
- 
+  // UserLoginModel get userLogin => _userLogin;
 
   set user(UserModel user) {
     _user = user;
@@ -48,18 +46,22 @@ class AuthProvider with ChangeNotifier {
     required String password,
   }) async {
     try {
-      UserLoginModel? userLogin = (await AuthService().login(
+      // UserLoginModel? userLogin = (await AuthService().login(
+      //   email = email,
+      //   password = password,
+      // )) as UserLoginModel?;
+      UserModel? user = (await AuthService().login(
         email = email,
         password = password,
-      )) as UserLoginModel?;
+      ));
 
-      _userLogin = userLogin!;
+      // _userLogin = userLogin!;
+      // _userLogin = userLogin!;
+      _user = user!;
       return true;
     } catch (e) {
       print(e);
       return false;
     }
   }
-
-  
 }
