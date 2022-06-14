@@ -10,16 +10,18 @@ class InputProvider with ChangeNotifier {
   late RichesUtangModel _inputHutang;
 
   Future<bool> InputHutang({
+    required String token,
     required String utang,
     required int rupiah,
   }) async {
     try {
       RichesUtangModel? inputHutang = (await InputService().InputHutang(
+        token = token,
         utang = utang,
         rupiah = rupiah,
-      )) as RichesUtangModel?;
+      ));
 
-      _inputHutang = inputHutang!;
+      _inputHutang = inputHutang;
       return true;
     } catch (e) {
       print(e);
