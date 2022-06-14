@@ -7,20 +7,29 @@ import 'package:mobile/models/userlogin_model.dart';
 class AuthService {
   final String baseUrl = 'http://10.0.2.2:8000/api/v1';
 
-  Future<UserModel?> register(String? name, String? email, String? password,
-      String? password_confirmation) async {
+  Future<UserModel?> register(
+    String name,
+    String email,
+    String password,
+    String passwordConfirmation,
+  ) async {
     var url = '$baseUrl/register';
-    var headers = {'Content-Type': 'application/json'};
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
     var body = jsonEncode({
       'name': name,
       'email': email,
       'password': password,
-      'password_confirmation': password_confirmation,
+      'password_confirmation': passwordConfirmation,
     });
     var response =
         await http.post(Uri.parse(url), headers: headers, body: body);
-
+    print(body);
     print(response.body);
+    // print(jsonDecode(response.body));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
@@ -35,16 +44,21 @@ class AuthService {
 
   //Login Service
 
-  Future<UserLoginModel?> login(
+  Future<UserModel?> login(
     String? email,
     String? password,
   ) async {
     var url = '$baseUrl/login';
-    var headers = {'Content-Type': 'application/json'};
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
     var body = jsonEncode({
       'email': email,
       'password': password,
     });
+    print(body);
     var response =
         await http.post(Uri.parse(url), headers: headers, body: body);
 
@@ -52,13 +66,12 @@ class AuthService {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
-      UserLoginModel user = UserLoginModel.fromJson(data['user']);
+      UserModel user = UserModel.fromJson(data['user']);
+      user.token = 'Bearer ' + data['access_token'];
 
       return user;
     } else {
       throw Exception('Failed to Login :)');
     }
   }
-
-  
 }

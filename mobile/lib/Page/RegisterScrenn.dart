@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:mobile/Widgets/loading_Button.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -18,12 +17,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController password_confirmationController =
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmationController =
       TextEditingController(text: '');
-
   @override
   Widget build(BuildContext context) {
     
@@ -31,12 +29,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     handleSignUp() async {
       if (await authProvider.register(
-          name: nameController.text,
-          email: emailController.text,
-          password: passwordController.text,
-          password_confirmation: password_confirmationController.text)) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        passwordConfirmation: passwordConfirmationController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Color.fromARGB(255, 243, 114, 104),
@@ -46,10 +44,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ));
       }
-      print(nameController.text);
-      print(emailController.text);
-      print(passwordController.text);
-      print(password_confirmationController.text);
     }
 
     return MaterialApp(
@@ -81,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: 70,
                             padding: const EdgeInsets.only(
                                 top: 20, left: 30, right: 30),
-                            child: TextButton(
+                            child: ElevatedButton(
                               onPressed: handleSignUp,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -297,7 +291,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  controller: password_confirmationController,
+                  controller: passwordConfirmationController,
                   decoration: InputDecoration(
                     labelText: label,
                     border: InputBorder.none,

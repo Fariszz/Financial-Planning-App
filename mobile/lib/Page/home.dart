@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/widgets/Navigator_bar.dart';
 import 'package:mobile/widgets/pie_chart.dart';
 
 class Home extends StatefulWidget {
@@ -19,11 +20,12 @@ class _HomeState extends State<Home> {
           Container(
             padding: EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width,
-            color: Colors.amber,
+            color: Color(0xff7F3DFF),
             child: Text(
-              'Stat',
+              'Home',
               style: TextStyle(
                 fontSize: 20,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -121,7 +123,42 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
-          Text('your financial is balance')
+          Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                'Financial',
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+          Center(
+            child: Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(width: 1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                children: [
+                  Text('Status'),
+                  Text(
+                    'your financial is balance',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
