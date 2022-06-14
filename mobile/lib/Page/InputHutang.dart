@@ -18,13 +18,16 @@ class InputHutang extends StatelessWidget {
     UserModel user = authProvider.user;
     InputProvider inputProvider = Provider.of<InputProvider>(context);
 
-    handleSignIn() async {
+    handleContinue() async {
       if (await inputProvider.InputHutang(
         token: user.token,
         // rupiah: int.parse(rupiahController.text),
         utang: utangController.text,
         rupiah: int.parse(rupiahController.text),
-      )) ;
+      )) {
+        Navigator.pushNamed(context, '/category');
+      }
+      ;
       // print(int.parse(rupiahController.text));
       // print(utangController.text);
     }
@@ -157,7 +160,7 @@ class InputHutang extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextButton(
-                onPressed: handleSignIn,
+                onPressed: handleContinue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
