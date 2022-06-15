@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/input_Harta.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/widgets/appbar.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -10,93 +11,62 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  PageController _controller = PageController();
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 238, 238, 238),
-      body: SingleChildScrollView(
-        controller: _controller,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Color(0xff7F3DFF),
-                boxShadow: [
-                  BoxShadow(
-                      color: Color.fromARGB(255, 238, 238, 238),
-                      blurRadius: 10,
-                      spreadRadius: 5)
-                ],
+      body: Stack(
+        children: [
+          Positioned(
+            child: AppBarAll(),
+            bottom: 0,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  color: Color(0xff7F3DFF),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color.fromARGB(255, 238, 238, 238),
+                        blurRadius: 10,
+                        spreadRadius: 5)
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: 30,
+                    left: 10,
+                    right: 20,
+                    bottom: 10,
+                  ),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Categoryy',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 40,
+
                   left: 20,
                   right: 20,
                   bottom: 20,
                 ),
-                child: Row(
-                  children: const [
-                    Text(
-                      'Category',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
+
                     ),
+                    CategoryIdealBudget(),
                   ],
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                left: 10,
-                top: 30,
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 35,
-                right: 20,
-                bottom: 10,
-              ),
-              child: Text(
-                'Select Categori',
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CategoryBoxHarta(),
-                      CategoryBoxHutang(),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CategoryBoxPendapatan(),
-                      CategoryExpenditure(),
-                    ],
-                  ),
-                  CategoryIdealBudget(),
-                ],
-              ),
-            ),
-          ],
-        ),
+
       ),
     );
   }
