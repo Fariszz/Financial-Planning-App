@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:mobile/widgets/appbar.dart';
 
 class Transaction extends StatelessWidget {
   const Transaction({Key? key}) : super(key: key);
@@ -9,9 +8,55 @@ class Transaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
+          Container(
+            padding: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+            width: double.infinity,
+            color: Color(0xff7F3DFF),
+            child: const Text(
+              'Transaction',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
+            child: const Text(
+              'Harta',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Column(
+            children: [
+              HartaBox(),
+              HartaBox(),
+              HartaBox(),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            margin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
+            child: const Text(
+              'Utang',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Column(
+            children: [
+              BoxHutang(),
+              BoxHutang(),
+              BoxHutang(),
             ],
           ),
         ],
