@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           routes: {
-            '/': (context) => LoginScreen(),
+            '/': (context) => Transaction(),
             // '/register': (context) => RegisterScreen(),
             // '/login': (context) => LoginScreen(),
             '/inputHutang': (context) => InputHutang(),
