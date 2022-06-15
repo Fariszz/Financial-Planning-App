@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
-import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
+import '../providers/input_provider.dart';
 
-class InputHutang extends StatelessWidget {
-  InputHutang({Key? key}) : super(key: key);
+class InputPendapatan extends StatelessWidget {
+  InputPendapatan({Key? key}) : super(key: key);
 
   TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController utangController = TextEditingController(text: '');
+  TextEditingController penhasilanController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,16 @@ class InputHutang extends StatelessWidget {
     UserModel user = authProvider.user;
     InputProvider inputProvider = Provider.of<InputProvider>(context);
 
-    handleSignIn() async {
-      if (await inputProvider.InputHutang(
+    handleContinue() async {
+      if (await inputProvider.InputPendapatan(
         token: user.token,
         // rupiah: int.parse(rupiahController.text),
-        utang: utangController.text,
+        penhasilan: penhasilanController.text,
         rupiah: int.parse(rupiahController.text),
-      )) ;
+      )) {
+        Navigator.pushNamed(context, '/category');
+      }
+      ;
       // print(int.parse(rupiahController.text));
       // print(utangController.text);
     }
@@ -62,9 +65,9 @@ class InputHutang extends StatelessWidget {
                       },
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 80),
+                      padding: EdgeInsets.only(left: 70),
                       child: Text(
-                        'Input Hutang',
+                        'Input Pendapatan',
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
@@ -120,7 +123,7 @@ class InputHutang extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        "Name Needs",
+                        "Name Expense",
                         style: TextStyle(
                             fontSize: 15,
                             color: Colors.black,
@@ -133,14 +136,15 @@ class InputHutang extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: TextField(
-                        controller: utangController,
+                        controller: penhasilanController,
                         cursorColor: Colors.black,
                         style: const TextStyle(
                             fontSize: 16,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                         decoration: const InputDecoration(
-                            hintText: 'Enter Needs', border: InputBorder.none),
+                            hintText: 'Enter expense Name',
+                            border: InputBorder.none),
                       ),
                     ),
                   ],
@@ -157,7 +161,7 @@ class InputHutang extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextButton(
-                onPressed: handleSignIn,
+                onPressed: handleContinue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [

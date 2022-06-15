@@ -24,6 +24,8 @@ class UserModel {
     token = json['token'].toString();
   }
 
+ 
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -34,4 +36,8 @@ class UserModel {
       'token': token,
     };
   }
+
+  // Get username to Profile
+   get _name => name;
+   get _email => email;
 }

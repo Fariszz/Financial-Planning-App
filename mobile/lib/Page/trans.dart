@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class Transaction extends StatelessWidget {
@@ -9,32 +11,19 @@ class Transaction extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: Text(
-              'Mey',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            'Transaction',
-            style: TextStyle(
-              fontSize: 18,
+          Container(
+            padding: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+            width: double.infinity,
+            color: Color(0xff7F3DFF),
+            child: const Text(
+              'Transaction',
+              style: TextStyle(fontSize: 18, color: Colors.white),
             ),
           ),
           Container(
             margin: EdgeInsets.all(8),
             padding: EdgeInsets.all(8),
-            child: Text(
+            child: const Text(
               'Harta',
               style: TextStyle(
                 fontSize: 18,
@@ -42,153 +31,20 @@ class Transaction extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Column(
             children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.green,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
+              HartaBox(),
+              HartaBox(),
+              HartaBox(),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.green,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.green,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.green,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
-            child: Text(
+            margin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
+            child: const Text(
               'Utang',
               style: TextStyle(
                 fontSize: 18,
@@ -196,113 +52,91 @@ class Transaction extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Column(
             children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.red,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.red,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Mobil',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Rp 1.000.000',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.red,
-                ),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.edit),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.delete),
-                  ),
-                ],
-              ),
+              BoxHutang(),
+              BoxHutang(),
+              BoxHutang(),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  BoxHutang() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        const Text(
+          'Mobil',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const Text(
+          'Rp 1.000.000',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.red,
+          ),
+        ),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Icon(Icons.edit),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Icon(Icons.delete),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  HartaBox() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        const Text(
+          'Mobil',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const Text(
+          'Rp 1.000.000',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.green,
+          ),
+        ),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Icon(Icons.edit),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Icon(Icons.delete),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

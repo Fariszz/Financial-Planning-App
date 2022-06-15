@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Widgets/Navigator_bar.dart';
+import 'package:mobile/models/user_model.dart';
+import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/input_provider.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     return Scaffold(
       body: Column(
         children: [
@@ -25,17 +32,17 @@ class Profile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Username',
-                    style: TextStyle(
-                      fontSize: 14,
+                    '${user.name}',
+                    style: const TextStyle(
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    'Iriana Saliha',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
+                    '${user.email}',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
