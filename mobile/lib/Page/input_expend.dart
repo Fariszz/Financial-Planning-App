@@ -1,36 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile/Page/pages.dart';
-import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
-import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
-class InputHutang extends StatelessWidget {
-  InputHutang({Key? key}) : super(key: key);
+class InputExpend extends StatelessWidget {
+  InputExpend({Key? key}) : super(key: key);
 
   TextEditingController rupiahController = TextEditingController(text: '');
   TextEditingController utangController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
-    InputProvider inputProvider = Provider.of<InputProvider>(context);
+    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
-    handleContinue() async {
-      if (await inputProvider.InputHutang(
-        token: user.token,
-        // rupiah: int.parse(rupiahController.text),
-        utang: utangController.text,
-        rupiah: int.parse(rupiahController.text),
-      )) {
-        Navigator.pushNamed(context, '/category');
-      }
-      ;
-      // print(int.parse(rupiahController.text));
-      // print(utangController.text);
-    }
+    // handleSignIn() async {
+    //   if (await authProvider.InputHarta(
+    //     rupiah: int.parse(rupiahController.text),
+    //     utang: utangController.text,
+    //   )) {
+    //     Navigator.pushNamed(context, '/home');
+    //   }
+
+    //   print(rupiahController.text);
+    //   print(utangController.text);
+    // }
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -67,7 +61,7 @@ class InputHutang extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(left: 80),
                       child: Text(
-                        'Input Hutang',
+                        'Input Expend',
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
@@ -160,7 +154,8 @@ class InputHutang extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextButton(
-                onPressed: handleContinue,
+                // onPressed: handleSignIn,
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -184,6 +179,46 @@ class InputHutang extends StatelessWidget {
           ],
         ),
       ),
+      // bottomNavigationBar: Container(
+      //   color: const Color(0xff7F3DFF),
+      //   child: const Padding(
+      //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      //     child: GNav(
+      //       backgroundColor: Color(0xff7F3DFF),
+      //       color: Colors.black,
+      //       activeColor: Colors.black,
+      //       tabBackgroundColor: Colors.white,
+      //       padding: EdgeInsets.all(15),
+      //       gap: 5,
+      //       duration: Duration(milliseconds: 600),
+      //       tabs: [
+      //         GButton(
+      //           icon: Icons.home,
+      //           text: "Home",
+      //         ),
+      //         GButton(
+      //           icon: Icons.favorite,
+      //           text: "Favorite",
+      //         ),
+      //         GButton(
+      //           icon: Icons.search,
+      //           text: "Search",
+      //         ),
+      //         GButton(
+      //           icon: Icons.money,
+      //           text: "Money",
+      //         ),
+      //       ],
+      //       // onTabChange: (index) {
+      //       //   setState(() {
+      //       //     _selectedIndex = index;
+      //       //   });
+      //       //   _controller.jumpToPage(index);
+      //       // },
+      //       // selectedIndex: _selectedIndex,
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

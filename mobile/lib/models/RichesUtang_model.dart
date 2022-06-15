@@ -7,12 +7,12 @@ class RichesUtangModel {
     required this.rupiah,
   });
 
-  RichesUtangModel.fromJson(Map<String, dynamic> json) {
+  RichesUtangModel.fromJson(Map<dynamic, dynamic> json) {
     utang = json['utang'];
     rupiah = json['rupiah'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<dynamic, dynamic> toJson() {
     return {
       'utang': utang,
       'rupiah': rupiah,

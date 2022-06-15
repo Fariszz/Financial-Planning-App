@@ -6,11 +6,11 @@ import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
-class InputHutang extends StatelessWidget {
-  InputHutang({Key? key}) : super(key: key);
+class InputHarta extends StatelessWidget {
+  InputHarta({Key? key}) : super(key: key);
 
   TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController utangController = TextEditingController(text: '');
+  TextEditingController hartaController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,10 @@ class InputHutang extends StatelessWidget {
     InputProvider inputProvider = Provider.of<InputProvider>(context);
 
     handleContinue() async {
-      if (await inputProvider.InputHutang(
+      if (await inputProvider.InputHarta(
         token: user.token,
         // rupiah: int.parse(rupiahController.text),
-        utang: utangController.text,
+        harta: hartaController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
         Navigator.pushNamed(context, '/category');
@@ -67,7 +67,7 @@ class InputHutang extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(left: 80),
                       child: Text(
-                        'Input Hutang',
+                        'Input Harta',
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
@@ -136,7 +136,7 @@ class InputHutang extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: TextField(
-                        controller: utangController,
+                        controller: hartaController,
                         cursorColor: Colors.black,
                         style: const TextStyle(
                             fontSize: 16,

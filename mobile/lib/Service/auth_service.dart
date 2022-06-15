@@ -44,16 +44,21 @@ class AuthService {
 
   //Login Service
 
-  Future<UserLoginModel?> login(
+  Future<UserModel?> login(
     String? email,
     String? password,
   ) async {
     var url = '$baseUrl/login';
-    var headers = {'Content-Type': 'application/json'};
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
     var body = jsonEncode({
       'email': email,
       'password': password,
     });
+    print(body);
     var response =
         await http.post(Uri.parse(url), headers: headers, body: body);
 
@@ -61,13 +66,12 @@ class AuthService {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
-      UserLoginModel user = UserLoginModel.fromJson(data['user']);
+      UserModel user = UserModel.fromJson(data['user']);
+      user.token = 'Bearer ' + data['access_token'];
 
       return user;
     } else {
       throw Exception('Failed to Login :)');
     }
   }
-
-  
 }
