@@ -49,6 +49,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
   </ol>
 </details>
 
@@ -58,6 +60,8 @@
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+Project Financial Planning App adalah project aplikasi yang bertujuan untuk melakukan perencanaan keuangan pada keluarga atau individu.Pengguna dapat mencapai tujuan yang efektif,efisien, dan bermanfaat,sehingga keluarga tersebut dapat menjadi keluarga yang sejahtera.Secara umum, aplikasi ini akan mengolah penghasilan anda untuk mencapai tujuan finansial yang baik.
 
 Project ini untuk sekarang  dikembangkan oleh <a href="https://github.com/Treenzzgod/">Giovanni Iqbal</a> , <a href="https://github.com/GalihPrev/">Galih Previand</a> , <a href="https://github.com/Fariszz/">Muhammad Faris</a>,Project aplikasi ini kamu buat untuk memenuhi Ujian Akhir Semester matakuliah Pemrograman Mobile yang dibimbing oleh Pak <a href="https://github.com/siubie"> Putra Prima Arhandi, ST, M.Kom</a>.
 
@@ -96,7 +100,7 @@ Software yang dibutuhkan untuk menjalankan aplikasi ini pada host anda
 ### Installation
 
 <!-- _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._ -->
-_Dibawah ini adalah instruksi untuk melakukan instalansi pada repository ini._
+_DIbawah ini adalah instruksi untuk melakukan instalansi pada repository ini._
 
 1. Get a postman API at [postman](https://www.getpostman.com/collections/dc3394914a41c06d15b6)
 2. Clone the repo
