@@ -92,12 +92,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: const [
                               Text(
                                 "Sign In",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
                               ),
                             ],
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
+                            primary: Color(0xff7F3DFF),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             onPrimary: Colors.black,
@@ -134,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(10)),
                                 onPrimary: Colors.white,
                                 padding: const EdgeInsets.symmetric(
-                                  horizontal: 30,
+                                  horizontal: 35,
                                 ),
                               ),
                               icon: const Icon(

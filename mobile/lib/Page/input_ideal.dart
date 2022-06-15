@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
 class InputIdeal extends StatelessWidget {
   InputIdeal({Key? key}) : super(key: key);
 
   TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController utangController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
-    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+    InputProvider inputProvider = Provider.of<InputProvider>(context);
 
-    // handleSignIn() async {
-    //   if (await authProvider.InputHarta(
-    //     rupiah: int.parse(rupiahController.text),
-    //     utang: utangController.text,
-    //   )) {
-    //     Navigator.pushNamed(context, '/home');
-    //   }
-
-    //   print(rupiahController.text);
-    //   print(utangController.text);
-    // }
+    handleContinue() async {
+      if (await inputProvider.InputIdealBudget(
+        token: user.token,
+        total_penghasilan: int.parse(rupiahController.text),
+      )) {
+        Navigator.pushNamed(context, '/category');
+        print(int.parse(rupiahController.text));
+      }
+      ;
+    }
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -99,45 +101,8 @@ class InputIdeal extends StatelessWidget {
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                         decoration: const InputDecoration(
-                            hintText: 'Enter Amount', border: InputBorder.none),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              elevation: 5,
-            ),
-            Card(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, top: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
-                        "Name Needs",
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: TextField(
-                        controller: utangController,
-                        cursorColor: Colors.black,
-                        style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                        decoration: const InputDecoration(
-                            hintText: 'Enter Needs', border: InputBorder.none),
+                            hintText: 'Enter Ideal Budget',
+                            border: InputBorder.none),
                       ),
                     ),
                   ],
@@ -154,8 +119,7 @@ class InputIdeal extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextButton(
-                // onPressed: handleSignIn,
-                onPressed: () {},
+                onPressed: handleContinue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -179,46 +143,6 @@ class InputIdeal extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   color: const Color(0xff7F3DFF),
-      //   child: const Padding(
-      //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      //     child: GNav(
-      //       backgroundColor: Color(0xff7F3DFF),
-      //       color: Colors.black,
-      //       activeColor: Colors.black,
-      //       tabBackgroundColor: Colors.white,
-      //       padding: EdgeInsets.all(15),
-      //       gap: 5,
-      //       duration: Duration(milliseconds: 600),
-      //       tabs: [
-      //         GButton(
-      //           icon: Icons.home,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.favorite,
-      //           text: "Favorite",
-      //         ),
-      //         GButton(
-      //           icon: Icons.search,
-      //           text: "Search",
-      //         ),
-      //         GButton(
-      //           icon: Icons.money,
-      //           text: "Money",
-      //         ),
-      //       ],
-      //       // onTabChange: (index) {
-      //       //   setState(() {
-      //       //     _selectedIndex = index;
-      //       //   });
-      //       //   _controller.jumpToPage(index);
-      //       // },
-      //       // selectedIndex: _selectedIndex,
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

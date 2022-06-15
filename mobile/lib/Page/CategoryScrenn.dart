@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/Page/InputHutang.dart';
+import 'package:mobile/Page/input_Harta.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/widgets/appbar.dart';
 
@@ -55,49 +55,18 @@ class _CategoryState extends State<Category> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  left: 10,
-                  top: 30,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  top: 10,
+
                   left: 20,
                   right: 20,
                   bottom: 20,
                 ),
-                child: Text(
-                  'Select Categori',
-                  style: TextStyle(fontSize: 15, color: Colors.black),
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CategoryBoxHarta(),
-                        CategoryBoxHutang(),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CategoryBoxPendapatan(),
-                        CategoryExpenditure(),
-                      ],
+
                     ),
                     CategoryIdealBudget(),
                   ],
                 ),
               ),
-            ],
-          ),
-        ],
+
       ),
     );
   }
@@ -107,12 +76,12 @@ class _CategoryState extends State<Category> {
       padding: EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) => InputHarta(),
-          //     ),
-          //   );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InputHarta(),
+            ),
+          );
         },
         child: Container(
           margin: EdgeInsets.all(10),
@@ -133,7 +102,7 @@ class _CategoryState extends State<Category> {
             ],
           ),
           child: Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 20,
               bottom: 10,
             ),
@@ -197,7 +166,7 @@ class _CategoryState extends State<Category> {
           );
         },
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 150,
           height: 150,
           decoration: BoxDecoration(
@@ -212,7 +181,7 @@ class _CategoryState extends State<Category> {
                     blurRadius: 10)
               ]),
           child: Padding(
-            padding: EdgeInsets.only(left: 20, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -267,7 +236,7 @@ class _CategoryState extends State<Category> {
           );
         },
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 150,
           height: 150,
           decoration: BoxDecoration(
@@ -282,7 +251,7 @@ class _CategoryState extends State<Category> {
                     blurRadius: 10)
               ]),
           child: Padding(
-            padding: EdgeInsets.only(left: 20, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -337,7 +306,7 @@ class _CategoryState extends State<Category> {
           );
         },
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 150,
           height: 150,
           decoration: BoxDecoration(
@@ -352,7 +321,7 @@ class _CategoryState extends State<Category> {
                     blurRadius: 10)
               ]),
           child: Padding(
-            padding: EdgeInsets.only(left: 20, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
