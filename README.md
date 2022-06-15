@@ -142,12 +142,12 @@ _Dibawah ini adalah instruksi untuk melakukan instalansi pada repository ini._
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Fariszz/Financial-Planning-App.svg?style=for-the-badge
 [contributors-url]: https://github.com/Fariszz/Financial-Planning-App/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Fariszz/Financial-Planning-App.svg?style=for-the-badge
 [forks-url]: https://github.com/Fariszz/Financial-Planning-App/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Fariszz/Financial-Planning-App.svg?style=for-the-badge
 [stars-url]: https://github.com/Fariszz/Financial-Planning-App/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/bitbucket/issues-raw/Fariszz/Financial-Planning-App.svg?style=for-the-badge
 [issues-url]: https://github.com/Fariszz/Financial-Planning-App/issues
 [product-screenshot]: images/screenshot.png
