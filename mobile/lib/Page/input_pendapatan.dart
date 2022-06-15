@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
+import '../providers/input_provider.dart';
 
 class InputPendapatan extends StatelessWidget {
   InputPendapatan({Key? key}) : super(key: key);
 
   TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController utangController = TextEditingController(text: '');
+  TextEditingController penhasilanController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
-    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+    InputProvider inputProvider = Provider.of<InputProvider>(context);
 
-    // handleSignIn() async {
-    //   if (await authProvider.InputHarta(
-    //     rupiah: int.parse(rupiahController.text),
-    //     utang: utangController.text,
-    //   )) {
-    //     Navigator.pushNamed(context, '/home');
-    //   }
-
-    //   print(rupiahController.text);
-    //   print(utangController.text);
-    // }
+    handleContinue() async {
+      if (await inputProvider.InputPendapatan(
+        token: user.token,
+        // rupiah: int.parse(rupiahController.text),
+        penhasilan: penhasilanController.text,
+        rupiah: int.parse(rupiahController.text),
+      )) {
+        Navigator.pushNamed(context, '/category');
+      }
+      ;
+      // print(int.parse(rupiahController.text));
+      // print(utangController.text);
+    }
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -59,7 +65,7 @@ class InputPendapatan extends StatelessWidget {
                       },
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 80),
+                      padding: EdgeInsets.only(left: 70),
                       child: Text(
                         'Input Pendapatan',
                         style: TextStyle(fontSize: 20, color: Colors.white),
@@ -117,7 +123,7 @@ class InputPendapatan extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        "Name Needs",
+                        "Name Expense",
                         style: TextStyle(
                             fontSize: 15,
                             color: Colors.black,
@@ -130,14 +136,15 @@ class InputPendapatan extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: TextField(
-                        controller: utangController,
+                        controller: penhasilanController,
                         cursorColor: Colors.black,
                         style: const TextStyle(
                             fontSize: 16,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                         decoration: const InputDecoration(
-                            hintText: 'Enter Needs', border: InputBorder.none),
+                            hintText: 'Enter expense Name',
+                            border: InputBorder.none),
                       ),
                     ),
                   ],
@@ -154,8 +161,7 @@ class InputPendapatan extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: TextButton(
-                // onPressed: handleSignIn,
-                onPressed: () {},
+                onPressed: handleContinue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -179,46 +185,6 @@ class InputPendapatan extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   color: const Color(0xff7F3DFF),
-      //   child: const Padding(
-      //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      //     child: GNav(
-      //       backgroundColor: Color(0xff7F3DFF),
-      //       color: Colors.black,
-      //       activeColor: Colors.black,
-      //       tabBackgroundColor: Colors.white,
-      //       padding: EdgeInsets.all(15),
-      //       gap: 5,
-      //       duration: Duration(milliseconds: 600),
-      //       tabs: [
-      //         GButton(
-      //           icon: Icons.home,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.favorite,
-      //           text: "Favorite",
-      //         ),
-      //         GButton(
-      //           icon: Icons.search,
-      //           text: "Search",
-      //         ),
-      //         GButton(
-      //           icon: Icons.money,
-      //           text: "Money",
-      //         ),
-      //       ],
-      //       // onTabChange: (index) {
-      //       //   setState(() {
-      //       //     _selectedIndex = index;
-      //       //   });
-      //       //   _controller.jumpToPage(index);
-      //       // },
-      //       // selectedIndex: _selectedIndex,
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

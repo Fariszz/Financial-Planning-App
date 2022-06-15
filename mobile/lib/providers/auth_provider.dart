@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mobile/Page/InputHutang.dart';
+import 'package:mobile/Page/Input_Hutang.dart';
 import 'package:mobile/Service/auth_service.dart';
 import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/models/user_model.dart';
