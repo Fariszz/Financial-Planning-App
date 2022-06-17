@@ -5,6 +5,7 @@ import 'package:mobile/Page/pages.dart';
 // import 'package:mobile/Page/stats.dart';
 import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/get_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -23,15 +24,16 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => AuthProvider()),
           ChangeNotifierProvider(create: (context) => InputProvider()),
+          ChangeNotifierProvider(create: (context) => GetProvider()),
         ],
         child: MaterialApp(
           routes: {
-            '/': (context) => Transaction(),
+            '/': (context) => LoginScreen(),
             // '/register': (context) => RegisterScreen(),
             // '/login': (context) => LoginScreen(),
             '/inputHutang': (context) => InputHutang(),
             '/trans': (context) => Transaction(),
-            '/home': (context) => Profile(),
+            '/home': (context) => Transaction( ),
           },
         ));
   }
