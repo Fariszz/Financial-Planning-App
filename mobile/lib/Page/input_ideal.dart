@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class InputIdeal extends StatelessWidget {
   InputIdeal({Key? key}) : super(key: key);
 
-  TextEditingController rupiahController = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,9 @@ class InputIdeal extends StatelessWidget {
       if (await inputProvider.InputIdealBudget(
         token: user.token,
         total_penghasilan: int.parse(rupiahController.text),
-      )) {
+      )){
         Navigator.pushNamed(context, '/category');
-        print(int.parse(rupiahController.text));
       }
-      ;
     }
 
     Size size = MediaQuery.of(context).size;
