@@ -68,10 +68,10 @@ class AppBarAll extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.wallet,
-                    color: Colors.grey,
-                  ),
+                  // Icon(
+                  //   Icons.wallet,
+                  //   color: Colors.grey,
+                  // ),
                   Text(
                     "Trasaction",
                     style: TextStyle(
