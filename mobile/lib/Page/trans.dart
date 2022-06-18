@@ -48,7 +48,7 @@ class Transaction extends StatelessWidget {
                 .toList(),
           ),
           const SizedBox(
-            height: 20,
+            height: 20, 
           ),
           Container(
             margin: const EdgeInsets.all(8),
@@ -156,8 +156,9 @@ class TransactionCardHarta extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
-          // harta.harta,
-          '${harta.harta}',
+          harta.harta,
+
+          // '${harta.harta}',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
