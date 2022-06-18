@@ -1,19 +1,19 @@
-class RichesUtangModel {
+class RichesUtangModel {  
   late String utang;
   late int rupiah;
 
-  RichesUtangModel({
+  RichesUtangModel({    
     required this.utang,
     required this.rupiah,
   });
 
-  RichesUtangModel.fromJson(Map<dynamic, dynamic> json) {
+  RichesUtangModel.fromJson(Map<String, dynamic> json) {    
     utang = json['utang'];
-    rupiah = json['rupiah'];
+    rupiah = json['rupiah'] as int;
   }
 
-  Map<dynamic, dynamic> toJson() {
-    return {
+  Map<String, dynamic> toJson() {
+    return {      
       'utang': utang,
       'rupiah': rupiah,
     };
