@@ -8,8 +8,8 @@ import 'package:provider/provider.dart';
 class InputHarta extends StatelessWidget {
   InputHarta({Key? key}) : super(key: key);
 
-  TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController hartaController = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController();
+  TextEditingController hartaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

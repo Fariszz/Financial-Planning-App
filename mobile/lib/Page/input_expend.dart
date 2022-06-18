@@ -8,8 +8,8 @@ import 'package:provider/provider.dart';
 class InputExpend extends StatelessWidget {
   InputExpend({Key? key}) : super(key: key);
 
-  TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController pengeluaranController = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController();
+  TextEditingController pengeluaranController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
