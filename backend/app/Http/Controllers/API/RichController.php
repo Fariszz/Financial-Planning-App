@@ -45,12 +45,14 @@ class RichController extends Controller
             Riches::where('users_id', Auth::user()->id)->update($data);
         }
 
-        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+        return ResponseFormatter::success(['data' => $data], 'Success', 200);
     }
 
     public function harta(){
         $data = RichesHarta::with('user')->where('users_id', Auth::user()->id)->get();
-        return ResponseFormatter::success($data);
+        return ResponseFormatter::success([
+            'data' => $data,
+        ], 'Success', 200);
     }
 
     public function postHarta(Request $request){
@@ -66,7 +68,7 @@ class RichController extends Controller
                 'rupiah' => $request->rupiah
             ]);
 
-            return ResponseFormatter::success($harta, 'Harta berhasil ditambahkan');
+            return ResponseFormatter::success(['harta' => $harta], 'Harta berhasil ditambahkan');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
         }
@@ -84,7 +86,7 @@ class RichController extends Controller
             $harta->rupiah = $request->rupiah;
             $harta->save();
 
-            return ResponseFormatter::success($harta, 'Harta berhasil diperbarui');
+            return ResponseFormatter::success(['harta' => $harta], 'Harta berhasil diperbarui');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
         }
@@ -96,7 +98,7 @@ class RichController extends Controller
             $harta = RichesHarta::find($id);
             $harta->delete();
 
-            return ResponseFormatter::success($harta, 'Harta berhasil dihapus');
+            return ResponseFormatter::success(['harta' => $harta], 'Harta berhasil dihapus');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }
@@ -106,7 +108,7 @@ class RichController extends Controller
     public function hutang(){
         $data = RichesUtang::where('users_id', Auth::user()->id)->get();
 
-        return ResponseFormatter::success($data);
+        return ResponseFormatter::success(['data' => $data], 'Success', 200);
     }
 
     public function postHutang(Request $request){
@@ -122,7 +124,7 @@ class RichController extends Controller
                 'rupiah' => $request->rupiah
             ]);
 
-            return ResponseFormatter::success($hutang, 'Hutang berhasil ditambahkan');
+            return ResponseFormatter::success(['hutang' => $hutang], 'Hutang berhasil ditambahkan');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
         }
@@ -140,7 +142,7 @@ class RichController extends Controller
             $hutang->rupiah = $request->rupiah;
             $hutang->save();
 
-            return ResponseFormatter::success($hutang, 'Hutang berhasil diperbarui');
+            return ResponseFormatter::success(['hutang' => $hutang], 'Hutang berhasil diperbarui');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
         }
@@ -152,7 +154,7 @@ class RichController extends Controller
             $hutang = RichesUtang::find($id);
             $hutang->delete();
 
-            return ResponseFormatter::success($hutang, 'Hutang berhasil dihapus');
+            return ResponseFormatter::success(['hutang' => $hutang], 'Hutang berhasil dihapus');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }
@@ -191,7 +193,9 @@ class RichController extends Controller
                 IdealBudget::where('users_id', Auth::user()->id)->update($data);
             }
 
-            return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+            return ResponseFormatter::success([
+                'data' => $data,
+            ]);
 
         } catch (Exception $e) {
             return ResponseFormatter::error($e->getMessage(), 'gagal menambah data');
@@ -200,14 +204,14 @@ class RichController extends Controller
 
     public function getIdealBudget(){
         $data = IdealBudget::where('users_id', Auth::user()->id)->first();
-        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+        return ResponseFormatter::success(['data' => $data], 'Data berhasil diperbarui');
     }
 
     //* Income
 
     public function income(){
         $data = Income::with('users')->where('users_id', Auth::user()->id)->get();
-        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+        return ResponseFormatter::success(['data' => $data], 'Data berhasil diperbarui');
     }
 
     public function postIncome(Request $request){
@@ -223,7 +227,7 @@ class RichController extends Controller
                 'rupiah' => $request->rupiah
             ]);
 
-            return ResponseFormatter::success($income, 'Penghasilan berhasil ditambahkan');
+            return ResponseFormatter::success(['income' => $income], 'Penghasilan berhasil ditambahkan');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
         }
@@ -242,7 +246,7 @@ class RichController extends Controller
             $income->rupiah = $request->rupiah;
             $income->save();
 
-            return ResponseFormatter::success($income, 'Penghasilan berhasil diperbarui');
+            return ResponseFormatter::success(['income' => $income], 'Penghasilan berhasil diperbarui');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
         }
@@ -254,7 +258,7 @@ class RichController extends Controller
             $income = Income::find($id);
             $income->delete();
 
-            return ResponseFormatter::success($income, 'Penghasilan berhasil dihapus');
+            return ResponseFormatter::success(['income' => $income], 'Penghasilan berhasil dihapus');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }
@@ -263,7 +267,7 @@ class RichController extends Controller
     // Expenditure
     public function expenditure(){
         $data = Expenditure::with('users')->where('users_id', Auth::user()->id)->get();
-        return ResponseFormatter::success($data, 'Data berhasil diperbarui');
+        return ResponseFormatter::success(['data' => $data], 'Data berhasil diperbarui');
     }
 
     public function postExpenditure(Request $request){
@@ -279,7 +283,7 @@ class RichController extends Controller
                 'rupiah' => $request->rupiah
             ]);
 
-            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil ditambahkan');
+            return ResponseFormatter::success(['expenditure' => $expenditure], 'Pengeluaran berhasil ditambahkan');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menambah data');
         }
@@ -297,7 +301,7 @@ class RichController extends Controller
             $expenditure->rupiah = $request->rupiah;
             $expenditure->save();
 
-            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil diperbarui');
+            return ResponseFormatter::success(['expenditure' => $expenditure], 'Pengeluaran berhasil diperbarui');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal mengubah data');
         }
@@ -309,7 +313,7 @@ class RichController extends Controller
             $expenditure = Expenditure::find($id);
             $expenditure->delete();
 
-            return ResponseFormatter::success($expenditure, 'Pengeluaran berhasil dihapus');
+            return ResponseFormatter::success(['expenditure' => $expenditure], 'Pengeluaran berhasil dihapus');
         } catch (Exception $error) {
             return ResponseFormatter::error($error->getMessage(), 'gagal menghapus data');
         }

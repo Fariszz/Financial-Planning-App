@@ -163,7 +163,6 @@ class InputService {
 
   // Input IdealBudget
   Future<RichesIdealBudgetModel> InputIdealBudget(
-
     String token,
     int total_penghasilan,
   ) async {
@@ -187,10 +186,8 @@ class InputService {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
-      // RichesUtangModel idealBudget = RichesUtangModel.fromJson(data['rupiah']);
       RichesIdealBudgetModel total_penghasilan =
-          RichesIdealBudgetModel.fromJson(json.decode(data['total_penghasilan']));
-
+          RichesIdealBudgetModel.fromJson(data['data']);
       return total_penghasilan;
     } else {
       throw Exception('Failed to add data ideal-budget :)');
