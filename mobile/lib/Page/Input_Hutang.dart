@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 class InputHutang extends StatelessWidget {
   InputHutang({Key? key}) : super(key: key);
 
-  TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController utangController = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController();
+  TextEditingController utangController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,12 @@ class InputHutang extends StatelessWidget {
 
     handleContinue() async {
       if (await inputProvider.InputHutang(
-        token: user.token,
-        // rupiah: int.parse(rupiahController.text),
+        token: user.token,        
         utang: utangController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
         Navigator.pushNamed(context, '/category');
       }
-      ;
       // print(int.parse(rupiahController.text));
       // print(utangController.text);
     }

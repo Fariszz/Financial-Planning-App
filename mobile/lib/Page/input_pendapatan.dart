@@ -9,8 +9,8 @@ import '../providers/input_provider.dart';
 class InputPendapatan extends StatelessWidget {
   InputPendapatan({Key? key}) : super(key: key);
 
-  TextEditingController rupiahController = TextEditingController(text: '');
-  TextEditingController penhasilanController = TextEditingController(text: '');
+  TextEditingController rupiahController = TextEditingController();
+  TextEditingController penhasilanController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

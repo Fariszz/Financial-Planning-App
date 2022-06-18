@@ -8,7 +8,7 @@ class RichesPendapatanModel {
   });
 
   RichesPendapatanModel.fromJson(Map<String, dynamic> json) {
-    rupiah = json['rupiah'];
+    rupiah = json['rupiah'] as int;
     penghasilan = json['penghasilan'];
   }
 

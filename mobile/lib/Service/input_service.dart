@@ -42,7 +42,7 @@ class InputService {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel utang = RichesUtangModel.fromJson(data['utang']);
       RichesUtangModel utang =
-          RichesUtangModel.fromJson(json.decode(data['utang']));
+          RichesUtangModel.fromJson((data['hutang']));
 
       return utang;
     } else {
@@ -79,7 +79,7 @@ class InputService {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel utang = RichesUtangModel.fromJson(data['utang']);
       RichesHartaModel utang =
-          RichesHartaModel.fromJson(json.decode(data['harta']));
+          RichesHartaModel.fromJson(data['harta']);
 
       return utang;
     } else {
@@ -116,7 +116,7 @@ class InputService {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel penghasilan = RichesUtangModel.fromJson(data['penghasilan']);
       RichesPendapatanModel penghasilan =
-          RichesPendapatanModel.fromJson(json.decode(data['penghasilan']));
+          RichesPendapatanModel.fromJson(data['income']);
 
       return penghasilan;
     } else {
@@ -153,7 +153,7 @@ class InputService {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel pengeluaran = RichesUtangModel.fromJson(data['pengeluaran']);
       RichesExpendModel pengeluaran =
-          RichesExpendModel.fromJson(json.decode(data['pengeluaran']));
+          RichesExpendModel.fromJson(data['expenditure']);
 
       return pengeluaran;
     } else {
