@@ -5,6 +5,8 @@ import 'package:mobile/Page/pages.dart';
 // import 'package:mobile/Page/stats.dart';
 import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/harta_provider.dart';
+import 'package:mobile/providers/hutang_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
@@ -26,6 +28,11 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => AuthProvider()),
           ChangeNotifierProvider(create: (context) => InputProvider()),
+          ChangeNotifierProvider(create: (context) => HartaProvider()),
+          ChangeNotifierProvider(create: (context) => HutangProvider()),
+          ChangeNotifierProvider(create: (context) => PendapatanProvider()),
+          ChangeNotifierProvider(create: (context) => PengeluaranProvider()),
+          
         ],
         child: MaterialApp(
           routes: {
@@ -36,7 +43,7 @@ class MyApp extends StatelessWidget {
             '/checkWallet':(context) => CheckWallet(),
             '/inputHutang': (context) => InputHutang(),
             '/trans': (context) => Transaction(),
-            '/home': (context) => Transaction( ),
+            '/home': (context) => Profile(),
           },
         ));
   }
