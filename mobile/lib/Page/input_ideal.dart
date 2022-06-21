@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/input_ideal_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,13 +16,13 @@ class InputIdeal extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    InputProvider inputProvider = Provider.of<InputProvider>(context);
+    InputIdealProvider inputProvider = Provider.of<InputIdealProvider>(context);
 
     handleContinue() async {
-      if (await inputProvider.InputIdealBudget(
+      if (await inputProvider.InputIdeal(
         token: user.token,
         total_penghasilan: int.parse(rupiahController.text),
-      )){
+      )) {
         Navigator.pushNamed(context, '/category');
       }
     }

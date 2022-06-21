@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
-import 'package:mobile/providers/input_provider.dart';
+import 'package:mobile/providers/input_hutang_provider.dart';
+
 import 'package:provider/provider.dart';
 
 class InputHutang extends StatelessWidget {
@@ -16,15 +17,16 @@ class InputHutang extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    InputProvider inputProvider = Provider.of<InputProvider>(context);
+    InputHutangProvider inputProvider =
+        Provider.of<InputHutangProvider>(context);
 
     handleContinue() async {
       if (await inputProvider.InputHutang(
-        token: user.token,        
+        token: user.token,
         utang: utangController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
-        Navigator.pushNamed(context, '/riches');
+        Navigator.pushNamed(context, '/category');
       }
       // print(int.parse(rupiahController.text));
       // print(utangController.text);
