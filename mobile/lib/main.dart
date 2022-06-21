@@ -7,6 +7,11 @@ import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/hutang_provider.dart';
+import 'package:mobile/providers/input_expend_provider.dart';
+import 'package:mobile/providers/input_harta_provider.dart';
+import 'package:mobile/providers/input_hutang_provider.dart';
+import 'package:mobile/providers/input_ideal_provider.dart';
+import 'package:mobile/providers/input_pendapatan_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
@@ -32,6 +37,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => HutangProvider()),
           ChangeNotifierProvider(create: (context) => PendapatanProvider()),
           ChangeNotifierProvider(create: (context) => PengeluaranProvider()),
+          ChangeNotifierProvider(create: (context) => InputExpendProvider()),
+          ChangeNotifierProvider(create: (context) => InputHartaProvider()),
+          ChangeNotifierProvider(create: (context) => InputHutangProvider()),
+          ChangeNotifierProvider(create: (context) => InputIdealProvider()),
+          ChangeNotifierProvider(create: (context) => InputPendapatanProvider())
           
         ],
         child: MaterialApp(
@@ -42,6 +52,7 @@ class MyApp extends StatelessWidget {
             '/riches':(context) => RichesPage(),
             '/checkWallet':(context) => CheckWallet(),
             '/inputHutang': (context) => InputHutang(),
+            '/inputHarta': (context) => InputHarta(),
             '/trans': (context) => Transaction(),
             '/home': (context) => Profile(),
           },

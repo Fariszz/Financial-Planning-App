@@ -24,7 +24,7 @@ class InputHarta extends StatelessWidget {
         harta: hartaController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
-        Navigator.pushNamed(context, '/category');
+        Navigator.pushNamed(context, '/home');
       }
       ;
       // print(int.parse(rupiahController.text));
