@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/harta_provider.dart';
 import 'package:provider/provider.dart';
 
 bool isVisible = false;
@@ -27,11 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/riches');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Email atau password salah')));
       }
-
-      print(emailController.text);
-      print(passwordController.text);
     }
 
     return MaterialApp(
