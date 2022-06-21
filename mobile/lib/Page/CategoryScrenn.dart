@@ -18,7 +18,6 @@ class _CategoryState extends State<Category> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 238, 238, 238),
       body: SingleChildScrollView(
-        controller: _controller,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,19 +32,24 @@ class _CategoryState extends State<Category> {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 40,
-                  left: 20,
-                  right: 20,
-                  bottom: 20,
-                ),
+                padding: EdgeInsets.only(top: 30, right: 20, bottom: 10),
                 child: Row(
-                  children: const [
-                    Text(
-                      'Category',
-                      style: TextStyle(
-                        fontSize: 20,
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
                         color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      },
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 70),
+                      child: Text(
+                        'Category',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
                   ],

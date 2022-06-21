@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
-import 'package:mobile/providers/input_provider.dart';
+import 'package:mobile/providers/input_harta_provider.dart';
+
 import 'package:provider/provider.dart';
 
 class InputHarta extends StatelessWidget {
@@ -15,7 +16,7 @@ class InputHarta extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    InputProvider inputProvider = Provider.of<InputProvider>(context);
+    InputHartaProvider inputProvider = Provider.of<InputHartaProvider>(context);
 
     handleContinue() async {
       if (await inputProvider.InputHarta(
@@ -24,7 +25,7 @@ class InputHarta extends StatelessWidget {
         harta: hartaController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/category');
       }
       ;
       // print(int.parse(rupiahController.text));

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/input_pendapatan_provider.dart';
 import 'package:provider/provider.dart';
 import '../providers/input_provider.dart';
 
@@ -16,13 +17,14 @@ class InputPendapatan extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    InputProvider inputProvider = Provider.of<InputProvider>(context);
+    InputPendapatanProvider inputProvider =
+        Provider.of<InputPendapatanProvider>(context);
 
     handleContinue() async {
       if (await inputProvider.InputPendapatan(
         token: user.token,
         // rupiah: int.parse(rupiahController.text),
-        penhasilan: penhasilanController.text,
+        penghasilan: penhasilanController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
         Navigator.pushNamed(context, '/category');
