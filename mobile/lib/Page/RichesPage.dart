@@ -35,138 +35,212 @@ class _RichesPageState extends State<RichesPage> {
 
   @override
   Widget build(BuildContext context) {
+    final sizeHeight = MediaQuery.of(context).size.height;
+    final sizeWidth = MediaQuery.of(context).size.width;
+
+    final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
     HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
     HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-            width: double.infinity,
-            color: Color(0xff7F3DFF),
-            child: const Text(
-              'Transaction',
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
-            child: const Text(
-              'Harta',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                width: double.infinity,
+                color: Color(0xff7F3DFF),
+                child: const Text(
+                  'Transaction',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
               ),
-            ),
-          ),
-          Column(
-            // children: hartaProvider.hartas
-            //     .map<Widget>((harta) => BoxHutang())
-            //     .toList(),
-            children: hartaProvider.hartas
-                .map<Widget>((harta) => HartaBox(harta))
-                .toList(),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            margin: const EdgeInsets.all(8),
-            padding: const EdgeInsets.all(8),
-            child: const Text(
-              'Utang',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+              Container(
+                margin: EdgeInsets.all(8),
+                padding: EdgeInsets.all(8),
+                child: const Text(
+                  'Harta',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
-            ),
+              Column(
+                // children: hartaProvider.hartas
+                //     .map<Widget>((harta) => BoxHutang())
+                //     .toList(),
+                children: hartaProvider.hartas
+                    .map<Widget>((harta) => HartaBox(harta))
+                    .toList(),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
+                child: const Text(
+                  'Utang',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Column(
+                children: hutangProvider.hutangs
+                    .map<Widget>((hutang) => BoxHutang(hutang))
+                    .toList(),
+              ),
+            ],
           ),
-          Column(
-            children: hutangProvider.hutangs
-                .map<Widget>((hutang) => BoxHutang(hutang))
-                .toList(),
-          ),
-        ],
+        ),
       ),
     );
   }
 
   BoxHutang(RichesUtangModel hutang) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Text(
-          hutang.utang,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        Text(
-          'Rp.' + hutang.rupiah.toString(),
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.red,
-          ),
-        ),
-        Row(
+    final sizeHeight = MediaQuery.of(context).size.height;
+    final sizeWidth = MediaQuery.of(context).size.width;
+    final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+
+    return SizedBox(
+      height: bodyHeight * 0.1,
+      child: ListView.builder(
+        itemCount: 1,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => Row(
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: const Icon(Icons.edit),
+            Container(
+              width: 250,
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+              // width: sizeWidth * 0.4,
+              // color: Colors.amber,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    hutang.utang,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 20,
+            Container(
+              width: 150,
+              child: Row(
+                children: [
+                  Container(
+                    // color: Colors.red,
+                    // width: sizeWidth * 0.4,
+                    child: Text(
+                      'Rp. ' + hutang.rupiah.toString(),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 218, 3, 3),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Icon(
+                      Icons.expand_more_outlined,
+                      color: Color.fromARGB(255, 160, 11, 0),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Icon(Icons.delete),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Icon(Icons.delete),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 
   HartaBox(RichesHartaModel harta) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Text(
-          harta.harta,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        Text(
-          'Rp. ' + harta.rupiah.toString(),
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.green,
-          ),
-        ),
-        Row(
+    final sizeHeight = MediaQuery.of(context).size.height;
+    final sizeWidth = MediaQuery.of(context).size.width;
+    final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+
+    return SizedBox(
+      height: bodyHeight * 0.1,
+      child: ListView.builder(
+        itemCount: 1,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => Row(
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: const Icon(Icons.edit),
+            Container(
+              width: 250,
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+              // width: sizeWidth * 0.4,
+              // color: Colors.amber,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    harta.harta,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 20,
+            Container(
+              width: 150,
+              child: Row(
+                children: [
+                  Container(
+                    // color: Colors.red,
+                    // width: sizeWidth * 0.4,
+                    child: Text(
+                      'Rp. ' + harta.rupiah.toString(),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 81, 199, 85),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 5),
+                    child: Icon(
+                      Icons.expand_less_rounded,
+                      color: Color.fromARGB(255, 3, 158, 8),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Icon(Icons.delete),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Icon(Icons.delete),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }
