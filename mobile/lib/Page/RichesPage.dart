@@ -149,12 +149,9 @@ class _RichesPageState extends State<RichesPage> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Icon(
-                      Icons.expand_more_outlined,
-                      color: Color.fromARGB(255, 160, 11, 0),
-                    ),
+                  const Icon(
+                    Icons.expand_more_outlined,
+                    color: Color.fromARGB(255, 160, 11, 0),
                   ),
                 ],
               ),
