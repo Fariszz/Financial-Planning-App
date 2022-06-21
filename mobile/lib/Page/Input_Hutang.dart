@@ -24,7 +24,7 @@ class InputHutang extends StatelessWidget {
         utang: utangController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
-        Navigator.pushNamed(context, '/category');
+        Navigator.pushNamed(context, '/riches');
       }
       // print(int.parse(rupiahController.text));
       // print(utangController.text);
