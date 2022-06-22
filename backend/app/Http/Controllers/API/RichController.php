@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Auth;
 class RichController extends Controller
 {
 
+    public function getTotal(){
+        $data = Riches::where('users_id', Auth::user()->id)->get();
+
+        return  ResponseFormatter::success(['data' => $data], 'success', 200);
+    }
+
     public function total(){
         $total_harta = RichesHarta::where('users_id',Auth::user()->id)->sum('rupiah');
         $total_hutang = RichesUtang::where('users_id',Auth::user()->id)->sum('rupiah');

@@ -16,7 +16,6 @@ import 'package:mobile/providers/input_provider.dart';
 import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
 import 'package:provider/provider.dart';
-
 import 'Page/CheckWallet.dart';
 import 'Page/RegisterScrenn.dart';
 
@@ -44,6 +43,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => InputPendapatanProvider())
           
         ],
+
         child: MaterialApp(
           routes: {
             '/': (context) => LoginScreen(),
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             '/inputHutang': (context) => InputHutang(),
             '/inputHarta': (context) => InputHarta(),
             '/trans': (context) => Transaction(),
-            '/home': (context) => Profile(),
+            '/home': (context) => Home(),
           },
         ));
   }
