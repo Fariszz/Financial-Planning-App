@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RichesPage.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
+import 'package:mobile/Page/home_test.dart';
 import 'package:mobile/Page/pages.dart';
 // import 'package:mobile/Page/stats.dart';
 import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/hutang_provider.dart';
+import 'package:mobile/providers/ideal_budgets_provider.dart';
 import 'package:mobile/providers/input_expend_provider.dart';
 import 'package:mobile/providers/input_harta_provider.dart';
 import 'package:mobile/providers/input_hutang_provider.dart';
@@ -15,8 +17,8 @@ import 'package:mobile/providers/input_pendapatan_provider.dart';
 import 'package:mobile/providers/input_provider.dart';
 import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
+import 'package:mobile/providers/total_pendapatan_provider.dart';
 import 'package:provider/provider.dart';
-
 import 'Page/CheckWallet.dart';
 import 'Page/RegisterScrenn.dart';
 
@@ -41,9 +43,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => InputHartaProvider()),
           ChangeNotifierProvider(create: (context) => InputHutangProvider()),
           ChangeNotifierProvider(create: (context) => InputIdealProvider()),
-          ChangeNotifierProvider(create: (context) => InputPendapatanProvider())
-          
+          ChangeNotifierProvider(create: (context) => InputPendapatanProvider()),
+          ChangeNotifierProvider(create: (context) => IdealBudgetProvider()),
+          ChangeNotifierProvider(create: (context) => TotalPendapatanProvider()),
         ],
+
         child: MaterialApp(
           routes: {
             '/': (context) => LoginScreen(),
@@ -54,7 +58,7 @@ class MyApp extends StatelessWidget {
             '/inputHutang': (context) => InputHutang(),
             '/inputHarta': (context) => InputHarta(),
             '/trans': (context) => Transaction(),
-            '/home': (context) => Profile(),
+            '/home': (context) => HomeTestPage(),
           },
         ));
   }

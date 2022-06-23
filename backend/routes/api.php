@@ -23,6 +23,7 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/user', [AuthController::class, 'fetch']);
 
+        Route::get('/total', [RichController::class,'getTotal']);
         Route::post('/total',[RichController::class, 'total']);
 
         Route::post('/ideal-budget',[RichController::class, 'idealBudget']);
