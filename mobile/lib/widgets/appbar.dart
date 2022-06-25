@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/Page/RichesPage.dart';
 import 'package:mobile/Page/pages.dart';
 
 class AppBarAll extends StatelessWidget {
@@ -58,7 +59,7 @@ class AppBarAll extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Transaction(),
+                  builder: (context) => RichesPage(),
                 ),
               );
             },
@@ -68,10 +69,10 @@ class AppBarAll extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Icon(
-                  //   Icons.wallet,
-                  //   color: Colors.grey,
-                  // ),
+                  Icon(
+                    Icons.monetization_on ,
+                    color: Colors.grey,
+                  ),
                   Text(
                     "Trasaction",
                     style: TextStyle(
