@@ -21,7 +21,7 @@ class RichController extends Controller
     public function getTotal(){
         $data = Riches::where('users_id', Auth::user()->id)->get();
 
-        return  ResponseFormatter::success(['data' => $data], 'success', 200);
+        return  ResponseFormatter::success( $data, 'success', 200);
     }
 
     public function total(){
@@ -43,7 +43,7 @@ class RichController extends Controller
             'sisa_penghasilan' => $sisa_penghasilan,
         ];
 
-        $user = Riches::where('users_id', Auth::user()->id)->first();
+        $user = Riches::where('users_id', Auth::user()->id)->get();
         // dd($data);
         if ($user == null) {
             Riches::create($data);
