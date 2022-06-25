@@ -19,11 +19,14 @@ class TotalPendapatanService {
     var response = await http.get(Uri.parse(url), headers: headers);
 
     print(response.body);
-    
-    if (response.statusCode == 200) {
-      List data = jsonDecode(response.body)['data']['data'];
-      List<RichesModel> totals = [];
 
+    if (response.statusCode == 200) {
+      List data = jsonDecode(response.body)['data'];
+      
+      List<RichesModel> totals = [];
+      
+      // print(data[0]['total_harta']);
+      // print(data[0]['total_utang'])
       for (var item in data) {
         totals.add(RichesModel.fromJson(item));
       }
@@ -33,4 +36,29 @@ class TotalPendapatanService {
       throw Exception('Failed  to get data totals');
     }
   }
+
+  // Future<RichesModel> getTotal(String token) async {
+  //   var url = '$baseUrl/total';
+
+  //   var headers = {
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json',
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Authorization': token,
+  //   };
+
+  //   var response = await http.get(Uri.parse(url), headers: headers);
+
+  //   print("ini adalah response dari body");
+  //   print(response.body);
+
+  //   if (response.statusCode == 200) {
+  //     var data = jsonDecode(response.body)['data']['data'];
+
+  //     RichesModel total = RichesModel.fromJson(data);
+  //     return total;
+  //   } else {
+  //     throw Exception('Failed  to get data total');
+  //   }
+  // }
 }
