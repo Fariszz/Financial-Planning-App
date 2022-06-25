@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RichesPage.dart';
 import 'package:mobile/Page/LoginScrenn.dart';
-import 'package:mobile/Page/TestHome.dart';
+
 import 'package:mobile/Page/home_test.dart';
 import 'package:mobile/Page/pages.dart';
 // import 'package:mobile/Page/stats.dart';
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => LoginScreen(),
             // '/register': (context) => RegisterScreen(),
             // '/login': (context) => LoginScreen(),
-            '/riches': (context) => Home(),
+            '/riches': (context) => RichesPage(),
             '/category': (context) => Category(),
             '/checkWallet': (context) => CheckWallet(),
             '/inputHutang': (context) => InputHutang(),

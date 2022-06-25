@@ -24,7 +24,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
-    
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
@@ -34,14 +33,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
         password: passwordController.text,
         passwordConfirmation: passwordConfirmationController.text,
       )) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Register Berhasil Berhasil',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 94, 202, 98),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 2),
+        ));
         Navigator.pushNamed(context, '/home');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: Color.fromARGB(255, 243, 114, 104),
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             'Gagal Register',
             textAlign: TextAlign.center,
           ),
+          backgroundColor: Color.fromARGB(255, 241, 76, 64),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 1),
         ));
       }
     }
