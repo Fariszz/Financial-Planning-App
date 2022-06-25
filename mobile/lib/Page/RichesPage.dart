@@ -16,6 +16,7 @@ class RichesPage extends StatefulWidget {
 }
 
 class _RichesPageState extends State<RichesPage> {
+    static late RichesHartaModel hartaRemove;
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
@@ -35,6 +36,7 @@ class _RichesPageState extends State<RichesPage> {
 
   @override
   Widget build(BuildContext context) {
+     
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
 
@@ -171,6 +173,10 @@ class _RichesPageState extends State<RichesPage> {
   }
 
   HartaBox(RichesHartaModel harta) {
+
+
+    HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
+
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -230,7 +236,9 @@ class _RichesPageState extends State<RichesPage> {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    hartaProvider.removeHarta(hartaRemove.id);
+                  },
                   child: const Icon(Icons.delete),
                 ),
               ],

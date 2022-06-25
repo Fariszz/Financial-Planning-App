@@ -21,4 +21,8 @@ class HartaProvider with ChangeNotifier {
       print(e);
     }
   }
+  removeHarta(int id) {
+    _hartas.removeAt(id);
+    notifyListeners();
+  }
 }
