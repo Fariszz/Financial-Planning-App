@@ -1,6 +1,13 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
+import 'package:mobile/models/RichesModel.dart';
+import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/harta_provider.dart';
+import 'package:mobile/providers/total_pendapatan_provider.dart';
 import 'package:mobile/widgets/appbar.dart';
 import 'package:mobile/widgets/pie_chart.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,11 +19,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    HartaProvider hartaProvider = HartaProvider();
+
+    // RichesModel total = authProvider.totalPendapatans;
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: Stack(
         children: [
-          Positioned(
+          const Positioned(
             child: AppBarAll(),
             bottom: 0,
           ),
@@ -27,7 +38,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
                 color: Color(0xff7F3DFF),
-                child: Text(
+                child: const Text(
                   'Home',
                   style: TextStyle(
                     fontSize: 20,
@@ -37,115 +48,40 @@ class _HomeState extends State<Home> {
                 ),
               ),
               //appbar
-              PieChartSample2(),
+              // PieChartSample2(),
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Row(
+                  children: const [
+                    Text(
+                      'Your finalncial',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(20),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_circle_left_outlined,
-                          size: 40,
-                          color: Colors.green,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Harta',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 16,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.attach_money_outlined),
-                            Text(
-                              '2,545.50',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      HartaBox(),
+                      HutangBox(),
+                    ],
                   ),
-                  Container(
-                    margin: EdgeInsets.all(20),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_circle_right_outlined,
-                          size: 40,
-                          color: Colors.red,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Utang',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 16,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.attach_money_outlined),
-                            Text(
-                              '2,545.50',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      KekayaanBersihBox(),
+                      SIsaPenghasilanBox(),
+                    ],
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    'Financial',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
+
               Center(
                 child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
+                  width: double.infinity,
                   margin: EdgeInsets.all(20),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
@@ -153,15 +89,21 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    children: [
-                      Text('Status'),
-                      Text(
-                        'your financial is balance',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, bottom: 10),
+                        child: Text('Status'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          'your financial is balance',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -169,6 +111,190 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
+        ],
+      ),
+    );
+  }
+
+  Container SIsaPenghasilanBox() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.arrow_circle_left_outlined,
+            size: 40,
+            color: Colors.green,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            'Sisa Penghasilan',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 16,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: const [
+              Text(
+                ' Rp 2,545.50',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Container KekayaanBersihBox() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.arrow_circle_right_outlined,
+            size: 40,
+            color: Colors.red,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            'Kekayaan Bersih',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 16,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: const [
+              Text(
+                ' Rp 2,545.50',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Container HutangBox() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.arrow_circle_right_outlined,
+            size: 40,
+            color: Colors.red,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            'Utang',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 16,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: const [
+              Text(
+                ' Rp 2,545.50',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Container HartaBox() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.arrow_circle_left_outlined,
+            size: 40,
+            color: Colors.green,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            'Harta',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 16,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: const [
+              Text(
+                ' Rp 2,545.50',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
