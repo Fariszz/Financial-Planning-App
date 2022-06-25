@@ -15,6 +15,7 @@ class Riches extends Model
         'total_utang',
         'total_kekayaan_bersih',
         'sisa_penghasilan',
+        'status'
     ];
 
     public function user()
