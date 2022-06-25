@@ -28,10 +28,26 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/riches');
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Login Berhasil',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 94, 202, 98),
+           behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 2),
+        ));
+        Navigator.pushNamed(context, '/home');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Email atau password salah')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Email atau Password Salah ',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 241, 76, 64),
+              behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 1),
+        ));
       }
     }
 

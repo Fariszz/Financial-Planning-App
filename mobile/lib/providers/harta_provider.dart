@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:mobile/Service/harta_service.dart';
 
 import '../models/RichesHarta_model.dart';
@@ -14,13 +15,16 @@ class HartaProvider with ChangeNotifier {
   }
 
   Future<void> getHartas(String token) async {
-    try {      
+    try {
       List<RichesHartaModel> hartas = await HartaService().getHartas(token);
       _hartas = hartas;
     } catch (e) {
       print(e);
     }
   }
+
+ 
+
   removeHarta(int id) {
     _hartas.removeAt(id);
     notifyListeners();

@@ -41,8 +41,7 @@ class InputService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel utang = RichesUtangModel.fromJson(data['utang']);
-      RichesUtangModel utang =
-          RichesUtangModel.fromJson((data['hutang']));
+      RichesUtangModel utang = RichesUtangModel.fromJson((data['hutang']));
 
       return utang;
     } else {
@@ -78,8 +77,7 @@ class InputService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       // RichesUtangModel utang = RichesUtangModel.fromJson(data['utang']);
-      RichesHartaModel utang =
-          RichesHartaModel.fromJson(data['harta']);
+      RichesHartaModel utang = RichesHartaModel.fromJson(data['harta']);
 
       return utang;
     } else {

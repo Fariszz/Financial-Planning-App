@@ -13,7 +13,7 @@ class InputIdealProvider with ChangeNotifier{
     required int total_penghasilan,    
   }) async {
     try {
-      RichesIdealBudgetModel? inputIdeal = (await InputService().InputIdealBudget(
+      RichesIdealBudgetModel? inputIdealBudget = (await InputService().InputIdealBudget(
         token = token,
         total_penghasilan = total_penghasilan
       ));
