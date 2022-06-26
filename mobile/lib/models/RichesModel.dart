@@ -20,7 +20,7 @@ class RichesModel {
 
   RichesModel.fromJson(Map<String, dynamic> json) {
     totalHarta = json['total_harta'];
-    totalUtang = json['total_utang'];
+    totalUtang = json['total_utang'] ;
     totalKekayaanBersih = json['total_kekayaan_bersih'];
     status = json['status'];
     sisaPenghasilan = json['sisa_penghasilan'];

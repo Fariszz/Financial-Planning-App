@@ -18,8 +18,8 @@ class _HomeTestTestState extends State<HomeTestTest> {
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
-    await Provider.of<TotalPendapatanProvider>(context, listen: false)
-        .getTotals(authProvider.user.token);
+    // await Provider.of<TotalPendapatanProvider>(context, listen: false)
+    //     .getTotals(authProvider.user.token);
     setState(() => isLoading = false);
   }
 
@@ -60,9 +60,9 @@ class _HomeTestTestState extends State<HomeTestTest> {
                 ),
               ),
               Column(
-                children: totalPendapatanProvider.totalPendapatans
-                    .map((totalPendapatan) => Text(totalPendapatan.totalHarta.toString()))
-                    .toList(),
+                // children: totalPendapatanProvider.totalPendapatans
+                //     .map((totalPendapatan) => Text(totalPendapatan.totalHarta.toString()))
+                //     .toList(),
                 // children:  totalPendapatans
                 // children: hartaProvider.hartas
                 //     .map<Widget>((harta) => BoxHutang())

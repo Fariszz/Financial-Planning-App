@@ -19,9 +19,11 @@ class RichController extends Controller
 {
 
     public function getTotal(){
+        $this->total();
         $data = Riches::where('users_id', Auth::user()->id)->get();
 
-        return  ResponseFormatter::success( $data, 'success', 200);
+
+        return  ResponseFormatter::success(  $data, 'success', 200);
     }
 
     public function total(){
@@ -51,7 +53,7 @@ class RichController extends Controller
             Riches::where('users_id', Auth::user()->id)->update($data);
         }
 
-        return ResponseFormatter::success(['data' => $data], 'Success', 200);
+        // return ResponseFormatter::success(['data' => $data], 'Success', 200);
     }
 
     public function harta(){

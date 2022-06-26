@@ -25,11 +25,9 @@ class TotalPendapatanProvider with ChangeNotifier {
     try {
       List<RichesModel>? totalPendapatans =
           (await TotalPendapatanService().getTotals(token));
-      _totalPendapatans = totalPendapatans;
-      
+      _totalPendapatans = totalPendapatans;      
     } catch (e) {
-      print(e);
-      
+      print(e);      
     }
   }
 
@@ -54,4 +52,20 @@ class TotalPendapatanProvider with ChangeNotifier {
   //     print(e);
   //   }
   // }
+
+  // RichesModel riches = RichesModel();
+
+  // getPostData(String token, context) async {
+  //   riches = await TotalPendapatanService().getTotal(token, context);
+
+  //   notifyListeners();
+  // }
+
+// getPostData(String token, context) async{
+//   TotalPendapatanService().getTotal(token, context).then((value){
+//     riches = value;
+//     notifyListeners();
+//   });
+// }
+
 }
