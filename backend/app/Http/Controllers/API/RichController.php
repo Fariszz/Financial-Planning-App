@@ -30,11 +30,10 @@ class RichController extends Controller
         $total_harta = RichesHarta::where('users_id',Auth::user()->id)->sum('rupiah');
         $total_hutang = RichesUtang::where('users_id',Auth::user()->id)->sum('rupiah');
         $total_kekayaan_bersih = $total_harta - $total_hutang;
-        $total_penghasilan = Income::where('users_id',Auth::user()->id)->sum('penghasilan');
-        $total_pengeluaran = Expenditure::where('users_id',Auth::user()->id)->sum('pengeluaran');
+        $total_penghasilan = Income::where('users_id',Auth::user()->id)->sum('rupiah');
+        $total_pengeluaran = Expenditure::where('users_id',Auth::user()->id)->sum('rupiah');
         $sisa_penghasilan = $total_penghasilan - $total_pengeluaran;
         $status = ($total_harta < $total_hutang) ? 'tidak-baik' : 'baik';
-
 
         $data = [
             'users_id' => Auth::user()->id,
