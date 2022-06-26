@@ -21,6 +21,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
     Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/logout', [AuthController::class, 'logout']);
         Route::get('/user', [AuthController::class, 'fetch']);
 
         Route::get('/total', [RichController::class,'getTotal']);

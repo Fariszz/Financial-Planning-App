@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/Page/LoginScrenn.dart';
 import 'package:mobile/Widgets/Navigator_bar.dart';
 import 'package:mobile/models/user_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
@@ -137,7 +138,10 @@ class Profile extends StatelessWidget {
                   width: 20,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    authProvider.logout(authProvider.user.token);
+                    Navigator.popAndPushNamed(context, '/');
+                  },
                   child: Text(
                     'Logout',
                     style: TextStyle(

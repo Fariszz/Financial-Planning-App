@@ -3,6 +3,7 @@ import 'package:mobile/Page/RichesPage.dart';
 import 'package:mobile/Page/RichessPage2.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/delete_harta_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/hutang_provider.dart';
 import 'package:mobile/providers/ideal_budgets_provider.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => IdealBudgetProvider()),
           ChangeNotifierProvider(
               create: (context) => TotalPendapatanProvider()),
+          ChangeNotifierProvider(create: (context) => DeleteHartaProvider()),
         ],
         child: MaterialApp(
           routes: {
@@ -57,7 +59,7 @@ class MyApp extends StatelessWidget {
             '/inputHutang': (context) => InputHutang(),
             '/inputHarta': (context) => InputHarta(),
             '/trans': (context) => RichesPage(),
-            '/home': (context) => RichesPage2(),
+            '/home': (context) => RichesPage(),
           },
         ));
   }
