@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/models/RichesModel.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
@@ -17,12 +18,44 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  getInit() async {
+    AuthProvider authProvider =
+        Provider.of<AuthProvider>(context, listen: false);
+    await Provider.of<TotalPendapatanProvider>(context, listen: false)
+        .getTotals(authProvider.user.token);
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getInit();
+  }
+
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    HartaProvider hartaProvider = HartaProvider();
-
-    // RichesModel total = authProvider.totalPendapatans;
+    TotalPendapatanProvider totalPendapatanProvider =
+        Provider.of<TotalPendapatanProvider>(context);
+    // var test = totalPendapatanProvider.totalPendapatans.map((e) => e).toList();
+    // RichesModel total = totalPendapatanProvider.totalPendapatans;
+    // print(totalPendapatanProvider.riches.totalUtang.toString());
+    var totalHarta = totalPendapatanProvider.totalPendapatans
+        .map((e) => e.totalHarta).toList();
+    var totalUtang = totalPendapatanProvider.totalPendapatans
+        .map((e) => e.totalUtang)
+        .toList();
+    var totalPendapatan = totalPendapatanProvider.totalPendapatans
+        .map((e) => e.totalKekayaanBersih)
+        .toList();
+    var sisaPenghasilan = totalPendapatanProvider.totalPendapatans
+        .map((e) => e.sisaPenghasilan)
+        .toList();
+    var status = totalPendapatanProvider.totalPendapatans
+        .map((e) => e.status)
+        .toList();
+    // print(total.toString());
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: Stack(
@@ -66,14 +99,22 @@ class _HomeState extends State<Home> {
                 children: [
                   Column(
                     children: [
-                      HartaBox(),
-                      HutangBox(),
+                      // HartaBox("200"),
+                      // HutangBox("300")
+                      HartaBox(totalHarta.join("")),
+                      HutangBox(totalUtang.join("")),
                     ],
+                    // children:
+                    // [
+
+                    // ]
                   ),
                   Column(
                     children: [
-                      KekayaanBersihBox(),
-                      SIsaPenghasilanBox(),
+                      // KekayaanBersihBox(test[0].totalKekayaanBersih.toString() ?? '0'),
+                      // SIsaPenghasilanBox(test[0].sisaPenghasilan.toString() ?? '0'),
+                      KekayaanBersihBox(totalPendapatan.join("")),
+                      SIsaPenghasilanBox(sisaPenghasilan.join("")),
                     ],
                   ),
                 ],
@@ -89,7 +130,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    children: const [
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(top: 5, bottom: 10),
                         child: Text('Status'),
@@ -97,7 +138,7 @@ class _HomeState extends State<Home> {
                       Padding(
                         padding: EdgeInsets.only(bottom: 10),
                         child: Text(
-                          'your financial is balance',
+                          'your financial is ${status.join("")}',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -116,7 +157,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Container SIsaPenghasilanBox() {
+  Container SIsaPenghasilanBox(String test) {
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
@@ -148,9 +189,9 @@ class _HomeState extends State<Home> {
             height: 5,
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                ' Rp 2,545.50',
+                ' Rp ' + test,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -163,7 +204,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Container KekayaanBersihBox() {
+  Container KekayaanBersihBox(String test) {
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
@@ -193,9 +234,9 @@ class _HomeState extends State<Home> {
             height: 5,
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                ' Rp 2,545.50',
+                ' Rp ' + test,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -208,7 +249,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Container HutangBox() {
+  Container HutangBox(String test) {
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
@@ -238,9 +279,9 @@ class _HomeState extends State<Home> {
             height: 5,
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                ' Rp 2,545.50',
+                ' Rp ' + test,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -253,7 +294,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Container HartaBox() {
+  Container HartaBox(String test) {
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
@@ -285,9 +326,9 @@ class _HomeState extends State<Home> {
             height: 5,
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                ' Rp 2,545.50',
+                ' Rp. ' + test,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -299,4 +340,5 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
 }
