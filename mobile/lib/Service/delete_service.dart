@@ -20,7 +20,7 @@ class DeleteService {
   //   }
   // }
 
-  Future<RichesHartaModel> deleteData(String id, String token) async {
+  Future<RichesHartaModel> deleteData(int id, String token) async {
     var url = '$baseUrl/harta/$id';
     final http.Response response = await http.delete(
       Uri.parse('$url'),
@@ -31,7 +31,8 @@ class DeleteService {
         'Authorization': token,
       },
     );
-
+    print("ini dari service");
+    print(response.statusCode);
     if (response.statusCode == 200) {
       return RichesHartaModel.fromJson(jsonDecode(response.body));
     } else {

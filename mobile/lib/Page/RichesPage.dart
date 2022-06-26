@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/Service/delete_service.dart';
 import 'package:mobile/models/RichesHarta_model.dart';
 import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/delete_harta_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -19,11 +21,12 @@ class RichesPage extends StatefulWidget {
 }
 
 class _RichesPageState extends State<RichesPage> {
-  // final RichesHartaModel hartaRemove =
-  //     RichesHartaModel(harta: '', id: 0, rupiah: 0);
+  final RichesHartaModel hartaRemove =
+      RichesHartaModel(harta: '', id: 0, rupiah: 0);
   // _RichesPageState(this.hartaRemove);
 
   getInit() async {
+    DeleteService deleteService = DeleteService();
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
     await Provider.of<HartaProvider>(context, listen: false)
@@ -46,6 +49,7 @@ class _RichesPageState extends State<RichesPage> {
     final sizeWidth = MediaQuery.of(context).size.width;
 
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
     HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
     HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
 
@@ -102,9 +106,9 @@ class _RichesPageState extends State<RichesPage> {
                 ),
               ),
               Column(
-              
                 children: hartaProvider.hartas
-                    .map<Widget>((harta) => HartaBox(harta))
+                    .map<Widget>(
+                        (harta) => HartaBox(harta, authProvider.user.token,harta.id))
                     .toList(),
               ),
               const SizedBox(
@@ -201,9 +205,10 @@ class _RichesPageState extends State<RichesPage> {
     );
   }
 
-  HartaBox(RichesHartaModel harta) {
-    
+  HartaBox(RichesHartaModel harta, String token, int id) {
     HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
+    DeleteHartaProvider deleteHartaProvider =
+        Provider.of<DeleteHartaProvider>(context);
 
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
@@ -265,8 +270,9 @@ class _RichesPageState extends State<RichesPage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    deleteHartaProvider.deleteHarta(id, token);
                     // deleteData(harta.id.toString(), token);
-                    // hartaProvider.removeHarta(hartaRemove.id);
+                    hartaProvider.removeHarta(hartaRemove.id);
                   },
                   child: const Icon(Icons.delete),
                 ),

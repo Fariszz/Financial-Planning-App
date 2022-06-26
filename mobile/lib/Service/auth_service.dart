@@ -74,4 +74,17 @@ class AuthService {
       throw Exception('Failed to Login :)');
     }
   }
+
+  //Logout Service
+  Future<void> logout(String token) async {
+    var url = '$baseUrl/logout';
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': token
+    };
+    var response = await http.post(Uri.parse(url), headers: headers);
+    print(response.body);
+  }
 }

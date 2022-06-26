@@ -64,4 +64,15 @@ class AuthProvider with ChangeNotifier {
       return false;
     }
   }
+
+  // Provider Logout
+  Future<bool> logout(String token) async {
+    try {
+      await AuthService().logout(token);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }
