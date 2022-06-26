@@ -20,8 +20,8 @@ class _HomeTestPageState extends State<HomeTestPage> {
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
-    await Provider.of<TotalPendapatanProvider>(context, listen: false)
-        .getTotals(authProvider.user.token);
+    // await Provider.of<TotalPendapatanProvider>(context, listen: false)
+    //     .getTotals(authProvider.user.token);
 
     await Provider.of<IdealBudgetProvider>(context, listen: false)
         .getIdealBudgets(authProvider.user.token);
