@@ -17,13 +17,13 @@ class Profile extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(20),
-                child: Image(
-                  image: AssetImage('assets/images/profile.png'),
+                padding: const EdgeInsets.all(20),
+                child: const Image(
+                  image: AssetImage('assets/images/profileIcons.png'),
                 ),
               ),
               // SizedBox(
@@ -40,7 +40,7 @@ class Profile extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${user.email}',
+                    '${user.email}',  
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -48,31 +48,31 @@ class Profile extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 40),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                ),
-                onPressed: () {},
-                child: Image(
-                  image: AssetImage('assets/images/edit.png'),
-                ),
-              )
+              const SizedBox(width: 40),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     primary: Colors.white,
+              //   ),
+              //   onPressed: () {},
+              //   child: const Image(
+              //     image: AssetImage('assets/images/edit.png'),
+              //   ),
+              // )
             ],
           ),
           Container(
             margin: EdgeInsets.all(20),
             child: Row(
               children: [
-                Image(
+                const Image(
                   image: AssetImage('assets/images/dompet.png'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'My Wallet',
                       style: TextStyle(
                         fontSize: 16,
@@ -83,18 +83,18 @@ class Profile extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Row(
               children: [
-                Image(
+                const Image(
                   image: AssetImage('assets/images/settings.png'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Settings',
                     style: TextStyle(
                       fontSize: 16,
@@ -106,18 +106,18 @@ class Profile extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Row(
               children: [
-                Image(
+                const Image(
                   image: AssetImage('assets/images/export.png'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Export Data',
                       style: TextStyle(
                         fontSize: 16,
@@ -127,30 +127,30 @@ class Profile extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(20),
-            child: Row(
-              children: [
-                Image(
-                  image: AssetImage('assets/images/logout.png'),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                TextButton(
-                  onPressed: () {
-                    authProvider.logout(authProvider.user.token);
-                    Navigator.popAndPushNamed(context, '/');
-                  },
-                  child: Text(
+          GestureDetector(
+            onTap: () {
+              authProvider.logout(authProvider.user.token);
+              Navigator.popAndPushNamed(context, '/');
+            },
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              child: Row(
+                children: const [
+                  Image(
+                    image: AssetImage('assets/images/logout.png'),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
                     'Logout',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
           ),
         ],

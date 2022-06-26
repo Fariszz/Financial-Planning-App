@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/CategoryScrenn.dart';
+import 'package:mobile/Page/RichesPage.dart';
+import 'package:mobile/Page/RichessPage2.dart';
 import 'package:mobile/Page/home.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/Page/profile.dart';
@@ -15,7 +17,8 @@ class _BottomnavbarState extends State<Bottomnavbar> {
   int _currentIndex = 0;
   List pages = [
     Home(),
-    Transaction(),
+    RichesPage(),
+    RichesPage2(),
     Category(),
     Profile(),
   ];
