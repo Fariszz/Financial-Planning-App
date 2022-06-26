@@ -3,22 +3,26 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/models/RichesExpend_model.dart';
 import 'package:mobile/models/RichesHarta_model.dart';
+import 'package:mobile/models/RichesPendapatan_mode.dart';
 import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
+import 'package:mobile/providers/pendapatan_provider.dart';
+import 'package:mobile/providers/pengeluaran_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import '../providers/hutang_provider.dart';
 
-class RichesPage extends StatefulWidget {
-  RichesPage({Key? key}) : super(key: key);
+class RichesPage2 extends StatefulWidget {
+  RichesPage2({Key? key}) : super(key: key);
 
   @override
-  State<RichesPage> createState() => _RichesPageState();
+  State<RichesPage2> createState() => _RichesPageState();
 }
 
-class _RichesPageState extends State<RichesPage> {
+class _RichesPageState extends State<RichesPage2> {
   // final RichesHartaModel hartaRemove =
   //     RichesHartaModel(harta: '', id: 0, rupiah: 0);
   // _RichesPageState(this.hartaRemove);
@@ -26,11 +30,11 @@ class _RichesPageState extends State<RichesPage> {
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
-    await Provider.of<HartaProvider>(context, listen: false)
-        .getHartas(authProvider.user.token);
+    await Provider.of<PendapatanProvider>(context, listen: false)
+        .getPendapatans(authProvider.user.token);
 
-    await Provider.of<HutangProvider>(context, listen: false)
-        .getHutangs(authProvider.user.token);
+    await Provider.of<PengeluaranProvider>(context, listen: false)
+        .getPengeluarans(authProvider.user.token);
     setState(() => isLoading = false);
   }
 
@@ -46,8 +50,10 @@ class _RichesPageState extends State<RichesPage> {
     final sizeWidth = MediaQuery.of(context).size.width;
 
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
-    HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
-    HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
+    PendapatanProvider pendapatanProvider =
+        Provider.of<PendapatanProvider>(context);
+    PengeluaranProvider pengeluaranProvider =
+        Provider.of<PengeluaranProvider>(context);
 
     return Scaffold(
       body: Container(
@@ -94,7 +100,7 @@ class _RichesPageState extends State<RichesPage> {
                 margin: EdgeInsets.all(8),
                 padding: EdgeInsets.all(8),
                 child: const Text(
-                  'Harta',
+                  'Pendapatan',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -102,9 +108,8 @@ class _RichesPageState extends State<RichesPage> {
                 ),
               ),
               Column(
-              
-                children: hartaProvider.hartas
-                    .map<Widget>((harta) => HartaBox(harta))
+                children: pendapatanProvider.pendapatans
+                    .map<Widget>((pendapatan) => PendapatanBox(pendapatan))
                     .toList(),
               ),
               const SizedBox(
@@ -114,7 +119,7 @@ class _RichesPageState extends State<RichesPage> {
                 margin: const EdgeInsets.all(8),
                 padding: const EdgeInsets.all(8),
                 child: const Text(
-                  'Utang',
+                  'Pengeluaran',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -122,8 +127,8 @@ class _RichesPageState extends State<RichesPage> {
                 ),
               ),
               Column(
-                children: hutangProvider.hutangs
-                    .map<Widget>((hutang) => BoxHutang(hutang))
+                children: pengeluaranProvider.pengeluarans
+                    .map<Widget>((pengeluaran) => PengeluaranBox(pengeluaran))
                     .toList(),
               ),
             ],
@@ -133,7 +138,7 @@ class _RichesPageState extends State<RichesPage> {
     );
   }
 
-  BoxHutang(RichesUtangModel hutang) {
+  PengeluaranBox(RichesExpendModel pengeluaran) {
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -155,7 +160,7 @@ class _RichesPageState extends State<RichesPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    hutang.utang,
+                    pengeluaran.pengeluaran,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -172,7 +177,7 @@ class _RichesPageState extends State<RichesPage> {
                     // color: Colors.red,
                     // width: sizeWidth * 0.4,
                     child: Text(
-                      'Rp. ' + hutang.rupiah.toString(),
+                      'Rp. ' + pengeluaran.rupiah.toString(),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -201,10 +206,7 @@ class _RichesPageState extends State<RichesPage> {
     );
   }
 
-  HartaBox(RichesHartaModel harta) {
-    
-    HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
-
+  PendapatanBox(RichesPendapatanModel Pendapatan) {
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -226,7 +228,7 @@ class _RichesPageState extends State<RichesPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    harta.harta,
+                    Pendapatan.penghasilan,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -243,7 +245,7 @@ class _RichesPageState extends State<RichesPage> {
                     // color: Colors.red,
                     // width: sizeWidth * 0.4,
                     child: Text(
-                      'Rp. ' + harta.rupiah.toString(),
+                      'Rp. ' + Pendapatan.rupiah.toString(),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
