@@ -115,6 +115,7 @@ class _HomeState extends State<Home> {
                       // SIsaPenghasilanBox(test[0].sisaPenghasilan.toString() ?? '0'),
                       KekayaanBersihBox(totalPendapatan.join("")),
                       SIsaPenghasilanBox(sisaPenghasilan.join("")),
+
                     ],
                   ),
                 ],
@@ -126,7 +127,7 @@ class _HomeState extends State<Home> {
                   margin: EdgeInsets.all(20),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1),
+                    border: Border.all(width: 2),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -158,6 +159,7 @@ class _HomeState extends State<Home> {
   }
 
   Container SIsaPenghasilanBox(String test) {
+
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
@@ -171,9 +173,8 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Icon(
-            Icons.arrow_circle_left_outlined,
+            Icons.account_balance_wallet_outlined,
             size: 40,
-            color: Colors.green,
           ),
           const SizedBox(
             height: 10,
@@ -209,16 +210,18 @@ class _HomeState extends State<Home> {
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        border: Border.all(width: 1),
+        border: Border.all(
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Icon(
-            Icons.arrow_circle_right_outlined,
+            Icons.trending_up,
             size: 40,
-            color: Colors.red,
+            color: Color.fromARGB(255, 41, 114, 44),
           ),
           const SizedBox(
             height: 10,
@@ -254,14 +257,16 @@ class _HomeState extends State<Home> {
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        border: Border.all(width: 1),
+        border: Border.all(
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Icon(
-            Icons.arrow_circle_right_outlined,
+            Icons.arrow_circle_down_outlined,
             size: 40,
             color: Colors.red,
           ),
@@ -308,7 +313,7 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Icon(
-            Icons.arrow_circle_left_outlined,
+            Icons.arrow_circle_up_outlined,
             size: 40,
             color: Colors.green,
           ),

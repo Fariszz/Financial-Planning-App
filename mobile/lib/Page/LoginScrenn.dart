@@ -28,10 +28,26 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/riches');
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Login Berhasil',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 94, 202, 98),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 2),
+        ));
+        Navigator.popAndPushNamed(context, '/home');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Email atau password salah')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Email atau Password Salah ',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 241, 76, 64),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 1),
+        ));
       }
     }
 
@@ -113,59 +129,59 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            "Or Connect Using",
-                            style: TextStyle(fontSize: 12),
-                          )
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: const [
+                      //     Text(
+                      //       "Or Connect Using",
+                      //       style: TextStyle(fontSize: 12),
+                      //     )
+                      //   ],
+                      // ),
                       const SizedBox(
                         height: 5,
                       ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 30, right: 20),
-                            child: ElevatedButton.icon(
-                              style: ElevatedButton.styleFrom(
-                                primary: const Color.fromARGB(255, 204, 22, 22),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                onPrimary: Colors.white,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 35,
-                                ),
-                              ),
-                              icon: const Icon(
-                                FontAwesomeIcons.google,
-                                color: Colors.white,
-                              ),
-                              label: const Text("Google"),
-                              onPressed: () {},
-                            ),
-                          ),
-                          ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(
-                              primary: const Color.fromARGB(255, 1, 3, 129),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              onPrimary: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                              ),
-                            ),
-                            icon: const Icon(
-                              FontAwesomeIcons.facebook,
-                              color: Colors.white,
-                            ),
-                            label: const Text("Facebook"),
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   children: [
+                      //     Padding(
+                      //       padding: const EdgeInsets.only(left: 30, right: 20),
+                      //       child: ElevatedButton.icon(
+                      //         style: ElevatedButton.styleFrom(
+                      //           primary: const Color.fromARGB(255, 204, 22, 22),
+                      //           shape: RoundedRectangleBorder(
+                      //               borderRadius: BorderRadius.circular(10)),
+                      //           onPrimary: Colors.white,
+                      //           padding: const EdgeInsets.symmetric(
+                      //             horizontal: 35,
+                      //           ),
+                      //         ),
+                      //         icon: const Icon(
+                      //           FontAwesomeIcons.google,
+                      //           color: Colors.white,
+                      //         ),
+                      //         label: const Text("Google"),
+                      //         onPressed: () {},
+                      //       ),
+                      //     ),
+                      //     ElevatedButton.icon(
+                      //       style: ElevatedButton.styleFrom(
+                      //         primary: const Color.fromARGB(255, 1, 3, 129),
+                      //         shape: RoundedRectangleBorder(
+                      //             borderRadius: BorderRadius.circular(10)),
+                      //         onPrimary: Colors.white,
+                      //         padding: const EdgeInsets.symmetric(
+                      //           horizontal: 30,
+                      //         ),
+                      //       ),
+                      //       icon: const Icon(
+                      //         FontAwesomeIcons.facebook,
+                      //         color: Colors.white,
+                      //       ),
+                      //       label: const Text("Facebook"),
+                      //       onPressed: () {},
+                      //     ),
+                      //   ],
+                      // ),
                       Padding(
                         padding: const EdgeInsets.only(
                           top: 20,

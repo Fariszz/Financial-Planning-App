@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RichesPage.dart';
-import 'package:mobile/Page/LoginScrenn.dart';
-import 'package:mobile/Page/TestHome.dart';
-import 'package:mobile/Page/home_test.dart';
+import 'package:mobile/Page/RichessPage2.dart';
 import 'package:mobile/Page/pages.dart';
-// import 'package:mobile/Page/stats.dart';
-import 'package:mobile/Page/trans.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/hutang_provider.dart';
@@ -53,15 +49,15 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           routes: {
             '/': (context) => LoginScreen(),
-            // '/register': (context) => RegisterScreen(),
-            // '/login': (context) => LoginScreen(),
-            '/riches': (context) => Home(),
+            '/register': (context) => RegisterScreen(),
+            '/riches': (context) => RichesPage(),
+            '/riches2': (context) => RichesPage2(),
             '/category': (context) => Category(),
             '/checkWallet': (context) => CheckWallet(),
             '/inputHutang': (context) => InputHutang(),
             '/inputHarta': (context) => InputHarta(),
             '/trans': (context) => RichesPage(),
-            '/home': (context) => HomeTestPage(),
+            '/home': (context) => RichesPage2(),
           },
         ));
   }

@@ -23,7 +23,30 @@ class InputIdeal extends StatelessWidget {
         token: user.token,
         total_penghasilan: int.parse(rupiahController.text),
       )) {
+         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: const Text(
+            'Data Berhasil Ditambahkan',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: const Color.fromARGB(255, 94, 202, 98),
+          behavior: SnackBarBehavior.floating,
+          action: SnackBarAction(
+              label: 'Dismis', textColor: Colors.black, onPressed: () {}),
+          duration: Duration(seconds: 4),
+        ));
         Navigator.pushNamed(context, '/category');
+      } else {
+         ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+          content: const Text(
+            'Data Gagal Ditambahkan',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Color.fromARGB(255, 241, 76, 64),
+           behavior: SnackBarBehavior.floating,
+           action:SnackBarAction(
+              label: 'Dismis', textColor: Colors.black, onPressed: () {}),
+          duration: Duration(seconds: 4),
+        ));
       }
     }
 
