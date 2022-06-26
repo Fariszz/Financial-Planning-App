@@ -43,7 +43,7 @@ class RichController extends Controller
             'sisa_penghasilan' => $sisa_penghasilan,
         ];
 
-        $user = Riches::where('users_id', Auth::user()->id)->get();
+        $user = Riches::where('users_id', Auth::user()->id)->first();
         // dd($data);
         if ($user == null) {
             Riches::create($data);
