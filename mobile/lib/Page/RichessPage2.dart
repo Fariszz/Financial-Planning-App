@@ -72,7 +72,7 @@ class _RichesPageState extends State<RichesPage2> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(top: 30, right: 20, bottom: 10),
+                  padding: const EdgeInsets.only(top: 30, right: 20, bottom: 10),
                   child: Row(
                     children: [
                       IconButton(
@@ -82,7 +82,7 @@ class _RichesPageState extends State<RichesPage2> {
                         ),
                         onPressed: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Home()));
+                              MaterialPageRoute(builder: (context) => const Home()));
                         },
                       ),
                       const Padding(
@@ -97,8 +97,8 @@ class _RichesPageState extends State<RichesPage2> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: const Text(
                   'Pendapatan',
                   style: TextStyle(

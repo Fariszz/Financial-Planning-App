@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             'Register Berhasil Berhasil',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 94, 202, 98),
           behavior: SnackBarBehavior.floating,
@@ -47,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             'Gagal Register',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 241, 76, 64),
           behavior: SnackBarBehavior.floating,

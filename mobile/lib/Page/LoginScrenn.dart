@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             'Login Berhasil',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 94, 202, 98),
           behavior: SnackBarBehavior.floating,
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             'Email atau Password Salah ',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 241, 76, 64),
           behavior: SnackBarBehavior.floating,
