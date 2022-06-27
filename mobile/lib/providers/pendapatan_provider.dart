@@ -24,7 +24,8 @@ class PendapatanProvider with ChangeNotifier {
   }
 
   removePendapatan(int id) {
-    _pendapatans.removeAt(id);
+    _pendapatans.removeWhere((element) => element.id == id);
+    // _pendapatans.removeAt(id);
     notifyListeners();
   }
 }
