@@ -4,6 +4,9 @@ import 'package:mobile/Page/RichessPage2.dart';
 import 'package:mobile/Page/pages.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/delete_harta_provider.dart';
+import 'package:mobile/providers/delete_hutang_provider.dart';
+import 'package:mobile/providers/delete_pendapatan_provider.dart';
+import 'package:mobile/providers/delete_pengeluaran_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/hutang_provider.dart';
 import 'package:mobile/providers/ideal_budgets_provider.dart';
@@ -17,7 +20,6 @@ import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
 import 'package:mobile/providers/total_pendapatan_provider.dart';
 import 'package:provider/provider.dart';
-import 'Page/CheckWallet.dart';
 import 'Page/RegisterScrenn.dart';
 
 void main() {
@@ -41,25 +43,27 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => InputHartaProvider()),
           ChangeNotifierProvider(create: (context) => InputHutangProvider()),
           ChangeNotifierProvider(create: (context) => InputIdealProvider()),
+          ChangeNotifierProvider(create: (context) => IdealBudgetProvider()),
+          ChangeNotifierProvider(create: (context) => DeleteHartaProvider()),
+          ChangeNotifierProvider(create: (context) => DeleteHutangProvider()),
           ChangeNotifierProvider(
               create: (context) => InputPendapatanProvider()),
-          ChangeNotifierProvider(create: (context) => IdealBudgetProvider()),
           ChangeNotifierProvider(
               create: (context) => TotalPendapatanProvider()),
-          ChangeNotifierProvider(create: (context) => DeleteHartaProvider()),
+          ChangeNotifierProvider(
+              create: (context) => DeletePendapatanProvider()),
+          ChangeNotifierProvider(
+              create: (context) => DeletePengeluaranProvider()),
         ],
         child: MaterialApp(
           routes: {
-            '/': (context) => LoginScreen(),
-            '/register': (context) => RegisterScreen(),
+            '/': (context) => const LoginScreen(),
+            '/register': (context) => const RegisterScreen(),
             '/riches': (context) => RichesPage(),
             '/riches2': (context) => RichesPage2(),
-            '/category': (context) => Category(),
-            '/checkWallet': (context) => CheckWallet(),
-            '/inputHutang': (context) => InputHutang(),
-            '/inputHarta': (context) => InputHarta(),
-            '/trans': (context) => RichesPage(),
-            '/home': (context) => RichesPage(),
+            '/category': (context) => const Category(),
+            '/profile': (context) => const Profile(),
+            '/home': (context) => const Home(),
           },
         ));
   }

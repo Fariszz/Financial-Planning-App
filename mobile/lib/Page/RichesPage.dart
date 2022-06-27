@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/Page/pages.dart';
-import 'package:mobile/Service/delete_service.dart';
+import 'package:mobile/Service/delete_harta_service.dart';
 import 'package:mobile/models/RichesHarta_model.dart';
 import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
 import 'package:mobile/providers/delete_harta_provider.dart';
+import 'package:mobile/providers/delete_hutang_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -23,12 +24,17 @@ class RichesPage extends StatefulWidget {
 class _RichesPageState extends State<RichesPage> {
   final RichesHartaModel hartaRemove =
       RichesHartaModel(harta: '', id: 0, rupiah: 0);
-  // _RichesPageState(this.hartaRemove);
+  final RichesUtangModel hutangRemove =
+      RichesUtangModel(utang: '', id: 0, rupiah: 0);
 
   getInit() async {
-    DeleteService deleteService = DeleteService();
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
+
+    DeleteHartaService deleteHutangService = DeleteHartaService();
+
+    DeleteHartaService deleteService = DeleteHartaService();
+
     await Provider.of<HartaProvider>(context, listen: false)
         .getHartas(authProvider.user.token);
 
@@ -47,8 +53,8 @@ class _RichesPageState extends State<RichesPage> {
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
-
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
     HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
@@ -107,8 +113,8 @@ class _RichesPageState extends State<RichesPage> {
               ),
               Column(
                 children: hartaProvider.hartas
-                    .map<Widget>(
-                        (harta) => HartaBox(harta, authProvider.user.token,harta.id))
+                    .map<Widget>((harta) =>
+                        HartaBox(harta, authProvider.user.token, harta.id))
                     .toList(),
               ),
               const SizedBox(
@@ -127,7 +133,8 @@ class _RichesPageState extends State<RichesPage> {
               ),
               Column(
                 children: hutangProvider.hutangs
-                    .map<Widget>((hutang) => BoxHutang(hutang))
+                    .map<Widget>((hutang) =>
+                        BoxHutang(hutang, authProvider.user.token, hutang.id))
                     .toList(),
               ),
             ],
@@ -137,7 +144,11 @@ class _RichesPageState extends State<RichesPage> {
     );
   }
 
-  BoxHutang(RichesUtangModel hutang) {
+  BoxHutang(RichesUtangModel hutang, String token, int id) {
+    HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
+    DeleteHutangProvider deleteHutangProvider =
+        Provider.of<DeleteHutangProvider>(context);
+
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -194,7 +205,22 @@ class _RichesPageState extends State<RichesPage> {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    deleteHutangProvider.deleteHutang(id, token);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: const Text(
+                        'Data berhasil dihapus',
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 94, 202, 98),
+                      action: SnackBarAction(
+                          label: 'Dismis',
+                          textColor: Colors.black,
+                          onPressed: () {}),
+                      duration: Duration(seconds: 4),
+                    ));
+
+                    hutangProvider.removeHutang(hutangRemove.id);
+                  },
                   child: const Icon(Icons.delete),
                 ),
               ],
@@ -271,7 +297,18 @@ class _RichesPageState extends State<RichesPage> {
                 ElevatedButton(
                   onPressed: () {
                     deleteHartaProvider.deleteHarta(id, token);
-                    // deleteData(harta.id.toString(), token);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: const Text(
+                        'Data berhasil dihapus',
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 94, 202, 98),
+                      action: SnackBarAction(
+                          label: 'Dismis',
+                          textColor: Colors.black,
+                          onPressed: () {}),
+                      duration: Duration(seconds: 4),
+                    ));
+
                     hartaProvider.removeHarta(hartaRemove.id);
                   },
                   child: const Icon(Icons.delete),

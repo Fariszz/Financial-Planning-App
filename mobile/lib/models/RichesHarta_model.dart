@@ -12,7 +12,7 @@ class RichesHartaModel {
   });
 
   RichesHartaModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'] as int;
     rupiah = json['rupiah'] as int;
     harta = json['harta'];
   }

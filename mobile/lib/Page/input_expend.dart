@@ -28,7 +28,7 @@ class InputExpend extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text(
             'Data Berhasil Ditambahkan',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: const Color.fromARGB(255, 94, 202, 98),
           behavior: SnackBarBehavior.floating,
@@ -41,7 +41,7 @@ class InputExpend extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text(
             'Data Gagal Ditambahkan',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 241, 76, 64),
           behavior: SnackBarBehavior.floating,
@@ -85,12 +85,9 @@ class InputExpend extends StatelessWidget {
                                 builder: (context) => Category()));
                       },
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 80),
-                      child: Text(
-                        'Input Expend',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
+                   const Text(
+                      'Input Expend',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ],
                 ),
