@@ -22,4 +22,8 @@ class HutangProvider with ChangeNotifier{
       print(e);
     }
   }
+    removeHutang(int id) {
+    _hutangs.removeAt(id);
+    notifyListeners();
+  }
 }

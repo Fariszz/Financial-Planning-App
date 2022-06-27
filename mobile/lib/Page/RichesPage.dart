@@ -24,15 +24,17 @@ class RichesPage extends StatefulWidget {
 class _RichesPageState extends State<RichesPage> {
   final RichesHartaModel hartaRemove =
       RichesHartaModel(harta: '', id: 0, rupiah: 0);
+  final RichesUtangModel hutangRemove =
+      RichesUtangModel(utang: '', id: 0, rupiah: 0);
 
   getInit() async {
-    DeleteHartaService deleteHutangService = DeleteHartaService();
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
 
+    DeleteHartaService deleteHutangService = DeleteHartaService();
+
     DeleteHartaService deleteService = DeleteHartaService();
-    AuthProvider authProvider1 =
-        Provider.of<AuthProvider>(context, listen: false);
+
     await Provider.of<HartaProvider>(context, listen: false)
         .getHartas(authProvider.user.token);
 
@@ -52,6 +54,7 @@ class _RichesPageState extends State<RichesPage> {
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     HartaProvider hartaProvider = Provider.of<HartaProvider>(context);
     HutangProvider hutangProvider = Provider.of<HutangProvider>(context);
@@ -206,7 +209,7 @@ class _RichesPageState extends State<RichesPage> {
                     deleteHutangProvider.deleteHutang(id, token);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: const Text(
-                        'Hutang berhasil dihapus',
+                        'Data berhasil dihapus',
                       ),
                       backgroundColor: const Color.fromARGB(255, 94, 202, 98),
                       action: SnackBarAction(
@@ -216,7 +219,7 @@ class _RichesPageState extends State<RichesPage> {
                       duration: Duration(seconds: 4),
                     ));
 
-                    hutangProvider.removeHutang(hartaRemove.id);
+                    hutangProvider.removeHutang(hutangRemove.id);
                   },
                   child: const Icon(Icons.delete),
                 ),
@@ -296,7 +299,7 @@ class _RichesPageState extends State<RichesPage> {
                     deleteHartaProvider.deleteHarta(id, token);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: const Text(
-                        'Harta berhasil dihapus',
+                        'Data berhasil dihapus',
                       ),
                       backgroundColor: const Color.fromARGB(255, 94, 202, 98),
                       action: SnackBarAction(
