@@ -16,12 +16,7 @@ class AppBarAll extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5),
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Home(),
-                ),
-              );
+              Navigator.popAndPushNamed(context, '/home');
             },
             child: Container(
               width: MediaQuery.of(context).size.width / 5,
@@ -93,7 +88,7 @@ class AppBarAll extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5),
           child: InkWell(
             onTap: () {
-                Navigator.pushNamed(context, '/riches2');
+              Navigator.pushNamed(context, '/riches2');
             },
             child: Container(
               width: MediaQuery.of(context).size.width / 5,
@@ -129,12 +124,7 @@ class AppBarAll extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5),
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Category(),
-                ),
-              );
+               Navigator.pushNamed(context, '/category');
             },
             child: Container(
               width: MediaQuery.of(context).size.width / 5,
@@ -170,12 +160,7 @@ class AppBarAll extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5),
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Profile(),
-                ),
-              );
+         Navigator.pushNamed(context, '/profile');
             },
             child: Container(
               width: MediaQuery.of(context).size.width / 5,

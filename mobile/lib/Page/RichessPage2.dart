@@ -3,11 +3,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mobile/Page/RegisterScrenn.dart';
 import 'package:mobile/Page/pages.dart';
+import 'package:mobile/Service/delete_pendapatan_service.dart';
+import 'package:mobile/Service/delete_pengeluaran_service.dart';
 import 'package:mobile/models/RichesExpend_model.dart';
 import 'package:mobile/models/RichesHarta_model.dart';
 import 'package:mobile/models/RichesPendapatan_mode.dart';
 import 'package:mobile/models/RichesUtang_model.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/providers/delete_pendapatan_provider.dart';
+import 'package:mobile/providers/delete_pengeluaran_provider.dart';
 import 'package:mobile/providers/harta_provider.dart';
 import 'package:mobile/providers/pendapatan_provider.dart';
 import 'package:mobile/providers/pengeluaran_provider.dart';
@@ -23,13 +27,17 @@ class RichesPage2 extends StatefulWidget {
 }
 
 class _RichesPageState extends State<RichesPage2> {
-  // final RichesHartaModel hartaRemove =
-  //     RichesHartaModel(harta: '', id: 0, rupiah: 0);
-  // _RichesPageState(this.hartaRemove);
+  final RichesPendapatanModel pendapatanRemove =
+      RichesPendapatanModel(penghasilan: '', id: 0, rupiah: 0);
 
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
+
+    DeletePendapatanService deletePendapatanService = DeletePendapatanService();
+
+    DeletePengeluaranService deletePengeluaran = DeletePengeluaranService();
+
     await Provider.of<PendapatanProvider>(context, listen: false)
         .getPendapatans(authProvider.user.token);
 
@@ -46,14 +54,14 @@ class _RichesPageState extends State<RichesPage2> {
 
   @override
   Widget build(BuildContext context) {
-    final sizeHeight = MediaQuery.of(context).size.height;
-    final sizeWidth = MediaQuery.of(context).size.width;
-
-    final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
     PendapatanProvider pendapatanProvider =
         Provider.of<PendapatanProvider>(context);
     PengeluaranProvider pengeluaranProvider =
         Provider.of<PengeluaranProvider>(context);
+    final sizeHeight = MediaQuery.of(context).size.height;
+
+    final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
 
     return Scaffold(
       body: Container(
@@ -72,7 +80,8 @@ class _RichesPageState extends State<RichesPage2> {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30, right: 20, bottom: 10),
+                  padding:
+                      const EdgeInsets.only(top: 30, right: 20, bottom: 10),
                   child: Row(
                     children: [
                       IconButton(
@@ -81,8 +90,10 @@ class _RichesPageState extends State<RichesPage2> {
                           color: Colors.white,
                         ),
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => const Home()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Home()));
                         },
                       ),
                       const Padding(
@@ -109,7 +120,8 @@ class _RichesPageState extends State<RichesPage2> {
               ),
               Column(
                 children: pendapatanProvider.pendapatans
-                    .map<Widget>((pendapatan) => PendapatanBox(pendapatan))
+                    .map<Widget>((pendapatan) => PendapatanBox(
+                        pendapatan, authProvider.user.token, pendapatan.id!))
                     .toList(),
               ),
               const SizedBox(
@@ -128,7 +140,8 @@ class _RichesPageState extends State<RichesPage2> {
               ),
               Column(
                 children: pengeluaranProvider.pengeluarans
-                    .map<Widget>((pengeluaran) => PengeluaranBox(pengeluaran))
+                    .map<Widget>((pengeluaran) => PengeluaranBox(
+                        pengeluaran, authProvider.user.token, pengeluaran.id))
                     .toList(),
               ),
             ],
@@ -138,7 +151,12 @@ class _RichesPageState extends State<RichesPage2> {
     );
   }
 
-  PengeluaranBox(RichesExpendModel pengeluaran) {
+  PengeluaranBox(RichesExpendModel pengeluaran, String token, int id) {
+    PengeluaranProvider pengeluaranProvider =
+        Provider.of<PengeluaranProvider>(context);
+
+    DeletePengeluaranProvider deletePengeluaranProvider =
+        Provider.of<DeletePengeluaranProvider>(context);
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -195,7 +213,22 @@ class _RichesPageState extends State<RichesPage2> {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    deletePengeluaranProvider.deletePengeluaran(id, token);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: const Text(
+                        'Data berhasil dihapus',
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 94, 202, 98),
+                      action: SnackBarAction(
+                          label: 'Dismis',
+                          textColor: Colors.black,
+                          onPressed: () {}),
+                      duration: Duration(seconds: 4),
+                    ));
+
+                    pengeluaranProvider.removePengeluaran(pendapatanRemove.id!);
+                  },
                   child: const Icon(Icons.delete),
                 ),
               ],
@@ -206,7 +239,11 @@ class _RichesPageState extends State<RichesPage2> {
     );
   }
 
-  PendapatanBox(RichesPendapatanModel Pendapatan) {
+  PendapatanBox(RichesPendapatanModel Pendapatan, String token, int id) {
+    PendapatanProvider pendaptanProvider =
+        Provider.of<PendapatanProvider>(context);
+    DeletePendapatanProvider deletePendapatanProvider =
+        Provider.of<DeletePendapatanProvider>(context);
     final sizeHeight = MediaQuery.of(context).size.height;
     final sizeWidth = MediaQuery.of(context).size.width;
     final bodyHeight = sizeHeight - MediaQuery.of(context).padding.top;
@@ -267,8 +304,20 @@ class _RichesPageState extends State<RichesPage2> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // deleteData(harta.id.toString(), token);
-                    // hartaProvider.removeHarta(hartaRemove.id);
+                    deletePendapatanProvider.deletePendapatan(id, token);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: const Text(
+                        'Data berhasil dihapus',
+                      ),
+                      backgroundColor: const Color.fromARGB(255, 94, 202, 98),
+                      action: SnackBarAction(
+                          label: 'Dismis',
+                          textColor: Colors.black,
+                          onPressed: () {}),
+                      duration: Duration(seconds: 4),
+                    ));
+
+                    pendaptanProvider.removePendapatan(pendapatanRemove.id!);
                   },
                   child: const Icon(Icons.delete),
                 ),

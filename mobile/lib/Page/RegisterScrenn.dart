@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       )) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
-            'Register Berhasil Berhasil',
+            'Register Berhasil ',
             // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 94, 202, 98),
