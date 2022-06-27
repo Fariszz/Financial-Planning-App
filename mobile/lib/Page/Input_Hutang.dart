@@ -26,10 +26,10 @@ class InputHutang extends StatelessWidget {
         utang: utangController.text,
         rupiah: int.parse(rupiahController.text),
       )) {
-         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text(
             'Data Berhasil Ditambahkan',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: const Color.fromARGB(255, 94, 202, 98),
           behavior: SnackBarBehavior.floating,
@@ -39,14 +39,14 @@ class InputHutang extends StatelessWidget {
         ));
         Navigator.pushNamed(context, '/category');
       } else {
-         ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text(
             'Data Gagal Ditambahkan',
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
           ),
           backgroundColor: Color.fromARGB(255, 241, 76, 64),
-           behavior: SnackBarBehavior.floating,
-           action:SnackBarAction(
+          behavior: SnackBarBehavior.floating,
+          action: SnackBarAction(
               label: 'Dismis', textColor: Colors.black, onPressed: () {}),
           duration: Duration(seconds: 4),
         ));
@@ -87,12 +87,9 @@ class InputHutang extends StatelessWidget {
                                 builder: (context) => Category()));
                       },
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 80),
-                      child: Text(
-                        'Input Hutang',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
+                    const Text(
+                      'Input Hutang',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ],
                 ),

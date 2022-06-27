@@ -42,7 +42,8 @@ class _HomeState extends State<Home> {
     // RichesModel total = totalPendapatanProvider.totalPendapatans;
     // print(totalPendapatanProvider.riches.totalUtang.toString());
     var totalHarta = totalPendapatanProvider.totalPendapatans
-        .map((e) => e.totalHarta).toList();
+        .map((e) => e.totalHarta)
+        .toList();
     var totalUtang = totalPendapatanProvider.totalPendapatans
         .map((e) => e.totalUtang)
         .toList();
@@ -52,9 +53,8 @@ class _HomeState extends State<Home> {
     var sisaPenghasilan = totalPendapatanProvider.totalPendapatans
         .map((e) => e.sisaPenghasilan)
         .toList();
-    var status = totalPendapatanProvider.totalPendapatans
-        .map((e) => e.status)
-        .toList();
+    var status =
+        totalPendapatanProvider.totalPendapatans.map((e) => e.status).toList();
     // print(total.toString());
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
@@ -62,15 +62,15 @@ class _HomeState extends State<Home> {
         children: [
           const Positioned(
             child: AppBarAll(),
-            bottom: 0,
+            bottom: 40,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
-                color: Color(0xff7F3DFF),
+                color: const Color(0xff7F3DFF),
                 child: const Text(
                   'Home',
                   style: TextStyle(
@@ -115,7 +115,6 @@ class _HomeState extends State<Home> {
                       // SIsaPenghasilanBox(test[0].sisaPenghasilan.toString() ?? '0'),
                       KekayaanBersihBox(totalPendapatan.join("")),
                       SIsaPenghasilanBox(sisaPenghasilan.join("")),
-
                     ],
                   ),
                 ],
@@ -132,7 +131,7 @@ class _HomeState extends State<Home> {
                   ),
                   child: Column(
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 5, bottom: 10),
                         child: Text('Status'),
                       ),
@@ -140,7 +139,7 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.only(bottom: 10),
                         child: Text(
                           'your financial is ${status.join("")}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
@@ -159,10 +158,9 @@ class _HomeState extends State<Home> {
   }
 
   Container SIsaPenghasilanBox(String test) {
-
     return Container(
-      margin: EdgeInsets.all(20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
@@ -193,7 +191,7 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 ' Rp ' + test,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -207,8 +205,8 @@ class _HomeState extends State<Home> {
 
   Container KekayaanBersihBox(String test) {
     return Container(
-      margin: EdgeInsets.all(20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
@@ -240,7 +238,7 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 ' Rp ' + test,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -254,8 +252,8 @@ class _HomeState extends State<Home> {
 
   Container HutangBox(String test) {
     return Container(
-      margin: EdgeInsets.all(20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(left: 20, bottom: 20, top: 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
@@ -287,7 +285,7 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 ' Rp ' + test,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -301,8 +299,8 @@ class _HomeState extends State<Home> {
 
   Container HartaBox(String test) {
     return Container(
-      margin: EdgeInsets.all(20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(left: 20, bottom: 20, top: 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
@@ -334,7 +332,7 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 ' Rp. ' + test,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -345,5 +343,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
 }

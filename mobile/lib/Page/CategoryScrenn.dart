@@ -10,13 +10,10 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  PageController _controller = PageController();
-
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +29,7 @@ class _CategoryState extends State<Category> {
                 ],
               ),
               child: Padding(
-                padding: EdgeInsets.only(top: 30, right: 20, bottom: 10),
+                padding: const EdgeInsets.only(top: 30, right: 20, bottom: 10),
                 child: Row(
                   children: [
                     IconButton(
@@ -41,16 +38,15 @@ class _CategoryState extends State<Category> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Home()));
                       },
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 70),
-                      child: Text(
-                        'Category',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
+                    const Text(
+                      'Category',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ],
                 ),
@@ -107,7 +103,7 @@ class _CategoryState extends State<Category> {
 
   Padding CategoryBoxHarta() {
     return Padding(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -118,7 +114,7 @@ class _CategoryState extends State<Category> {
           );
         },
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 150,
           height: 150,
           decoration: BoxDecoration(
@@ -376,7 +372,7 @@ class _CategoryState extends State<Category> {
                   child: Column(
                     children: const [
                       Text(
-                        "Expenditure",
+                        "Pengeluaran",
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -413,7 +409,7 @@ class _CategoryState extends State<Category> {
           );
         },
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 150,
           height: 150,
           decoration: BoxDecoration(
@@ -428,7 +424,7 @@ class _CategoryState extends State<Category> {
                     blurRadius: 10)
               ]),
           child: Padding(
-            padding: EdgeInsets.only(left: 20, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

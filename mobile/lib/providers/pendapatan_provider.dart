@@ -3,7 +3,7 @@ import 'package:mobile/models/RichesPendapatan_mode.dart';
 
 import '../Service/pendapatan_service.dart';
 
-class PendapatanProvider with ChangeNotifier{
+class PendapatanProvider with ChangeNotifier {
   List<RichesPendapatanModel> _pendapatans = [];
 
   List<RichesPendapatanModel> get pendapatans => _pendapatans;
@@ -15,10 +15,16 @@ class PendapatanProvider with ChangeNotifier{
 
   Future<void> getPendapatans(String token) async {
     try {
-      List<RichesPendapatanModel> pendapatans = await PendapatanService().getPendapatans(token);
+      List<RichesPendapatanModel> pendapatans =
+          await PendapatanService().getPendapatans(token);
       _pendapatans = pendapatans;
     } catch (e) {
-      print(e);    
+      print(e);
     }
+  }
+
+  removePendapatan(int id) {
+    _pendapatans.removeAt(id);
+    notifyListeners();
   }
 }
