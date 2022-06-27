@@ -23,10 +23,9 @@ class HartaProvider with ChangeNotifier {
     }
   }
 
- 
-
   removeHarta(int id) {
-    _hartas.removeAt(id);
+    _hartas.removeWhere((element) => element.id == id);
+    // _hartas.removeAt(id);
     notifyListeners();
   }
 }

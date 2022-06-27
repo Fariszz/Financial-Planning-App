@@ -22,10 +22,9 @@ class RichesPage extends StatefulWidget {
 }
 
 class _RichesPageState extends State<RichesPage> {
-  final RichesHartaModel hartaRemove =
-      RichesHartaModel(harta: '', id: 0, rupiah: 0);
-  final RichesUtangModel hutangRemove =
-      RichesUtangModel(utang: '', id: 0, rupiah: 0);
+
+  // final RichesUtangModel hutangRemove =
+  //     RichesUtangModel(utang: '', id: 0, rupiah: 0);
 
   getInit() async {
     AuthProvider authProvider =
@@ -114,7 +113,7 @@ class _RichesPageState extends State<RichesPage> {
               Column(
                 children: hartaProvider.hartas
                     .map<Widget>((harta) =>
-                        HartaBox(harta, authProvider.user.token, harta.id))
+                        HartaBox(harta, authProvider.user.token, harta.id!))
                     .toList(),
               ),
               const SizedBox(
@@ -134,7 +133,7 @@ class _RichesPageState extends State<RichesPage> {
               Column(
                 children: hutangProvider.hutangs
                     .map<Widget>((hutang) =>
-                        BoxHutang(hutang, authProvider.user.token, hutang.id))
+                        BoxHutang(hutang, authProvider.user.token, hutang.id!))
                     .toList(),
               ),
             ],
@@ -170,7 +169,7 @@ class _RichesPageState extends State<RichesPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    hutang.utang,
+                    hutang.utang!,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -219,7 +218,7 @@ class _RichesPageState extends State<RichesPage> {
                       duration: Duration(seconds: 4),
                     ));
 
-                    hutangProvider.removeHutang(hutangRemove.id);
+                    hutangProvider.removeHutang(id);
                   },
                   child: const Icon(Icons.delete),
                 ),
@@ -257,7 +256,7 @@ class _RichesPageState extends State<RichesPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    harta.harta,
+                    harta.harta!,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -308,8 +307,7 @@ class _RichesPageState extends State<RichesPage> {
                           onPressed: () {}),
                       duration: Duration(seconds: 4),
                     ));
-
-                    hartaProvider.removeHarta(hartaRemove.id);
+                    hartaProvider.removeHarta(id);
                   },
                   child: const Icon(Icons.delete),
                 ),

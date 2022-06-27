@@ -23,7 +23,8 @@ class HutangProvider with ChangeNotifier{
     }
   }
     removeHutang(int id) {
-    _hutangs.removeAt(id);
+    _hutangs.removeWhere((element) => element.id == id);
+    // _hutangs.removeAt(id);
     notifyListeners();
   }
 }
