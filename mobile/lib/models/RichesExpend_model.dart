@@ -1,17 +1,17 @@
 class RichesExpendModel {
-  late int id = 0;
-  late int rupiah;
-  late String pengeluaran;
+ int? id;
+ int? rupiah;
+ String? pengeluaran;
 
   RichesExpendModel({
-    required this.id,
-    required this.rupiah,
-    required this.pengeluaran,
+    this.id,
+    this.rupiah,
+    this.pengeluaran,
   });
 
   RichesExpendModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as int;
-    rupiah = json['rupiah'] as int;
+    id = json['id'];
+    rupiah = json['rupiah'];
     pengeluaran = json['pengeluaran'];
   }
 

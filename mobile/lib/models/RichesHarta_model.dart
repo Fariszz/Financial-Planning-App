@@ -1,19 +1,19 @@
 import 'package:mobile/models/user_model.dart';
 
 class RichesHartaModel {
-  late int rupiah;
-  late int id;
-  late String harta;
+  int? rupiah;
+  int? id;
+  String? harta;
 
   RichesHartaModel({
-    required this.id,
-    required this.rupiah,
-    required this.harta,
+    this.id,
+    this.rupiah,
+    this.harta,
   });
 
   RichesHartaModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as int;
-    rupiah = json['rupiah'] as int;
+    id = json['id'];
+    rupiah = json['rupiah'];
     harta = json['harta'];
   }
 

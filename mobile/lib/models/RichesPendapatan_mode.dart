@@ -1,17 +1,17 @@
 class RichesPendapatanModel {
-   int? id;
-  late int rupiah;
-  late String penghasilan;
+  int? id;
+  int? rupiah;
+  String? penghasilan;
 
   RichesPendapatanModel({
-    required this.id,
-    required this.rupiah,
-    required this.penghasilan,
+    this.id,
+    this.rupiah,
+    this.penghasilan,
   });
 
   RichesPendapatanModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as int;
-    rupiah = json['rupiah'] as int;
+    id = json['id'];
+    rupiah = json['rupiah'];
     penghasilan = json['penghasilan'];
   }
 

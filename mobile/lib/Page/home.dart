@@ -38,9 +38,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     TotalPendapatanProvider totalPendapatanProvider =
         Provider.of<TotalPendapatanProvider>(context);
-    // var test = totalPendapatanProvider.totalPendapatans.map((e) => e).toList();
-    // RichesModel total = totalPendapatanProvider.totalPendapatans;
-    // print(totalPendapatanProvider.riches.totalUtang.toString());
     var totalHarta = totalPendapatanProvider.totalPendapatans
         .map((e) => e.totalHarta)
         .toList();
@@ -62,7 +59,7 @@ class _HomeState extends State<Home> {
         children: [
           const Positioned(
             child: AppBarAll(),
-            bottom: 40,
+            bottom: 0,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

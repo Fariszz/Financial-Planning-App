@@ -27,9 +27,6 @@ class RichesPage2 extends StatefulWidget {
 }
 
 class _RichesPageState extends State<RichesPage2> {
-  final RichesPendapatanModel pendapatanRemove =
-      RichesPendapatanModel(penghasilan: '', id: 0, rupiah: 0);
-
   getInit() async {
     AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
@@ -141,7 +138,7 @@ class _RichesPageState extends State<RichesPage2> {
               Column(
                 children: pengeluaranProvider.pengeluarans
                     .map<Widget>((pengeluaran) => PengeluaranBox(
-                        pengeluaran, authProvider.user.token, pengeluaran.id))
+                        pengeluaran, authProvider.user.token, pengeluaran.id!))
                     .toList(),
               ),
             ],
@@ -178,7 +175,7 @@ class _RichesPageState extends State<RichesPage2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    pengeluaran.pengeluaran,
+                    pengeluaran.pengeluaran!,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -227,7 +224,7 @@ class _RichesPageState extends State<RichesPage2> {
                       duration: Duration(seconds: 4),
                     ));
 
-                    pengeluaranProvider.removePengeluaran(pendapatanRemove.id!);
+                    pengeluaranProvider.removePengeluaran(id);
                   },
                   child: const Icon(Icons.delete),
                 ),
@@ -265,7 +262,7 @@ class _RichesPageState extends State<RichesPage2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Pendapatan.penghasilan,
+                    Pendapatan.penghasilan!,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -317,7 +314,7 @@ class _RichesPageState extends State<RichesPage2> {
                       duration: Duration(seconds: 4),
                     ));
 
-                    pendaptanProvider.removePendapatan(pendapatanRemove.id!);
+                    pendaptanProvider.removePendapatan(id);
                   },
                   child: const Icon(Icons.delete),
                 ),

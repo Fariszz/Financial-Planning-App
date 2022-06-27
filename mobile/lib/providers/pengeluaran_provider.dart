@@ -24,7 +24,8 @@ class PengeluaranProvider with ChangeNotifier {
   }
 
   removePengeluaran(int id) {
-    _pengeluarans.removeAt(id);
+    _pengeluarans.removeWhere((element) => element.id == id);
+    // _pengeluarans.removeAt(id);
     notifyListeners();
   }
 }
